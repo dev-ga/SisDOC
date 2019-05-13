@@ -20,6 +20,7 @@ class RegistroController extends Controller
     protected function showRegistroForm()
     {
         return view('auth.registrousuarios');
+        
     }
 
     /**

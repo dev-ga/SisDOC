@@ -1,16 +1,13 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>S!SDOC</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SisDoc - Fundeeh</title>
+  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" >
+  <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css" >
+	
+  <style>
             html, body {
                 background: url(https://wallpapercan.com/download/3840x2400/cb33acb8/mountains-blue-gradient-5k.jpg) no-repeat center center fixed; 
                 -webkit-background-size: cover;
@@ -69,22 +66,66 @@
                 margin-bottom: 30px;
             }
         </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="imagen-usuario">
+        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png" alt="">
+      </div>
+
+      <div class="card">
+  
+  <div class="card-body">
+    <h4 class="card-title">Registro</h4>
+    <p class="card-text">
+      Some quick example text to build on the card title
+      and make up the bulk of the card's content.
+    </p>
+    <a href="#!" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
 
-            <div class="content">
-                <div class="title m-b-md">
-                    S!SDOC
-                </div>
+    </div>
+  </div>
 
-                <div class="links">
-                    <a href="{{ route('auth.login') }}">Login</a>
-                    <a href="{{ route('auth.registrousuarios') }}">Registro</a>
-                    
-                </div>
-            </div>
-        </div>
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+  <script src="{{ asset('js/jquery.slim.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+</body>
 </html>
