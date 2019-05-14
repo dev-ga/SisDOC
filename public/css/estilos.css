@@ -7,14 +7,19 @@ background: -moz-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
 background: -ms-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
 background: -o-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
 background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+overflow : hidden; 
+
 
 }
 
 .loginform{
 
     width: 100%;
-    height: auto;
+    /*position: absolute;*/
     margin-top: 50%;
+
+    
+    /*margin-top: 50%;*/
 
 }
 

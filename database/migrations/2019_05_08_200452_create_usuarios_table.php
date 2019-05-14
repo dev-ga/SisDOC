@@ -27,8 +27,6 @@ class CreateUsuariosTable extends Migration
             $table->unsignedBigInteger('nomina_id');
             //Relaciones
             $table->foreign('organizacion_id')->references('id')->on('organizaciones')->onDelete('cascade');
-            $table->foreign('nomina_id')->references('id')->on('nominas')->onDelete('cascade');
-            
             $table->timestamps();
         });
     }
