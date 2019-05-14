@@ -1,26 +1,54 @@
 /*Aqui comiensan los estilos para la vista login */
 /*************************************************/
-.login { 
-  background: url(http://getwallpapers.com/wallpaper/full/b/1/9/672277.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow: hidden;
-  display: block;
+.login{
+
+background: -webkit-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -moz-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -ms-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -o-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
 
 }
 
+.loginform{
 
-/*tranparencia sobre imagen de fonde*/
-/*.login:before{
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color:black;
-  position: absolute;
-  opacity: 0.9;
-}*/
+    width: 100%;
+    height: auto;
+    margin-top: 50%;
+
+}
+
+.titulolabel{
+
+    text-align: left;
+    /*display: block;*/
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color: rgba(255,255,255,.7);
+    display: block;
+}
+
+.estilosinput{
+
+    border: none;
+    border-radius: 20px;
+}
+
+.estilosform{
+    
+    background: linear-gradient( rgba(35, 43, 85, 0.26), rgba(35, 43, 85, 0.64)), no-repeat center center;
+    border-radius: 15px;
+}
+
+.estilosbutton{
+
+    border-radius: 15px;
+    
+}
+
 
 
 

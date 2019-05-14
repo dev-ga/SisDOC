@@ -23,69 +23,36 @@ class RegistroController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    protected function registrousuario(Request $request)
     {
-        //
+        $validacion = validator::make($request->all(),
+            [
+                'nombre' => 'require|max:50',
+                'apellido' => 'require|max:50',
+                'ci' => 'require|max:10',
+                'email' => 'email|unique:usuarios',
+                'password'=> 'require|min:6|max:8'
+
+            ]);
+        if ($validacion->fail())
+        {
+            return redirect('/frontend/registrousuarios')->withInput()->withErrors($validacion);
+        }
+
+        $usuarios = array(
+            
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'ci' => $request->ci,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+            //'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
+            );
+
+        Usuario::create($usuarios);
+
+        return "usuario creado con exito";
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

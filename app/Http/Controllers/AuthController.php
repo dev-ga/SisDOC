@@ -13,39 +13,6 @@ use Illuminate\Validation\Factory; // -> validator()
 
 class AuthController extends Controller
 {
-    //
-    //
-    protected function registrousuario(Request $request)
-    {
-    	$validacion = validator::make($request->all(),
-    		[
-    			'nombre' => 'require|max:50',
-    			'apellido' => 'require|max:50',
-    			'ci' => 'require|max:10',
-    			'email' => 'email|unique:usuarios',
-    			'password'=> 'require|min:6|max:8'
-
-    		]);
-    	if ($validacion->fail())
-    	{
-    		return redirect('/frontend/registrousuarios')->withInput()->withErrors($validacion);
-    	}
-
-    	$usuarios = array(
-    		
-    		'nombre' => $request->nombre,
-    		'apellido' => $request->apellido,
-    		'ci' => $request->ci,
-    		'email' => $request->email,
-    		'password' => bcrypt($request->password)
-    		//'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
-    		);
-
-    	Usuario::create($usuarios);
-
-    	return "usuario creado con exito";
-
-    }
 
     protected function showLogin()
     {
