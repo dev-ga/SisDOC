@@ -18,8 +18,7 @@ class CreateNominasTable extends Migration
             $table->string('cod_nomina_sigesp');
             $table->string('descripcion_sigesp');
             //Llaves Foraneas
-            $table->unsignedBigInteger('organizacion_id');
-            $table->unsignedBigInteger('nomina_id');
+            $table->Integer('organizacion_id');
             //Relaciones
             $table->foreign('organizacion_id')->references('id')->on('organizaciones')->onDelete('cascade');
             $table->timestamps();

@@ -16,7 +16,7 @@ class CreateOrganizacionsTable extends Migration
         Schema::create('organizacions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cod_emp_sigesp');
-            $table->string('descripcion');
+            $table->string('descripcion_sigesp');
             
             $table->timestamps();
         });

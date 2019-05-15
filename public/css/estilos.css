@@ -1,5 +1,11 @@
-/*Aqui comiensan los estilos para la vista login */
-/*************************************************/
+/*
+*
+* INICIO estilos lOGIN
+* *********************************************************
+* 
+*/
+
+
 .login{
 
 background: -webkit-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
@@ -53,6 +59,65 @@ overflow : hidden;
     border-radius: 15px;
     
 }
+
+/*
+*
+*   Fin estilos login
+*   *******************************************************   
+*
+*/
+
+
+
+/*
+*
+* INICIO estilos RegistroUsuarios
+* *********************************************************
+* 
+*/
+
+.registro{
+
+background: -webkit-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -moz-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -ms-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: -o-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
+overflow : hidden; 
+
+
+}
+
+
+.estilosinputregistro{
+
+    
+    border: none;
+    border-radius: 20px;
+
+}
+
+.registroform{
+
+    width: 100%;
+    /*position: absolute;*/
+    margin-top: 10%;
+
+}
+
+.estilosregistroform{
+
+    background: linear-gradient( rgba(35, 43, 85, 0.26), rgba(35, 43, 85, 0.64)), no-repeat center center;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
 
 
 

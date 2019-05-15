@@ -6,6 +6,8 @@
 <title>SisDoc - Fundeeh</title>
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" >
 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css" >
+<link href="{{ asset('font/all.css') }}" rel="stylesheet" type="text/css">
+    
 </head>
 <body class="login">
     <div class="container ">
