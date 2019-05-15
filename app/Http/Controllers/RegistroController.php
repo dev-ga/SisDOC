@@ -9,6 +9,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Routing\Redirector; // -> redirect()
 use Illuminate\Validation\Factory; // -> validator()
+use App\Organizacion;
 
 class RegistroController extends Controller
 {
@@ -19,7 +20,10 @@ class RegistroController extends Controller
      */
     protected function showRegistroForm()
     {
-        return view('auth.registrousuarios');
+
+        $organizacion = Organizacion::all();
+        
+        return view('auth.registrousuarios', compact('organizacion'));
         
     }
 

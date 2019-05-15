@@ -109,6 +109,7 @@ overflow : hidden;
 
     background: linear-gradient( rgba(35, 43, 85, 0.26), rgba(35, 43, 85, 0.64)), no-repeat center center;
     border-radius: 15px;
+    border-color: #f8f9fa00 !important;
 }
 
 

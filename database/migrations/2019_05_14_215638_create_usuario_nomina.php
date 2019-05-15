@@ -14,9 +14,9 @@ class CreateUsuarioNomina extends Migration
     public function up()
     {
         Schema::create('usuario_nomina', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('usuario_id');
-            $table->integer('nomina_id');
+            $table->Increments('id');
+            $table->integer('usuario_id')->unsigned();
+            $table->integer('nomina_id')->unsigned();
 
             $table->timestamps();
 

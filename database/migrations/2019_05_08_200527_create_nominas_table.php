@@ -14,11 +14,11 @@ class CreateNominasTable extends Migration
     public function up()
     {
         Schema::create('nominas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->string('cod_nomina_sigesp');
             $table->string('descripcion_sigesp');
             //Llaves Foraneas
-            $table->Integer('organizacion_id');
+            $table->Integer('organizacion_id')->unsigned();
             //Relaciones
             $table->foreign('organizacion_id')->references('id')->on('organizaciones')->onDelete('cascade');
             $table->timestamps();

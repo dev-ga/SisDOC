@@ -23,37 +23,45 @@
                     <!-- Nombre -->
                     <div class="form-group  mb-2">
                         <label for="nombre" class="titulolabel">Nombre</label>
-                    <input type="text" id="nombre" class="form-control estilosinputregistro " placeholder="Nombre Completo" autofocus>
+                    <input name="nombre" type="text" id="nombre" class="form-control estilosinputregistro " placeholder="Nombre Completo" autofocus>
                     </div>
 
                     <!-- Apellido -->
                     <div class="form-group  mb-2">
                         <label for="apellido" class="titulolabel">Apellido</label>
-                    <input type="text" id="apellido" class="form-control estilosinputregistro " placeholder="Apellido">
+                    <input name="apellido" type="text" id="apellido" class="form-control estilosinputregistro " placeholder="Apellido">
                     </div>
 
                     <!-- Cedula -->
                     <div class="form-group  mb-2">
-                        <label for="ci" class="titulolabel">Cedula de Identidad</label>
-                    <input type="text" id="ci" class="form-control estilosinputregistro " placeholder="Eje: 12345678">
+                        <label for="cedula" class="titulolabel">Cedula de Identidad</label>
+                    <input name="cedula" type="text" id="ci" class="form-control estilosinputregistro " placeholder="Eje: 12345678">
                     </div>
 
                     <!-- Organizacion -->
                     <div class="form-group  mb-2">
                         <label for="organizacion" class="titulolabel">Organizacion</label>
-                    <input type="text" id="organizacion_id" class="form-control estilosinputregistro " placeholder="A que organizacion perteneces?">
+
+<select class="form-control">
+                @foreach($organizacion as $organizacion)
+                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
+                @endforeach
+            </select>
+
+
+                    <input name="organizacion_id" type="text" id="organizacion_id" class="form-control estilosinputregistro " placeholder="A que organizacion perteneces?">
                     </div>
 
                     <!-- email -->
                     <div class="form-group  mb-2">
                         <label for="email" class="titulolabel">e-mail</label>
-                    <input type="email" id="email" class="form-control estilosinputregistro " placeholder="@">
+                    <input name="email" type="email" id="email" class="form-control estilosinputregistro " placeholder="@">
                     </div>
 
                     <!-- password -->
                     <div class="form-group  mb-2">
                         <label for="password" class="titulolabel">Password</label>
-                    <input type="password" id="password" class="form-control estilosinputregistro " placeholder="Password">
+                    <input name="password" type="password" id="password" class="form-control estilosinputregistro " placeholder="Password">
                     </div>
 
                                        
