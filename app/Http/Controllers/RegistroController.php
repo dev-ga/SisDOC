@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Routing\Redirector; // -> redirect()
-use Illuminate\Validation\Factory; // -> validator()
+use Illuminate\Support\Facades\Validator;
 use App\Organizacion;
+use App\Usuario;
+
+
 
 class RegistroController extends Controller
 {
@@ -28,27 +26,42 @@ class RegistroController extends Controller
     }
 
     protected function registrousuario(Request $request)
+    /*protected function registrousuario(RegristoUsuarios $request)*/
+
+
     {
+
+        /*dd($request);*/
+
+        
+
+    
         $validacion = validator::make($request->all(),
             [
-                'nombre' => 'require|max:50',
-                'apellido' => 'require|max:50',
-                'ci' => 'require|max:10',
+                'nombre' => 'required|max:50',
+                'apellido' => 'required|max:50',
+                'cedula' => 'required|max:10',
+                'organizacion_id' => 'required|max:1',
                 'email' => 'email|unique:usuarios',
-                'password'=> 'require|min:6|max:8'
+                'password'=> 'required|min:6|max:8'
 
             ]);
-        if ($validacion->fail())
+    
+   
+        if ($validacion->fails())
+        
         {
-            return redirect('/frontend/registrousuarios')->withInput()->withErrors($validacion);
+            return redirect('/auth/registrousuarios')->withInput()->withErrors($validacion);
         }
+      
 
         $usuarios = array(
             
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
-            'ci' => $request->ci,
+            'cedula' => $request->cedula,
             'email' => $request->email,
+            'organizacion_id' => $request->organizacion_id,
             'password' => bcrypt($request->password)
             //'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
             );
@@ -57,6 +70,8 @@ class RegistroController extends Controller
 
         return "usuario creado con exito";
 
+        
+        
     }
 
 }

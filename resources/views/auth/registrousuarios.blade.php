@@ -14,12 +14,11 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <!-- Default form subscription -->
-                <form class="text-center border border-light p-4 registroform estilosregistroform">
 
+                <form class="text-center border border-light p-4 registroform estilosregistroform" method="POST" action="{{ route('authvalidate.registro') }}">
+                {{ csrf_field() }}
                     <p class="h4 mb-4">Formulario de Registro</p>
-
-                    
-
+       
                     <!-- Nombre -->
                     <div class="form-group  mb-2">
                         <label for="nombre" class="titulolabel">Nombre</label>
@@ -39,17 +38,15 @@
                     </div>
 
                     <!-- Organizacion -->
-                    <div class="form-group  mb-2">
+                    <div class="form-group  mb-2"> 
                         <label for="organizacion" class="titulolabel">Organizacion</label>
 
-<select class="form-control">
-                @foreach($organizacion as $organizacion)
-                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
-                @endforeach
-            </select>
-
-
-                    <input name="organizacion_id" type="text" id="organizacion_id" class="form-control estilosinputregistro " placeholder="A que organizacion perteneces?">
+                    <select name="organizacion_id" class="form-control estilosinputregistro mb-2">
+                        <option value="">-- Perteneces a...? --</option>
+                            @foreach($organizacion as $organizacion)
+                                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
+                            @endforeach
+                    </select>
                     </div>
 
                     <!-- email -->

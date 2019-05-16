@@ -4,17 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable;
+
 use App\Organizacion;
 use App\Nomina;
 
-class Usuario extends Model
+class Usuario extends Model implements AuthenticatableContract
 {
+    use Authenticatable;
+
     protected $table = 'usuarios';
 
 
     protected $fillable = [
 
-        'nombre','apellido','cedula','email','password','organizacion_id'
+        'nombre','apellido','cedula','email','password','organizacion_id',
 
     ];
 
@@ -58,4 +64,4 @@ class Usuario extends Model
 }
 
 
-}
+

@@ -14,7 +14,7 @@ class CreateOrganizacionesTable extends Migration
     public function up()
     {
         Schema::create('organizaciones', function (Blueprint $table) {
-            $tableIncrements('id');
+            $table->Increments('id');
             $table->string('cod_emp_sigesp');
             $table->string('descripcion_sigesp');
             

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Usuario;
 //agregadas al controlador para utilizar medotod de validacion
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Routing\Redirector; // -> redirect()
-use Illuminate\Validation\Factory; // -> validator()
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+
+
 
 class AuthController extends Controller
 {
@@ -23,11 +24,19 @@ class AuthController extends Controller
     {
     	$credenciales = $request->only('email', 'password');
 
-    	if (Auth::attempt($credentials)) 
+    	if (Auth::attempt($credenciales)) 
     	{
             // Autenticación aprobada...
-            return redirect()->intended('frontend/index');
+            /*return redirect()->intended('frontend/index');*/
+            
+            return  dd($credenciales);
         }
+        else
+        {
+            return 'fallo login';
+        }
+
+
     }
 
     protected function logout()

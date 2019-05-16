@@ -34,7 +34,7 @@ Route::get('/', function () {
 
 	route::get('auth/registrousuarios', 'RegistroController@showRegistroForm')->name('auth.registrousuarios');
 
-	route::post('register', 'Auth\RegisterController@register');
+	route::post('auth/registro', 'RegistroController@registrousuario')->name('authvalidate.registro');;
 
 
 /*Llamadas al controlador Auth*/

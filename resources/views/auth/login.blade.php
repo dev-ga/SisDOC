@@ -15,7 +15,7 @@
             <div class="col-md-4">
                 <!-- Default form login -->
                 <form class="estilosform text-center border-light p-4 loginform" method="POST" action="{{ route('authvalidate.login') }}">
-
+                @csrf
                     <p class="h4 mb-4">Login</p>
 
                     <!-- Email -->
