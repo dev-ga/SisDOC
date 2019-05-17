@@ -9,7 +9,7 @@
     <link href="{{ asset('font/all.css') }}" rel="stylesheet" type="text/css">
 	
 </head>
-<body class="registro">
+<body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
