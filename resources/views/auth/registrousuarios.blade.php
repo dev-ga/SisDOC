@@ -1,76 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SisDoc - Fundeeh</title>
-	<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
-	<link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('font/all.css') }}" rel="stylesheet" type="text/css">
-	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SisDoc - Fundeeh</title>
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" >
+<link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css" >
+<link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <!-- Default form subscription -->
-
-                <form class="text-center border border-light p-4 registroform estilosregistroform" method="POST" action="{{ route('authvalidate.registro') }}">
-                {{ csrf_field() }}
-                    <p class="h4 mb-4">Formulario de Registro</p>
-       
-                    <!-- Nombre -->
-                    <div class="form-group  mb-2">
-                        <label for="nombre" class="titulolabel">Nombre</label>
-                    <input name="nombre" type="text" id="nombre" class="form-control estilosinputregistro " placeholder="Nombre Completo" autofocus>
-                    </div>
-
-                    <!-- Apellido -->
-                    <div class="form-group  mb-2">
-                        <label for="apellido" class="titulolabel">Apellido</label>
-                    <input name="apellido" type="text" id="apellido" class="form-control estilosinputregistro " placeholder="Apellido">
-                    </div>
-
-                    <!-- Cedula -->
-                    <div class="form-group  mb-2">
-                        <label for="cedula" class="titulolabel">Cedula de Identidad</label>
-                    <input name="cedula" type="text" id="ci" class="form-control estilosinputregistro " placeholder="Eje: 12345678">
-                    </div>
-
-                    <!-- Organizacion -->
-                    <div class="form-group  mb-2"> 
-                        <label for="organizacion" class="titulolabel">Organizacion</label>
-
-                    <select name="organizacion_id" class="form-control estilosinputregistro mb-2">
-                        <option value="">-- Perteneces a...? --</option>
-                            @foreach($organizacion as $organizacion)
-                                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
-                            @endforeach
-                    </select>
-                    </div>
-
-                    <!-- email -->
-                    <div class="form-group  mb-2">
-                        <label for="email" class="titulolabel">e-mail</label>
-                    <input name="email" type="email" id="email" class="form-control estilosinputregistro " placeholder="@">
-                    </div>
-
-                    <!-- password -->
-                    <div class="form-group  mb-2">
-                        <label for="password" class="titulolabel">Password</label>
-                    <input name="password" type="password" id="password" class="form-control estilosinputregistro " placeholder="Password">
-                    </div>
-
-                                       
-                    <!-- Sign in button -->
-                    <button class=" estilosbutton btn btn-info btn-block my-5" type="submit">Registrar</button>
-
-
-                </form>
-<!-- Default form subscription -->
-            </div>
+<div class="container-fluid h-100">
+    <div class="row h-100 ">
+        <div class="col-md-5 left d-flex align-self-center h-100">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="card-title text-center">S!SDOC</h1>
+                    <h6 class="card-subtitle mb-2 text-muted text-center">Sistema de Documentos Interactivos</h6>
+                    <hr>
+                    <p class="card-text ">
+                     Debe llenar en su totalidad el formulario de resgistro para poder interactuar de forma segura con la aplicación
+                        Si tiene alguna duda por favor contacte al administrador del Sistema o comuniquese con la Oficina de Tecnología.
+                    </p>
+                </div>
+            </div>  
+        </div>
+        <div class="col-md-7 ">
+            <div class="md-form">
+  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
+  <button class="mdb-autocomplete-clear">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+      <path d="M0 0h24v24H0z" fill="none" />
+    </svg>
+  </button>
+  <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+</div>
         </div>
     </div>
+</div>
+    
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

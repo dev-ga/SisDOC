@@ -6,59 +6,40 @@
 <title>SisDoc - Fundeeh</title>
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" >
 <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" type="text/css" >
-
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+<link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
     
 </head>
 <body>
-
-    
-    <div class="contenedor">
-
-
-        
-        <div class="contenedor-login">
-
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-
-                    
-                    <form class="text-center" method="POST" action="{{ route('authvalidate.login') }}">
-                @csrf
-                <div class="titulo">
-                    <p class="h4 mb-4 titulo">Login</p>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control estilosinput @error('password') is-invalid @enderror mb-2 " placeholder="E-mail" required autocomplete="email" autofocus >
-
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-group">
-                    <input id="password" type="password" class="form-control estilosinput @error('password') is-invalid @enderror mb-2" name="password" placeholder="Password" required autocomplete="current-password">
-                    </div>
-
-                    <!-- Sign in button -->
-                    <button class="estilosbutton btn btn-info btn-block my-2" type="submit">Entrar</button>
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="col-md-4 mx-auto">
+            <div class="card ">
+                <img class="card-img-top img-fluid login-icon" src="http://chittagongit.com/download/226043" alt="Card image cap">
+                <div class="card-body ">
+                    <h4 class="card-title text-center">Login</h4>
+                    <form class="" method="POST" action="{{ route('authvalidate.login') }}">
+                        @csrf
+                        <div class="form-group">
+                           
+                            <input type="text" class="form-control form-control-login " id="formGroupExampleInput" placeholder="E-mail">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control form-control-login" id="formGroupExampleInput2" placeholder="Password">
+                        </div>
+                        <!-- Sign in button -->
+                    <button class="btn btn-info btn-block my-2" type="submit">Entrar</button>
 
                     <!-- Register -->
-                    <p>No estas Resgistrado?<a href="{{ route('auth.registrousuarios') }}">  Registro</a></p>
-    
-                </form>
-
-                </div>
-            </div>
-            
+                    <p class="texto">No estas Resgistrado?<a href="{{ route('auth.registrousuarios') }}">  Registro</a></p>
+                    </form>
+                  </div>
+</div>
         </div>
-        
-            
-        
     </div>
+</div>
     
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>

@@ -1,166 +1,88 @@
 /*
-*
-* INICIO estilos lOGIN
-* *********************************************************
-* 
-*/
-
-
-.login{
-
-background: -webkit-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -moz-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -ms-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -o-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-overflow : hidden; 
-
-
-}
-
-
-.loginform{
-
-    width: 100%;
-    /*position: absolute;*/
-    margin-top: 35%;
-
-    
-    /*margin-top: 50%;*/
-
-}
-
-.titulolabel{
-
-    text-align: left;
-    /*display: block;*/
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 13px;
-    padding-left: 10px;
-    padding-bottom: 5px;
-    color: rgb(0, 2, 3);
-    display: block;
-}
-
-.estilosinput{
-
-    /*border: none;*/
-    border-radius: 20px;
-}
-
-.estilosform{
-    
-    background: linear-gradient( rgba(35, 43, 85, 0.26), rgba(35, 43, 85, 0.64)), no-repeat center center;
-    border-radius: 15px;
-}
-
-.estilosbutton{
-
-    border-radius: 15px;
-    
-}
-
-/*
-*
-*   Fin estilos login
-*   *******************************************************   
-*
-*/
-
-
-
-/*
-*
-* INICIO estilos RegistroUsuarios
-* *********************************************************
-* 
-*/
-
-.registro{
-
-background: -webkit-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -moz-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -ms-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: -o-linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-background: linear-gradient(90deg, #53bbbf 10%, #0f1939 90%);
-overflow : hidden; 
-
-
-}
-
-
-.estilosinputregistro{
-
-    
-    border: none;
-    border-radius: 20px;
-
-}
-
-.registroform{
-
-    width: 100%;
-    /*position: absolute;*/
-    margin-top: 10%;
-
-}
-
-.estilosregistroform{
-
-    background: linear-gradient( rgba(35, 43, 85, 0.26), rgba(35, 43, 85, 0.64)), no-repeat center center;
-    border-radius: 15px;
-    border-color: #f8f9fa00 !important;
-}
-
-
-
-
-
-
-
-
-
-/*
-*prueba de estilos login 2
+INICO DE LOS ESTILOS DEL LOGIN
+******************************
  */
 
-.contenedor{
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 10%;
+html,body{
+    height: 100%;
 }
 
-.contenedor-login{
+.card{
+    border: none;
+}
 
-
-    width: 100%;
+.login-icon{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.card-body h4{
+    padding-bottom: 1.5rem;
     
-
 }
 
-.titulo{
-    margin-bottom: 4rem;
-
+.card-title{
+    color: black;
 }
 
-.btn-info {
+.form-control-login{
+    border-radius: 25px;
+    padding: 0.375rem;
+}
+
+.form-control-login:focus {
     color: #000;
-    background-color: #33b5e5;
-    /* border-color: #17a2b8; */
+    background-color: #fff;
+    border-color: #7edbff33;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
 }
 
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: 0px;
-    margin-left: 0px;
+.form-control-login::placeholder {
+    color: #adadad;
+    opacity: 1;
 }
+
+.btn{
+    border-radius: 25px;
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+}
+
+p{
+    margin: 1rem;
+    text-align: center;
+    color: black;
+}
+
+/*
+FIN DE LOS ESTILOS DEL LOGIN
+****************************
+ */
+
+
+
+/*
+INICIO DE LOS ESTILOS DE REGISTRO DE USUARIOS
+*********************************************
+ */
+
+.left{
+    background-color: #1a73e8;
+    align-items: center;
+}
+
+.cardfondo{
+    background-color: #1a73e8;
+}
+
+.card-body {
+    color: white;
+}
+
+
 
 
 
