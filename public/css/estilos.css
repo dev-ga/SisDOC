@@ -87,6 +87,22 @@ INICIO DE LOS ESTILOS DE REGISTRO DE USUARIOS
     align-items: center;
 }
 
+.form-control{
+    border-radius: 25px;
+}
+
+.fondo-card-izquierdo{
+    background: #1a73e8;
+}
+
+.card-texto-izquierda{
+    color: white;
+}
+
+.text-muted{
+    color: #fff !important;
+}
+
 
 
 

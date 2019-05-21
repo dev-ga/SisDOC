@@ -24,6 +24,7 @@ class AuthController extends Controller
     {
     	$credenciales = $request->only('email', 'password');
 
+
     	if (Auth::attempt($credenciales)) 
     	{
             // Autenticación aprobada...

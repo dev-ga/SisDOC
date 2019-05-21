@@ -60,8 +60,8 @@ class RegistroController extends Controller
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'cedula' => $request->cedula,
-            'email' => $request->email,
             'organizacion_id' => $request->organizacion_id,
+            'email' => $request->email,
             'password' => bcrypt($request->password)
             //'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
             );

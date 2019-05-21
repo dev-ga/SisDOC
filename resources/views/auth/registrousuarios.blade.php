@@ -15,12 +15,12 @@
 <div class="container-fluid h-100">
     <div class="row h-100 ">
         <div class="col-md-5 left d-flex align-self-center h-100">
-            <div class="card ">
+            <div class="card fondo-card-izquierdo">
                 <div class="card-body">
-                    <h1 class="card-title text-center">S!SDOC</h1>
+                    <h1 class="card-title text-center card-texto-izquierda ">S!SDOC</h1>
                     <h6 class="card-subtitle mb-2 text-muted text-center">Sistema de Documentos Interactivos</h6>
                     <hr>
-                    <p class="card-text ">
+                    <p class="card-text card-texto-izquierda ">
                      Debe llenar en su totalidad el formulario de resgistro para poder interactuar de forma segura con la aplicación
                         Si tiene alguna duda por favor contacte al administrador del Sistema o comuniquese con la Oficina de Tecnología.
                     </p>
@@ -35,31 +35,42 @@
         <div class="col-md-10 ">
             <h3 class="card-title text-center">Formulario de Registro</h3>
             
-            <form> 
-                <div class="form-group"> 
-                    {{-- <label for="Nombre">Nombre</label> --}}
-                    <input name="nombre" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+            <form method="POST" action="{{ route('authvalidate.registro') }}"> 
+                
+                @csrf{{-- errores del formularios --}}
+
+                <div class="form-group "> 
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" name="nombre" class="form-control bordes" id="formGroupExampleInput" autofocus>
                 </div> 
                 <div class="form-group"> 
-                    {{-- <label for="apellido">Apellido</label> --}}
-                    <input name="apellido" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" class="form-control bordes" id="formGroupExampleInput2">
                 </div>
                 <div class="form-group"> 
-                    {{-- <label for="cedula">Cedula de Identidad</label> --}}
-                    <input name="cedula" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+                    <label for="cedula">Cedula de Identidad</label>
+                    <input type="text" name="cedula" class="form-control bordes" id="formGroupExampleInput" >
                 </div> 
                 <div class="form-group"> 
-                    {{-- <label for="organizacion_id">Organizacion</label> --}}
-                    <input name="organizacion_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                </div>
+                    <label for="organizacion_id">Organizacion</label>
+                    {{-- <input name="organizacion_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div> --}}
+                    <select name="organizacion_id" class="form-control estilosinputregistro mb-2 bordes">
+                        <option value="">-- Perteneces a...? --</option>
+                            @foreach($organizacion as $organizacion)
+                                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
+                            @endforeach
+                    </select>
                 <div class="form-group"> 
-                    {{-- <label for="email">E-mail</label> --}}
-                    <input name="email" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" class="form-control bordes" id="formGroupExampleInput" >
                 </div> 
                 <div class="form-group"> 
-                    {{-- <label for="password">Password</label> --}}
-                    <input name="password" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control bordes" id="formGroupExampleInput2" >
                 </div>
+                <!-- Sign in button -->
+                <button class=" estilosbutton btn btn-info btn-block my-5" type="submit">Registrar</button>
             </form>
             
             </div>

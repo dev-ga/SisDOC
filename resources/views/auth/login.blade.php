@@ -15,19 +15,17 @@
 <div class="container h-100">
     <div class="row align-items-center h-100">
         <div class="col-md-4 mx-auto">
-            <div class="card ">
+            <div class="card">
                 <img class="card-img-top img-fluid login-icon" src="http://chittagongit.com/download/226043" alt="Card image cap">
                 <div class="card-body ">
                     <h4 class="card-title text-center">Login</h4>
                     <form class="" method="POST" action="{{ route('authvalidate.login') }}">
                         @csrf
                         <div class="form-group">
-                           
-                            <input type="text" class="form-control form-control-login " id="formGroupExampleInput" placeholder="E-mail">
+                            <input type="text" name="email" id="email" class="form-control form-control-login " placeholder="E-mail">
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control form-control-login" id="formGroupExampleInput2" placeholder="Password">
+                            <input type="password" name="password" id="password" class="form-control form-control-login" placeholder="Password">
                         </div>
                         <!-- Sign in button -->
                     <button class="btn btn-info btn-block my-2" type="submit">Entrar</button>
