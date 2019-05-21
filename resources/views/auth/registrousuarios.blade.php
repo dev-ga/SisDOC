@@ -27,17 +27,44 @@
                 </div>
             </div>  
         </div>
-        <div class="col-md-7 ">
-            <div class="md-form">
-  <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
-  <button class="mdb-autocomplete-clear">
-    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
-      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-      <path d="M0 0h24v24H0z" fill="none" />
-    </svg>
-  </button>
-  <label for="form-autocomplete" class="active">What is your favorite US state?</label>
-</div>
+
+        <div class="col-md-7">
+            <div class="container-fluid h-100">
+            <div class="row h-100   right d-flex align-self-center">
+            
+        <div class="col-md-10 ">
+            <h3 class="card-title text-center">Formulario de Registro</h3>
+            
+            <form> 
+                <div class="form-group"> 
+                    {{-- <label for="Nombre">Nombre</label> --}}
+                    <input name="nombre" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+                </div> 
+                <div class="form-group"> 
+                    {{-- <label for="apellido">Apellido</label> --}}
+                    <input name="apellido" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group"> 
+                    {{-- <label for="cedula">Cedula de Identidad</label> --}}
+                    <input name="cedula" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+                </div> 
+                <div class="form-group"> 
+                    {{-- <label for="organizacion_id">Organizacion</label> --}}
+                    <input name="organizacion_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group"> 
+                    {{-- <label for="email">E-mail</label> --}}
+                    <input name="email" class="form-control border-bottom" id="formGroupExampleInput" placeholder="Example input">
+                </div> 
+                <div class="form-group"> 
+                    {{-- <label for="password">Password</label> --}}
+                    <input name="password" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+            </form>
+            
+            </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
