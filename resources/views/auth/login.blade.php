@@ -20,12 +20,14 @@
                 <div class="card-body ">
                     <h4 class="card-title text-center">Login</h4>
                     <form class="" method="POST" action="{{ route('authvalidate.login') }}">
-                        @csrf
+                        @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
                         <div class="form-group">
                             <input type="text" name="email" id="email" class="form-control form-control-login " placeholder="E-mail">
+                            {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" id="password" class="form-control form-control-login" placeholder="Password">
+                            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>' ) !!}
                         </div>
                         <!-- Sign in button -->
                     <button class="btn btn-info btn-block my-2" type="submit">Entrar</button>
@@ -44,4 +46,4 @@
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
-</html>
+</html>a

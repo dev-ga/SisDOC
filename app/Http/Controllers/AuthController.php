@@ -22,7 +22,13 @@ class AuthController extends Controller
 
     protected function validateLogin(Request $request)
     {
-    	$credenciales = $request->only('email', 'password');
+    	
+        $credenciales = $this->validate(request(), [
+
+             'email'     => 'email|required|string',
+             'password'  => 'required|string|min:6|max:8'
+
+        ]); 
 
 
     	if (Auth::attempt($credenciales)) 
@@ -32,10 +38,10 @@ class AuthController extends Controller
             
             return  dd($credenciales);
         }
-        else
-        {
-            return 'fallo login';
-        }
+        // else
+        // {
+        //     return 'fallo login';
+        // }
 
 
     }
