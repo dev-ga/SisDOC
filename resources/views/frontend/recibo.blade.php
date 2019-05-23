@@ -59,10 +59,10 @@
 
                 <div class="form-group "> 
                     <label for="Nombre">Codigo de Nomina</label>
-                    <select name="codnom" class="form-control estilosinputregistro mb-2 bordes">
+                    <select name="codnom" id="codnom" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona la Nomina a Consultar --</option>
-                            @foreach($usuario as $usuario)
-                                <option value="{{ $usuario->codnom }}">{{ $usuario->codnom }}</option>
+                            @foreach($codnom as $codnom)
+                                <option value="{{ $codnom->codnom }}">{{ $codnom->codnom }}</option>
                             @endforeach
                     </select>
                 </div> 
@@ -70,37 +70,21 @@
                     <label for="apellido"> Primer Apellido</label>
                     <select name="codperi" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona el periodo de nomina --</option>
-                            @foreach($usuario as $usuario)
-                                <option value="{{ $usuario->codperi }}">{{ $usuario->codperi }}</option>
+                            
+                                @foreach($codperi as $codperi)
+                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
                             @endforeach
+                            
+                            {{-- @foreach($codperi as $codperi)
+                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
+                            @endforeach --}}
                     </select>
                 </div>
-                <div class="form-group"> 
-                    <label for="cedula">Cedula de Identidad</label>
-                    <input type="text" name="cedula" class="form-control bordes" id="formGroupExampleInput" >
-                </div> 
-                <div class="form-group"> 
-                    <label for="organizacion_id">Organizacion</label>
-                    {{-- <input name="organizacion_id" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                </div> --}}
-                    {{-- <select name="organizacion_id" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Perteneces a...? --</option>
-                            @foreach($organizacion as $organizacion)
-                                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
-                            @endforeach
-                    </select> --}}
-                <div class="form-group"> 
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" class="form-control bordes" id="formGroupExampleInput" >
-                </div> 
-                <div class="form-group"> 
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control bordes" id="formGroupExampleInput2" >
-                </div>
-                <!-- Sign in button -->
-                <button class=" estilosbutton btn btn-info btn-block my-5" type="submit">Registrar</button>
+                
             </form>
 </div>
+
+
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

@@ -18,15 +18,19 @@ class ReciboController extends Controller
         $codper = auth()->user()->cedula;
         /*$usuario = Usuario::All();*/
         /*dd($u);*/
-        $query = "select * from sno_personalnomina where codper = '$codper'";
+        $query = "select * from sno_personalnomina where codper = '$codper' order by codnom asc";
         /*$query = "select * from sno_personalnomina inner join sno_periodo on sno_personalnomina.codnom = sno_periodo.codnom where sno_personalnomina.codper = '$codper'";*/
+        $query2 = "select * from sno_personalnomina inner join sno_periodo on sno_personalnomina.codnom = sno_periodo.codnom where sno_personalnomina.codper = '$codper'";
         
-        $usuario = DB::connection('sigesp')->select($query);
+        $codnom = DB::connection('sigesp')->select($query);
+        $codperi = DB::connection('sigesp')->select($query2);
 
         /*dd($usuario);*/
         /*return view('frontend.recibo', compact('usuario'));*/
 
-        return view('frontend.recibo');
+        $query2 = "select * from sno_personalnomina inner join sno_periodo on sno_personalnomina.codnom = sno_periodo.codnom where sno_personalnomina.codper = '$codper'";
+
+        return view('frontend.recibo')->with('codnom', $codnom)->with('codperi', $codperi);
     }
 
     /**
