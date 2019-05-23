@@ -22,7 +22,7 @@
                     <form class="" method="POST" action="{{ route('authvalidate.login') }}">
                         @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
                         <div class="form-group">
-                            <input type="text" name="email" id="email" class="form-control form-control-login " placeholder="E-mail">
+                            <input type="text" name="email" id="email" value="{{ old('email') }}" class="form-control form-control-login " placeholder="E-mail">
                             {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
                         </div>
                         <div class="form-group">
@@ -46,4 +46,4 @@
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
-</html>a
+</html>

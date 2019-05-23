@@ -40,11 +40,11 @@
                 @csrf{{-- errores del formularios --}}
 
                 <div class="form-group "> 
-                    <label for="Nombre">Nombre</label>
+                    <label for="Nombre">Nombre Completo</label>
                     <input type="text" name="nombre" class="form-control bordes" id="formGroupExampleInput" autofocus>
                 </div> 
                 <div class="form-group"> 
-                    <label for="apellido">Apellido</label>
+                    <label for="apellido"> Primer Apellido</label>
                     <input type="text" name="apellido" class="form-control bordes" id="formGroupExampleInput2">
                 </div>
                 <div class="form-group"> 

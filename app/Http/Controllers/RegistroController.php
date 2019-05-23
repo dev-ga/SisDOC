@@ -59,7 +59,7 @@ class RegistroController extends Controller
             
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
-            'cedula' => $request->cedula,
+            'cedula' => '00'.$request->cedula,
             'organizacion_id' => $request->organizacion_id,
             'email' => $request->email,
             'password' => bcrypt($request->password)
