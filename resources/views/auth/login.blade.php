@@ -36,7 +36,7 @@
                     <p class="texto">No estas Resgistrado?<a href="{{ route('auth.registrousuarios') }}">  Registro</a></p>
                     </form>
                   </div>
-</div>
+            </div>
         </div>
     </div>
 </div>

@@ -53,7 +53,7 @@
 
 
 <div class="container">
-    <form method="POST" action="{{ route('authvalidate.registro') }}"> 
+    <form method="POST" action="{{ route('reciboPDF') }}"> 
                 
                 @csrf{{-- errores del formularios --}}
 
@@ -67,12 +67,12 @@
                     </select>
                 </div> 
                 <div class="form-group"> 
-                    <label for="apellido"> Primer Apellido</label>
+                    <label for="apellido">Periodo de Nomina</label>
                     <select name="codperi" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona el periodo de nomina --</option>
                             
                                 @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
+                                <option value="{{ $codperi->codperi_sigesp }}">{{ $codperi->fecdesper }} / {{ $codperi->fechasper }}</option>
                             @endforeach
                             
                             {{-- @foreach($codperi as $codperi)
@@ -80,8 +80,27 @@
                             @endforeach --}}
                     </select>
                 </div>
+                <div class="form-group"> 
+                    <label for="date">Año en Curso</label>
+                    <select name="date" class="form-control estilosinputregistro mb-2 bordes">
+                        <option value="">-- Selecciona el año en curso --</option>
+                            
+                                
+                                <option value="{{ $date }}">{{ $date }}</option>
+                            
+                            
+                            {{-- @foreach($codperi as $codperi)
+                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
+                            @endforeach --}}
+                    </select>
+                </div>
+                <button class="btn btn-info btn-block my-2" type="submit">GenerarPDF</button>
+
+                    
+                    </form>
                 
             </form>
+
 </div>
 
 

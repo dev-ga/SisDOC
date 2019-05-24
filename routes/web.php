@@ -111,6 +111,14 @@ $query2 = "select * from sno_personal where codper = '$codper'";
 
 Route::get('frontend/recibo', 'ReciboController@index') -> name('recibo.form');
 
+Route::post('reciboPDF', 'ReciboController@pdf') -> name('reciboPDF');
+
+Route::get('pruebapdf', function() {
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();
+});
+
 
 
 

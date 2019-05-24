@@ -82,7 +82,7 @@ return [
         'sigesp' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('SIGESP_HOST', '172.24.57.223'),
+            'host' => env('SIGESP_HOST', '10.29.31.107'),
             'port' => env('SIGESP_PORT', '5432'),
             'database' => env('SIGESP_DATABASE', 'forge'),
             'username' => env('SIGESP_USERNAME', 'forge'),
