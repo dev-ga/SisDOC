@@ -94,8 +94,12 @@ class ReciboController extends Controller
                     
                             
             $infopdf = DB::connection('sigesp')->select($querypdf);
+
+            /*Ruta de prueba*/
+
+            return view('pruebapdf')->with('codnom', $codnom)->with('codperi', $codperi)->with('date', $date)->with('infopdf', $infopdf);
             
-            dd($infopdf);
+            /*dd($infopdf);*/
 
     }
 

@@ -119,6 +119,11 @@ Route::get('pruebapdf', function() {
     return $pdf->stream();
 });
 
+Route::get('pruebadequery', function() {
+    return view('pruebapdf');
+    //
+});
+
 
 
 
