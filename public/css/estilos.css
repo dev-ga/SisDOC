@@ -1,146 +1,20 @@
-/*
-INICO DE LOS ESTILOS DEL LOGIN
-******************************
- */
+.viewport {
 
-html,body{
-    height: 100%;
+    /*display: flex;*/
+    /*align-items: center;
+    justify-content: center;*/
+    height: 100vh;
+    /*Imagen de fondo*/
+    background-image: url(https://i.imgur.com/iMcWjS4.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color: #464650;
+
 }
-
-.card{
-    border: none;
-}
-
-.login-icon{
-    display: block;
-    width: 100%;
-    max-width: 100px;
-    margin: 0 auto;
-}
-
-.card-body h4{
-    padding-bottom: 1.5rem;
-    
-}
-
-.card-title{
-    color: black;
-}
-
-.form-control-login{
-    border-radius: 25px;
-    padding: 0.375rem;
-}
-
-.form-control-login:focus {
-    color: #000;
-    background-color: #fff;
-    border-color: #7edbff33;
-    outline: 0;
-    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
-}
-
-.form-control-login::placeholder {
-    color: #adadad;
-    opacity: 1;
-}
-
-.btn{
-    border-radius: 25px;
-    background-color: #1a73e8;
-    border-color: #1a73e8;
-}
-
-p{
-    margin: 1rem;
-    text-align: center;
-    color: black;
-}
-
-/*
-FIN DE LOS ESTILOS DEL LOGIN
-****************************
- */
-
-
-
-/*
-INICIO DE LOS ESTILOS DE REGISTRO DE USUARIOS
-*********************************************
- */
-
-.left{
-    background-color: #1a73e8;
-    align-items: center;
-}
-
-.cardfondo{
-    background-color: #1a73e8;
-}
-
-.card-body {
-    color: white;
-}
-
-.right{
-    
-    align-items: center;
-}
-
-.form-control{
-    border-radius: 25px;
-}
-
-.fondo-card-izquierdo{
-    background: #1a73e8;
-}
-
-.card-texto-izquierda{
-    color: white;
-}
-
-.text-muted{
-    color: #fff !important;
-}
-
-.fa-user-circle-estilo{
-
-    color: white;
-    font-size: 1.2rem;
-}
-
-.nav-link-estilo{
-    color: red;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
