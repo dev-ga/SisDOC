@@ -13,21 +13,20 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light-dashboard ">
     <div class="container">
-        <a class="navbar-brand logo-font" href="#" id="brand">
+        <a class="navbar-brand logo-font logo-font-dashboard" href="#" id="brand">
             S!SDOC
         </a>
         <!-- links toggle -->
         <button class="navbar-toggler order-first" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
+            
         </button>
         <!-- account toggle -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#account" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
         </button>
-        
-        
+                
         {{-- botones lado izquierdo --}}
         <div class="collapse navbar-collapse" id="account">
             <ul class="navbar-nav ml-auto">
@@ -36,8 +35,8 @@
                 </a></li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link-estilo" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user-circle  fa-user-circle-estilo" aria-hidden="true"></i>
-                    {{ auth()->user()->nombre }}</a>
+                    <i class="fa fa-user-circle  fa-user-circle-estilo" aria-hidden="true"></i>
+                    {{ auth()->user()->nombre }} {{ auth()->user()->apellido }}</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <form class="" method="POST" action="{{ route('auth.logout') }}">
                         @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
@@ -53,7 +52,16 @@
 
 
 <div class="container">
-    <form method="POST" action="{{ route('reciboPDF') }}"> 
+
+    <div class="row justify-content-center mt-5">
+        <div class="header-texto text-center mb-5">
+            <h5>Por favor completa la siguiente informacion</h5>
+            <hr>
+    </div>
+            
+        </header><!-- /header -->
+        <div class="col-md-8">
+            <form method="POST" action="{{ route('reciboPDF') }}"> 
                 
                 @csrf{{-- errores del formularios --}}
 
@@ -94,12 +102,15 @@
                             @endforeach --}}
                     </select>
                 </div>
-                <button class="btn btn-info btn-block my-2" type="submit">GenerarPDF</button>
+                <button class="btn btn-info btn-block my-2 mt-5" type="submit">GenerarPDF</button>
 
                     
                     </form>
                 
             </form>
+        </div>
+    </div>
+    
 
 </div>
 

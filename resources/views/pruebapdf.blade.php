@@ -12,28 +12,77 @@
     
 </head>
 <body>
+    
 <div class="container col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
+
+
+
+<div class="panel panel-default">
             
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>status</th>
+                            <th>logo</th>
+                            <th>Nombre Y Apellido</th>
+                            <th>Cedula de Identidad</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                                <td><img src="{{ asset('/images/logo_fundeeh.png') }}" alt="logo"></td>
+                                <td>{{ auth()->user()->nombre }} {{ auth()->user()->apellido }}</td>
+                                <td>{{ auth()->user()->cedula }}</td>
+                                
+                                
+                    </tbody>
+                </table>
+     
+        </div>
+
+        <div class="panel panel-default">
+            
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Conceptos</th>
+                            <th>Asignaciones</th>
+                            <th>Deducciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $asignaciones =0;
+                        @endphp
                         @foreach($infopdf as $infopdf)
-                            <tr>
-                                <td>{!! $infopdf->codconc !!}</td>
+                            @if($infopdf->valsal > 0)
+                                {{-- @php
+                                $total = 0;
+                                $suma = 0;
+                                $total += $infopdf->valsal;
+                                $suma = $total;
+                                @endphp --}}
+                                @php
+                                    $asignaciones += $infopdf->valsal;
+                                @endphp
+                                <tr>
                                 <td>{!! $infopdf->nomcon !!}</td>
                                 <td>{!! $infopdf->valsal !!}</td>
-                            </tr>
+                                <td>  </td>
+                                </tr>
+                                @endif
+                                @if($infopdf->valsal < 0)
+                                <tr>
+                                <td>{!! $infopdf->nomcon !!}</td>
+                                <td>   </td>
+                                <td>{!! $infopdf->valsal !!}</td>
+                                </tr>
+                                @endif
+                                
                         @endforeach
                     </tbody>
                 </table>
-      
+     {{ $asignaciones }}
         </div>
     </div>
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>

@@ -9,77 +9,98 @@
 <link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
-    
+
 </head>
 <body class="viewport">
-    
-    <div class="container">
-        <div class="row">
-    <div class="col-md-4 py-5 bg-primary text-white text-center ">
-                <div class=" ">
-                    <div class="card-body">
-                        <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
-                        <h2 class="py-3">Registration</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
-
-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Please fill with your details</h4>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input id="Full Name" name="Full Name" placeholder="Full Name" class="form-control" type="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                        </div>
-                      </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input id="Mobile No." name="Mobile No." placeholder="Mobile No." class="form-control" required="required" type="text">
-                        </div>
-                        <div class="form-group col-md-6">
-                                  
-                                  <select id="inputState" class="form-control">
-                                    <option selected>Choose ...</option>
-                                    <option> New Buyer</option>
-                                    <option> Auction</option>
-                                    <option> Complaint</option>
-                                    <option> Feedback</option>
-                                  </select>
-                        </div>
-                        <div class="form-group col-md-12">
-                                  <textarea id="comment" name="comment" cols="40" rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <div class="form-group">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                                  <label class="form-check-label" for="invalidCheck2">
-                                    <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
-                                  </label>
-                                </div>
-                              </div>
-                    
-                          </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <button type="button" class="btn btn-danger">Submit</button>
-                    </div>
-                </form>
-            </div>
-  </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+        {{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
+          SISDOC
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="{{ route('auth.login') }}">
+            <i class="fas fa-fingerprint">  Login</i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('auth.registrousuarios') }}">
+            <i class="fas fa-user-circle">  Registro</i>
+            </a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+<div class="container">
+    <div class="header-texto text-center">
+            <h2>Formulario de Registro</h2>
+            <h5>Debe llenar todos los campo para ser registrado de forma correcta</h5>
+            <hr>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 ">
+            <div class="card card-registro mt-4">
+               <form class="p-4" method="POST" action="{{ route('authvalidate.registro') }}">
+                {{ csrf_field() }}
+                    <!-- Nombre -->
+                    <div class="form-group  mb-2">
+                        <label for="nombre" class="titulolabel">Nombre</label>
+                    <input name="nombre" type="text" id="nombre" class="form-control form-control-registro "  autofocus>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group  mb-2">
+                        <label for="apellido" class="titulolabel">Apellido</label>
+                    <input name="apellido" type="text" id="apellido" class="form-control form-control-registro " >
+                    </div>
+
+                    <!-- Cedula -->
+                    <div class="form-group  mb-2">
+                        <label for="cedula" class="titulolabel">Cedula de Identidad</label>
+                    <input name="cedula" type="text" id="ci" class="form-control form-control-registro " >
+                    </div>
+
+                    <!-- Organizacion -->
+                    <div class="form-group  mb-2"> 
+                        <label for="organizacion" class="titulolabel">Organizacion</label>
+
+                    <select name="organizacion_id" class="form-control form-control-registro ">
+                        <option value="">-- Perteneces a...? --</option>
+                            @foreach($organizacion as $organizacion)
+                                <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
+                            @endforeach
+                    </select>
+                    </div>
+
+                    <!-- email -->
+                    <div class="form-group  mb-2">
+                        <label for="email" class="titulolabel">Email</label>
+                    <input name="email" type="email" id="email" class="form-control form-control-registro ">
+                    </div>
+
+                    <!-- password -->
+                    <div class="form-group  mb-2">
+                        <label for="password" class="titulolabel">Password</label>
+                    <input name="password" type="password" id="password" class="form-control form-control-registro ">
+                    </div>
+
+                                       
+                    <!-- Sign in button -->
+                    <button class="btn btn-info btn-block my-2 btn-registro btn-info-registro" type="submit">Registrar</button>
 
 
+                </form>
+        </div>
+    </div>
     
-   
+
+</div>
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

@@ -64,7 +64,7 @@
 
         $pdf = App::make('dompdf.wrapper');
 
-        $pdf->loadHTML('<h1>Test</h1>');
+        $pdf->loadView('pruebapdf');
         
         return $pdf->stream();
 

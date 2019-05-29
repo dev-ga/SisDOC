@@ -1,11 +1,25 @@
+/*
+|
+|
+|HOJA DE ESTILOS
+|-------------------------------------
+|Autor:Ing. Gustavo A Camacho P.;
+|Correo: Gustavoa.camachop@gmail.com;
+|-------------------------------------
+|
+|
+ */
+
+/*
+|Estilos del login
+|------------------
+ */
+
 .viewport {
 
-    /*display: flex;*/
-    /*align-items: center;
-    justify-content: center;*/
     height: 100vh;
     /*Imagen de fondo*/
-    background-image: url(https://i.imgur.com/iMcWjS4.jpg);
+    background-image: url('../images/aqua-d9b59c89.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -16,5 +30,229 @@
     background-color: #464650;
 
 }
+
+.bg-dark {
+    background-color: #343a4000 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+
+    color: rgb(255, 255, 255);
+
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+
+    padding-right: 0.5rem;
+    padding-left: 3rem;
+
+}
+
+.content{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+
+}
+
+.card-header-login {
+    padding: 2.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: none;
+    
+}
+
+.text-center-login {
+    text-align: center !important;
+    font-size: 1.5rem;
+}
+
+.form-control-login::placeholder {
+    color: #6c757d66;
+    opacity: 1;
+}
+.form-control-login::-moz-placeholder {
+    color: #6c757d66;
+    opacity: 1;
+}
+
+.card-login {
+  border-radius: 1rem;
+  /*Sombra del card*/
+  -webkit-box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+  box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+
+}
+
+
+.card-body-login {
+   padding: 2.25rem;
+
+}
+
+.form-control-login{
+  border-radius: 1.2rem;
+}
+
+.btn-login{
+  border-radius: 1.2rem;
+}
+
+.btn-info-login{
+    color: white;
+    background-color: #00d1fe;
+    border-color: #00d1fe;
+}
+
+.btn-info-login:hover {
+    color: white;
+    background-color: #3948d5;
+    border-color: #3948d5;
+}
+
+.form-control-sm-login {
+    padding: 0.25rem 1.5rem;
+
+}
+
+.fuente{
+  font-size: 1rem;
+}
+
+.fuente a{
+  color: #000205;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.container-footer{
+  padding-bottom: 0;
+}
+
+
+
+
+/*
+|Estilos del Registro
+|---------------------
+ */
+
+
+.form-control-registro{
+  border-radius: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-registro{
+  border-radius: 1.2rem;
+}
+
+.btn-info-registro{
+    color: white;
+    background-color: #00d1fe;
+    border-color: #00d1fe;
+}
+
+.btn-info-registro:hover {
+    color: white;
+    background-color: #3948d5;
+    border-color: #3948d5;
+}
+
+.card-registro {
+  border: none;
+  border-radius: 1rem;
+  /*Sombra del card*/
+  -webkit-box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+  box-shadow: 11px 17px 33px 0px rgba(0,0,0,0.75);
+
+}
+
+form .border{
+  border: 0;
+}
+
+
+
+
+/*
+|Estilos del dashboard
+|---------------------
+ */
+
+
+.fas-estilo{
+  font-size: 2rem;
+  
+}
+
+.fa-file-pdf{
+  color:red;
+  margin-top: 1rem;
+  
+}
+
+.fa-file-invoice{
+    color: #44a059;
+    margin-top: 1rem;
+    
+}
+
+.fa-file-word{
+  color:#fd8f03;
+  margin-top: 1rem;
+  
+}
+
+.mt{
+  margin-top: 10%;
+}
+
+.card-dashboard{
+  border: 0;
+  background-color: white;
+  font-size: 2rem;
+
+}
+
+.card-dashboard h4{
+  
+  font-size: 1rem;
+
+}
+
+.bg-light-dashboard{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 20%, rgba(0,212,255,1) 100%);
+}
+
+.navbar-light .navbar-brand {
+    color: rgb(255, 255, 255);
+}
+
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: rgb(255, 255, 255);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+}
+
+.fa-user-circle-estilo{
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+
+
+
+
+
+
 
 

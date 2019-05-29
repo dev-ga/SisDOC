@@ -12,23 +12,20 @@
     
 </head>
 <body>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light-dashboard ">
 	<div class="container">
-        <a class="navbar-brand logo-font" href="#" id="brand">
+        <a class="navbar-brand logo-font logo-font-dashboard" href="#" id="brand">
             S!SDOC
         </a>
         <!-- links toggle -->
         <button class="navbar-toggler order-first" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
+            
         </button>
         <!-- account toggle -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#account" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-user-circle" aria-hidden="true"></i>
         </button>
-        
-        
+                
         {{-- botones lado izquierdo --}}
         <div class="collapse navbar-collapse" id="account">
             <ul class="navbar-nav ml-auto">
@@ -37,8 +34,8 @@
                 </a></li> --}}
                 <li class="nav-item dropdown">
                 	<a class="nav-link dropdown-toggle nav-link-estilo" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                		<i class="fa fa-user-circle  fa-user-circle-estilo" aria-hidden="true"></i>
-					{{ auth()->user()->nombre }}</a>
+                    <i class="fa fa-user-circle  fa-user-circle-estilo" aria-hidden="true"></i>
+					{{ auth()->user()->nombre }} {{ auth()->user()->apellido }}</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<form class="" method="POST" action="{{ route('auth.logout') }}">
                         @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
@@ -51,25 +48,74 @@
         </div>
  </div>
 </nav>
-
-
-
-
-
-
-
 <div class="container">
-  <div class="alert alert-primary" role="alert">
-  <a href="{{ route('recibo.form') }}">Generar Recibo</a>
-</div>
-<div class="alert alert-secondary" role="alert">
-  generar ARC
-</div>
-<div class="alert alert-success" role="alert">
-  GENERAR CONSTANCIA DE TRABAJO 
-</div>
 
+
+
+
+
+            <div class="row justify-content-center mt">
+            <div class="col-md-4">
+                <div class="card text-center card-dashboard">
+  <i class="fas fa-file-pdf fas-estilo"></i>
+  <div class="card-body">
+    <h4 class="card-title">Recibo de pago</h4>
+    
+    <a href="{{ route('recibo.form') }}" class="btn btn-primary">GENERAR</a>
+  </div>
 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center card-dashboard">
+  <i class="fas fa-file-invoice fas-estilo"></i>
+  <div class="card-body">
+    <h4 class="card-title">Calculo ARC</h4>
+    
+    <a href="#!" class="btn btn-primary">GENERAR</a>
+  </div>
+</div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center card-dashboard">
+  <i class="fas fa-file-word fas-estilo"></i>
+  <div class="card-body">
+    <h4 class="card-title">Costancia de Trabajo</h4>
+    
+    <a href="#!" class="btn btn-primary">GENERAR</a>
+  </div>
+</div>
+            </div>
+
+        </div>
+    </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
