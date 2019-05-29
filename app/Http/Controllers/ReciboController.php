@@ -103,13 +103,21 @@ class ReciboController extends Controller
                         sno_hconceptopersonal.codnom AND sno_hsalida.anocur = sno_hconceptopersonal.anocur AND sno_hsalida.codperi = sno_hconceptopersonal.codperi 
                         AND sno_hsalida.codconc = sno_hconceptopersonal.codconc AND sno_hsalida.codper = sno_hconceptopersonal.codper 
                         ORDER BY sno_hconcepto.codconc, sno_hsalida.tipsal";
+
+            /*generamos el query para la cabecera del PDF*/
+
+                $querypdf2 = "select * from sno_personal where codper = '$codper'";
+
+
                     
                             
             $infopdf = DB::connection('sigesp')->select($querypdf);
+            $infopdf2 = DB::connection('sigesp')->select($querypdf2);
 
             /*Ruta de prueba*/
 
-            $pdf = PDF::loadView('pruebapdf', array('infopdf' => $infopdf));
+            $pdf = PDF::loadView('pruebapdf', array('infopdf' => $infopdf), array('infopdf2' => $infopdf2));
+            // $pdf->setpaper('a4','landscape'); ->para colocar la hoja horizontal
             return $pdf->download('Recibo.pdf');
 
             

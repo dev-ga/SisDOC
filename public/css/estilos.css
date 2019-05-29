@@ -3,8 +3,8 @@
 |
 |HOJA DE ESTILOS
 |-------------------------------------
-|Autor:Ing. Gustavo A Camacho P.;
-|Correo: Gustavoa.camachop@gmail.com;
+|Autor:Ing. Gustavo A Camacho P.
+|Correo: Gustavoa.camachop@gmail.com
 |-------------------------------------
 |
 |
@@ -248,6 +248,12 @@ form .border{
   margin-right: 0.5rem;
 }
 
+
+
+.prueba1{
+
+    background: #00d0fd;
+}
 
 
 
