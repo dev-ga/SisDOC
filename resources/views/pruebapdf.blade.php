@@ -12,10 +12,10 @@
 
 </head>
 <body class="pdf">
-    @foreach ($infopdf2 as $infopdf2)
+    @foreach ($query_cabecera as $query_cabecera)
 
-<p>Cedula de Identidad: {!! $infopdf2->cedper !!}</p>
-<p>Cedula de Identidad: {!! $infopdf2->cedper !!}</p>
+<p>Cedula de Identidad: {!! $query_cabecera->cedper !!}</p>
+<p>Cedula de Identidad: {!! $query_cabecera->codcueban !!}</p>
 
 @endforeach
     <div class="panel panel-default">
@@ -82,26 +82,26 @@
                             $total;
                         @endphp
 
-                        @foreach($infopdf as $infopdf)
+                        @foreach($query_recibo as $query_recibo)
 
-                            @if($infopdf->valsal > 0)
+                            @if($query_recibo->valsal > 0)
                                 @php
-                                    $asignaciones += $infopdf->valsal;
+                                    $asignaciones += $query_recibo->valsal;
                                 @endphp
                                     <tr>
-                                        <td >{!! ucfirst(strtolower($infopdf->nomcon)) !!}</td>
-                                        <td class="text-center" >{!! $infopdf->valsal !!}</td>
+                                        <td >{!! ucfirst(strtolower($query_recibo->nomcon)) !!}</td>
+                                        <td class="text-center" >{!! $query_recibo->valsal !!}</td>
                                         <td >  </td>
                                     </tr>
                             @endif
-                            @if($infopdf->valsal < 0)
+                            @if($query_recibo->valsal < 0)
                                 @php
-                                    $deducciones += $infopdf->valsal;
+                                    $deducciones += $query_recibo->valsal;
                                 @endphp
                                     <tr>
-                                        <td>{!! ucfirst(strtolower($infopdf->nomcon)) !!}</td>
+                                        <td>{!! ucfirst(strtolower($query_recibo->nomcon)) !!}</td>
                                         <td>   </td>
-                                        <td class="text-center"> {!! $infopdf->valsal !!}</td>
+                                        <td class="text-center"> {!! $query_recibo->valsal !!}</td>
                                     </tr>
                             @endif
                         @endforeach

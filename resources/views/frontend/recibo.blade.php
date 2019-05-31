@@ -81,11 +81,17 @@
                             
                                 @foreach($codperi as $codperi)
                                 <option value="{{ $codperi->codperi_sigesp }}">{{ $codperi->fecdesper }} / {{ $codperi->fechasper }}</option>
-                            @endforeach
+                                @endforeach
+                    </select>
+                </div>
+                <div class="form-group"> 
+                    <label for="codemp">Empresa</label>
+                    <select name="codemp" class="form-control estilosinputregistro mb-2 bordes">
+                        <option value="">-- Selecciona la empresa --</option>
                             
-                            {{-- @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
-                            @endforeach --}}
+                                @foreach($codemp as $codemp)
+                                <option value="{{ $codemp->cod_emp_sigesp }}">{{ $codemp->descripcion_sigesp }}</option>
+                                @endforeach
                     </select>
                 </div>
                 <div class="form-group"> 
