@@ -23,13 +23,13 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="{{ route('auth.login') }}">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{ route('auth.login') }}">
             <i class="fas fa-fingerprint">  Login</i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('auth.registrousuarios') }}">
+          <a class="nav-link text-white" href="{{ route('auth.registrousuarios') }}">
             <i class="fas fa-user-circle">  Registro</i>
             </a>
         </li>
@@ -38,33 +38,41 @@
   </div>
 </nav>
 <div class="container">
-    <div class="header-texto text-center">
+    <div class="header-texto text-center mt-4 text-white">
             <h2>Formulario de Registro</h2>
             <h5>Debe llenar todos los campo para ser registrado de forma correcta</h5>
             <hr>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4 ">
+        <div class="col-md-5 col-sm-10 ">
             <div class="card card-registro mt-4">
                <form class="p-4" method="POST" action="{{ route('authvalidate.registro') }}">
-                {{ csrf_field() }}
+                {{-- {{ csrf_field() }} --}}
+                @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
+
                     <!-- Nombre -->
                     <div class="form-group  mb-2">
                         <label for="nombre" class="titulolabel">Nombre</label>
                     <input name="nombre" type="text" id="nombre" class="form-control form-control-registro "  autofocus>
+                    {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                     <!-- Apellido -->
                     <div class="form-group  mb-2">
                         <label for="apellido" class="titulolabel">Apellido</label>
                     <input name="apellido" type="text" id="apellido" class="form-control form-control-registro " >
+                    {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                     <!-- Cedula -->
                     <div class="form-group  mb-2">
                         <label for="cedula" class="titulolabel">Cedula de Identidad</label>
                     <input name="cedula" type="text" id="ci" class="form-control form-control-registro " >
+                    {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                     <!-- Organizacion -->
                     <div class="form-group  mb-2"> 
@@ -76,19 +84,25 @@
                                 <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
                             @endforeach
                     </select>
+                    {!! $errors->first ('organizacion_id', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                     <!-- email -->
                     <div class="form-group  mb-2">
                         <label for="email" class="titulolabel">Email</label>
                     <input name="email" type="email" id="email" class="form-control form-control-registro ">
+                    {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                     <!-- password -->
                     <div class="form-group  mb-2">
                         <label for="password" class="titulolabel">Password</label>
                     <input name="password" type="password" id="password" class="form-control form-control-registro ">
+                    {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
+
 
                                        
                     <!-- Sign in button -->

@@ -55,35 +55,16 @@
 
     <div class="row justify-content-center mt-5">
         <div class="header-texto text-center mb-5">
-            <h5>Por favor completa la siguiente informacion</h5>
+            <h5>Por favor completa la siguiente informacion para generar la planilla ARC</h5>
             <hr>
     </div>
             
         </header><!-- /header -->
         <div class="col-md-8">
-            <form method="POST" action="{{ route('reciboPDF') }}"> 
+            <form method="POST" action="{{ route('planillaARC') }}"> 
                 
                 @csrf{{-- errores del formularios --}}
-
-                <div class="form-group "> 
-                    <label for="Nombre">Codigo de Nomina</label>
-                    <select name="codnom" id="codnom" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona la Nomina a Consultar --</option>
-                            @foreach($codnom as $codnom)
-                                <option value="{{ $codnom->codnom }}">{{ $codnom->desnom }}</option>
-                            @endforeach
-                    </select>
-                </div> 
-                <div class="form-group"> 
-                    <label for="apellido">Periodo de Nomina</label>
-                    <select name="codperi" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona el periodo de nomina --</option>
-                            
-                                @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi_sigesp }}">{{ $codperi->fecdesper }} / {{ $codperi->fechasper }}</option>
-                                @endforeach
-                    </select>
-                </div>
+              
                 <div class="form-group"> 
                     <label for="codemp">Empresa</label>
                     <select name="codemp" class="form-control estilosinputregistro mb-2 bordes">
@@ -108,7 +89,7 @@
                             @endforeach --}}
                     </select>
                 </div>
-                <button class="btn btn-info btn-block my-2 mt-5" type="submit">GenerarPDF</button>
+                <button class="btn btn-info btn-block my-2 mt-5" type="submit">Generar ARC</button>
 
                     
                     </form>

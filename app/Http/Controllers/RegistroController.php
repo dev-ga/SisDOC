@@ -68,7 +68,7 @@ class RegistroController extends Controller
 
         Usuario::create($usuarios);
 
-        return "usuario creado con exito";
+        return view('frontend.registroOK');
 
         
         

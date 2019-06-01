@@ -15,7 +15,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-    	{{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
+        {{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
           SISDOC
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,14 +24,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="{{ route('auth.login') }}">
-          	<i class="fas fa-fingerprint">  Login</i>
+          <a class="nav-link text-white" href="{{ route('auth.login') }}">
+            <i class="fas fa-fingerprint">  Login</i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('auth.registrousuarios') }}">
-          	<i class="fas fa-user-circle">  Registro</i>
-          	</a>
+          <a class="nav-link text-white" href="{{ route('auth.registrousuarios') }}">
+            <i class="fas fa-user-circle">  Registro</i>
+            </a>
         </li>
       </ul>
     </div>

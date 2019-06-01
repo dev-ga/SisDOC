@@ -36,7 +36,13 @@
 
 	Route::get('auth/registrousuarios', 'RegistroController@showRegistroForm')->name('auth.registrousuarios');
 
-	Route::post('auth/registro', 'RegistroController@registrousuario')->name('authvalidate.registro');;
+	Route::post('auth/registro', 'RegistroController@registrousuario')->name('authvalidate.registro');
+
+    Route::get('registroOK', function () {
+    return view('registroOK');
+    });
+
+
 
 
 /*
@@ -60,22 +66,49 @@
 
     Route::post('reciboPDF', 'ReciboController@pdf') -> name('reciboPDF');
 
-    Route::get('pruebapdf', function() {
+    Route::get('pdf', function() {
 
         $pdf = App::make('dompdf.wrapper');
 
-        $pdf->loadView('pruebapdf');
+        $pdf->loadView('pdf');
         
         return $pdf->stream();
 
     });
 
-    Route::get('pruebadequery', function() {
+/*
+|--------------------------------------------------------------------------
+| Rutas para manejar la informacion y renderisar el ARC
+|--------------------------------------------------------------------------
+|
+*/
 
-        return view('pruebapdf');
-    
+    Route::get('frontend/arcform', 'ArcController@index') -> name('arc.form');
+
+    Route::post('planillaARC', 'ArcController@arc') -> name('planillaARC');
+
+    Route::get('frontend/arc', function() {
+
+        $pdf = App::make('dompdf.wrapper');
+
+        $pdf->loadView('frontend.arc');
+        
+        return $pdf->stream();
+
     });
 
+
+/*
+|--------------------------------------------------------------------------
+| Rutas para pruebas varias
+|--------------------------------------------------------------------------
+|
+*/
+
+
+    Route::get('prueba', function () {
+    return view('prueba');
+    });
 
 
 

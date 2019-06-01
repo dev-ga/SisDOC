@@ -26,7 +26,11 @@ class ReciboController extends Controller
         
         // Para generar todas las nominas asociadas al codigo de personal
 
-        $query = "select codnom from sno_personalnomina where codper = '$codper' order by codnom asc";
+        
+        $query = "select sno_nomina.codnom, sno_nomina.desnom, sno_nomina.racnom, sno_personalnomina.codper 
+                  from sno_nomina inner join sno_personalnomina on sno_nomina.codnom = sno_personalnomina.codnom 
+                  and sno_personalnomina.codper = '$codper' and sno_nomina.racnom = '1' order by codnom asc";
+
 
         $codnom = DB::connection('sigesp')->select($query);
         
@@ -96,6 +100,8 @@ class ReciboController extends Controller
 
             $query_recibo = DB::connection('sigesp')->select($query_recibo);
 
+        
+
 
             /*generamos el query para la cabecera del PDF*/
 
@@ -160,60 +166,17 @@ class ReciboController extends Controller
 
                            
             $query_cabecera = DB::connection('sigesp')->select($query_cabecera);
+            /*dd($query_cabecera);*/
+
+            /*return view('pruebapdf')->with('codnom', $codnom)->with('codperi', $codperi)->with('date', $date)->with('codemp', $codemp)->with('query_recibo', $query_recibo)->with('query_cabecera', $query_cabecera);*/
             
 
             /*Ruta de prueba*/
 
-            $pdf = PDF::loadView('pruebapdf', array('query_cabecera' => $query_cabecera), array('query_recibo' => $query_recibo));
-            
+            $pdf = PDF::loadView('pdf', array('query_cabecera' => $query_cabecera), array('query_recibo' => $query_recibo));
+            /*$pdf->setpaper('a4','landscape');*/
             return $pdf->download('Recibo.pdf');
-   
-             // // $pdf->setpaper('a4','landscape'); ->para colocar la hoja horizontal
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

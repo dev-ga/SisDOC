@@ -19,7 +19,7 @@
 
     height: 100vh;
     /*Imagen de fondo*/
-    background-image: url('../images/aqua-d9b59c89.png');
+    /*background-image: url('../images/aqua-d9b59c89.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -27,21 +27,21 @@
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-color: #464650;
+    background-color: #464650;*/
 
 }
 
-.bg-dark {
+.bg-dark-login {
     background-color: #343a4000 !important;
 }
 
-.navbar-dark .navbar-nav .nav-link {
+.navbar-dark-login .navbar-nav-login .nav-link-login {
 
     color: rgb(255, 255, 255);
 
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-expand-lg .navbar-nav-login .nav-link-login {
 
     padding-right: 0.5rem;
     padding-left: 3rem;
@@ -230,15 +230,15 @@ form .border{
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 20%, rgba(0,212,255,1) 100%);
 }
 
-.navbar-light .navbar-brand {
+.navbar-light-dashboard .navbar-brand-dashboard {
     color: rgb(255, 255, 255);
 }
 
-.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+.navbar-light-dashboard .navbar-brand-dashboard:hover, .navbar-light-dashboard .navbar-brand-dashboard:focus {
     color: rgb(255, 255, 255);
 }
 
-.navbar-light .navbar-nav .nav-link {
+.navbar-light-dashboard .navbar-nav-dashboard .nav-link-dashboard {
     color: rgb(255, 255, 255);
 }
 
@@ -250,10 +250,94 @@ form .border{
 
 
 
-.prueba1{
 
-    background: #00d0fd;
+
+.fecha{
+  text-align:right;
+  font-weight: bold;
 }
+
+.list-group-item-estilo{
+  position: relative;
+display: block;
+padding: -0.25rem 1.25rem;
+margin-bottom: -1px;
+background-color: #fff;
+
+}
+
+.datos-trabajador{
+  font-size: 0.8rem;
+}
+
+.tabla{
+  font-size: 0.8rem;
+}
+
+.table-sm th, .table-sm td {
+    padding: 0.1rem;
+}
+
+.imagen{
+  /* Location of the image */
+  background-image: url(https://stmed.net/sites/default/files/rocket-wallpapers-30843-8309322.png);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
+
+
+
+
+
+
+
+.fa-check-circle-ui{
+  color: white;
+  font-size: 12rem;
+}
+
+.card-ui{
+  -webkit-box-shadow: 10px 10px 43px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 43px -2px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 43px -2px rgba(0,0,0,0.75);
+  background-color: green;
+
+}
+
+.card-title-ui{
+  font-family: RalewayExtraLight;
+    font-style: bold;
+  font-weight: 900;
+    src: url('{{ asset('fonts/RalewayExtraLight.ttf') }}');
+}
+
+.btn-text-green{
+  color: green;
+  border: 0;
+}
+.btn-lg-ui {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 3rem;
+
+
 
 
 

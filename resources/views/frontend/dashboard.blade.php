@@ -49,11 +49,6 @@
  </div>
 </nav>
 <div class="container">
-
-
-
-
-
             <div class="row justify-content-center mt">
             <div class="col-md-4">
                 <div class="card text-center card-dashboard">
@@ -81,7 +76,17 @@
   <div class="card-body">
     <h4 class="card-title">Costancia de Trabajo</h4>
     
-    <a href="#!" class="btn btn-primary">GENERAR</a>
+    <a href="{{ route('dashborad') }}" class="btn btn-primary">GENERAR</a>
+  </div>
+</div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center card-dashboard">
+  <i class="fas fa-file-word fas-estilo"></i>
+  <div class="card-body">
+    <h4 class="card-title">Costancia de Trabajo</h4>
+    
+    <a href="{{ route('arc.form') }}" class="btn btn-primary">GENERAR</a>
   </div>
 </div>
             </div>
