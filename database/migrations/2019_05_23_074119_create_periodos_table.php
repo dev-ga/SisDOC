@@ -16,8 +16,10 @@ class CreatePeriodosTable extends Migration
         Schema::create('periodos', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('codperi_sigesp');
-            $table->date('fecdesper')->date_format('Y-m-d');
-            $table->date('fechasper')->date_format('Y-m-d');
+            $table->string('descripción');
+            // $table->date('fecdesper')->date_format('Y-m-d');
+            // $table->date('fechasper')->date_format('Y-m-d');
+
             
             $table->timestamps();
         });

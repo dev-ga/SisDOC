@@ -43,7 +43,7 @@ class RegistroController extends Controller
                 'cedula' => 'required|max:10',
                 'organizacion_id' => 'required|max:1',
                 'email' => 'email|unique:usuarios',
-                'password'=> 'required|min:6|max:8'
+                'password'=> 'required|min:6|max:10'
 
             ]);
     
@@ -59,7 +59,7 @@ class RegistroController extends Controller
             
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
-            'cedula' => '00'.$request->cedula,
+            'cedula' => $request->cedula,
             'organizacion_id' => $request->organizacion_id,
             'email' => $request->email,
             'password' => bcrypt($request->password)

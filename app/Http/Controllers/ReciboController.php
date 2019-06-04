@@ -29,7 +29,7 @@ class ReciboController extends Controller
         
         $query = "select sno_nomina.codnom, sno_nomina.desnom, sno_nomina.racnom, sno_personalnomina.codper 
                   from sno_nomina inner join sno_personalnomina on sno_nomina.codnom = sno_personalnomina.codnom 
-                  and sno_personalnomina.codper = '$codper' and sno_nomina.racnom = '1' order by codnom asc";
+                  and sno_personalnomina.codper = '00$codper' and sno_nomina.racnom = '1' order by codnom asc";
 
 
         $codnom = DB::connection('sigesp')->select($query);
@@ -86,11 +86,11 @@ class ReciboController extends Controller
             $query_recibo =     "SELECT sno_hconcepto.codconc, sno_hconcepto.titcon as nomcon, sno_hsalida.valsal ,
                                 sno_hsalida.tipsal,abs(sno_hconceptopersonal.acuemp) AS acuemp, abs(sno_hconceptopersonal.acupat) 
                                 AS acupat,sno_hconcepto.repacucon, sno_hconcepto.repconsunicon, sno_hconcepto.consunicon,
-                                (SELECT moncon FROM sno_hconstantepersonal WHERE sno_hconcepto.repconsunicon='1' AND sno_hconstantepersonal.codper = '$codper' AND sno_hconstantepersonal.codemp = sno_hconcepto.codemp AND 
+                                (SELECT moncon FROM sno_hconstantepersonal WHERE sno_hconcepto.repconsunicon='1' AND sno_hconstantepersonal.codper = '00$codper' AND sno_hconstantepersonal.codemp = sno_hconcepto.codemp AND 
                                 sno_hconstantepersonal.codnom = sno_hconcepto.codnom AND sno_hconstantepersonal.anocur = sno_hconcepto.anocur AND sno_hconstantepersonal.codperi = sno_hconcepto.codperi AND 
                                 sno_hconstantepersonal.codcons = sno_hconcepto.consunicon ) AS unidad 
                                 FROM sno_hsalida, sno_hconcepto, sno_hconceptopersonal 
-                                WHERE sno_hsalida.codemp='$codemp' AND sno_hsalida.codnom  = '$codnom' AND sno_hsalida.anocur='$date' AND sno_hsalida.codperi='$codperi' AND sno_hsalida.codper='$codper' AND sno_hsalida.valsal<>0 
+                                WHERE sno_hsalida.codemp='$codemp' AND sno_hsalida.codnom  = '$codnom' AND sno_hsalida.anocur='$date' AND sno_hsalida.codperi='$codperi' AND sno_hsalida.codper='00$codper' AND sno_hsalida.valsal<>0 
                                 AND (sno_hsalida.tipsal='A' OR sno_hsalida.tipsal='V1' OR sno_hsalida.tipsal='W1' OR sno_hsalida.tipsal='D' OR sno_hsalida.tipsal='V2' OR sno_hsalida.tipsal='W2' OR sno_hsalida.tipsal='P1' OR 
                                 sno_hsalida.tipsal='V3' OR sno_hsalida.tipsal='W3') AND sno_hsalida.codemp = sno_hconcepto.codemp AND sno_hsalida.codnom = sno_hconcepto.codnom AND sno_hsalida.anocur = sno_hconcepto.anocur AND
                                 sno_hsalida.codperi = sno_hconcepto.codperi AND sno_hsalida.codconc = sno_hconcepto.codconc AND      sno_hsalida.codemp = sno_hconceptopersonal.codemp AND sno_hsalida.codnom = 
@@ -140,7 +140,7 @@ class ReciboController extends Controller
                                 sno_hpersonalnomina.codperi = sno_hasignacioncargo.codperi AND sno_hpersonalnomina.codasicar = sno_hasignacioncargo.codasicar) as descar FROM
                                 sno_personal, sno_hpersonalnomina, sno_hsalida, sno_hunidadadmin, sno_ubicacionfisica WHERE sno_hsalida.codemp='0001' AND
                                 sno_hsalida.codnom  = '$codnom' AND sno_hsalida.anocur='2019' AND sno_hsalida.codperi='$codperi' AND (sno_hsalida.tipsal<>'P2' AND
-                                sno_hsalida.tipsal<>'V4' AND sno_hsalida.tipsal<>'W4') AND sno_hpersonalnomina.codper>='$codper' AND sno_hpersonalnomina.codper<='$codper'AND
+                                sno_hsalida.tipsal<>'V4' AND sno_hsalida.tipsal<>'W4') AND sno_hpersonalnomina.codper>='00$codper' AND sno_hpersonalnomina.codper<='00$codper'AND
                                 sno_hsalida.valsal<>0 AND (sno_hsalida.tipsal='A' OR sno_hsalida.tipsal='V1' OR sno_hsalida.tipsal='W1' OR sno_hsalida.tipsal='D' OR sno_hsalida.tipsal='V2'
                                 OR sno_hsalida.tipsal='W2' OR sno_hsalida.tipsal='P1' OR sno_hsalida.tipsal='V3' OR sno_hsalida.tipsal='W3') AND
                                 sno_hpersonalnomina.codemp = sno_hsalida.codemp AND sno_hpersonalnomina.codnom = sno_hsalida.codnom AND

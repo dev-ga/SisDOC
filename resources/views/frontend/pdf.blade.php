@@ -91,6 +91,10 @@ hr
     color: #cbcbcb !important;
 }
 
+.firma{
+    color: black;
+}
+
 </style>
 </head>
 <body>
@@ -174,8 +178,9 @@ hr
         </tbody>
         </table>
     </div>
-  
+    
         <footer class="page-footer font-small footer">
+   
 
           <!-- Copyright -->
           <div class="footer-copyright text-center py-3 footer-fuente">

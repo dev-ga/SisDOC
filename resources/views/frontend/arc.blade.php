@@ -91,6 +91,13 @@ hr
     color: #cbcbcb !important;
 }
 
+.firma-arc{
+    display: inline-block;
+    border-top: 2px solid black;
+    margin-top: 25%;
+    margin-left: 38%;
+}
+
 </style>
 </head>
 <body>
@@ -141,6 +148,16 @@ hr
         </tbody>
         </table>
     </div>
+
+        {{-- Firma del PDF --}}
+
+        <div class="firma-arc">
+        <p>Oficina de Gestión Humana</p>
+        {{-- <p>Fundación De Estructura y Edificaciones Hospitalarias</p>
+        <p>FUNDEEH</p> --}}
+        </div>
+
+        {{-- FIN de la Firma del PDF --}}
   
         <footer class="page-footer font-small footer">
 

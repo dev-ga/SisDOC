@@ -41,7 +41,7 @@ class ArcController extends Controller
             /*dd($codemp, $date);*/
 
 
-            $query_infotrabajador = "select * from sno_personal where codper = '$codper'";
+            $query_infotrabajador = "select * from sno_personal where codper = '00$codper'";
 
             $query_infotrabajador = DB::connection('sigesp')->select($query_infotrabajador);
 
@@ -49,7 +49,7 @@ class ArcController extends Controller
 
                 $query_arc = "SELECT sno_personalisr.codper, sno_personalisr.codisr, sno_personalisr.porisr, sno_hsalida.anocur, 
                                 (SELECT SUM(valsal) FROM sno_hsalida, sno_hconcepto, sno_hperiodo WHERE sno_hsalida.codemp = 
-                                '$codemp' AND sno_hsalida.codper = '$codper'AND
+                                '$codemp' AND sno_hsalida.codper = '00$codper'AND
                                 sno_hperiodo.anocur = '$date' AND SUBSTR(cast(sno_hperiodo.fechasper as char(10)),1,4) = '$date' AND 
                                 sno_personalisr.codisr = SUBSTR(cast(sno_hperiodo.fechasper as char(10)),6,2) AND sno_hconcepto.aplarccon = 1 AND 
                                 (sno_hsalida.tipsal = 'A' OR sno_hsalida.tipsal = 'V1' OR sno_hsalida.tipsal = 'W1' OR sno_hsalida.tipsal = 'D' OR 
@@ -61,7 +61,7 @@ class ArcController extends Controller
                                 sno_hsalida.codemp = sno_personalisr.codemp AND sno_hsalida.codper = sno_personalisr.codper GROUP BY 
                                 sno_hsalida.codper, sno_hperiodo.anocur, sno_personalisr.codisr) as arc, (SELECT SUM(valsal) FROM 
                                 sno_hsalida, sno_hconcepto, sno_hperiodo WHERE sno_hsalida.codemp = '$codemp' AND 
-                                sno_hsalida.codper = '$codper' AND sno_hperiodo.anocur = '$date' AND 
+                                sno_hsalida.codper = '00$codper' AND sno_hperiodo.anocur = '$date' AND 
                                 SUBSTR(cast(sno_hperiodo.fechasper as char(10)),1,4) = '$date' AND sno_personalisr.codisr = SUBSTR(cast(sno_hperiodo.fechasper as char(10)),6,2) AND 
                                 sno_hconcepto.aplisrcon = 1 AND (sno_hsalida.tipsal = 'A' OR sno_hsalida.tipsal = 'V1' OR sno_hsalida.tipsal = 'W1' OR 
                                 sno_hsalida.tipsal = 'D' OR sno_hsalida.tipsal = 'V2' OR sno_hsalida.tipsal = 'W2' OR sno_hsalida.tipsal = 'P1' OR 
@@ -72,7 +72,7 @@ class ArcController extends Controller
                                 sno_hsalida.codnom = sno_hconcepto.codnom AND sno_hsalida.codconc = sno_hconcepto.codconc AND 
                                 sno_hsalida.codemp = sno_personalisr.codemp AND sno_hsalida.codper = sno_personalisr.codper GROUP BY 
                                 sno_hsalida.codper, sno_hperiodo.anocur, sno_personalisr.codisr) as islr FROM sno_hsalida, 
-                                sno_personalisr WHERE sno_hsalida.codper = '$codper' 
+                                sno_personalisr WHERE sno_hsalida.codper = '00$codper' 
                                 AND sno_hsalida.codemp = '$codemp' AND sno_hsalida.anocur = '$date' 
                                 AND sno_hsalida.codemp = sno_personalisr.codemp AND 
                                 sno_hsalida.codper = sno_personalisr.codper GROUP BY sno_hsalida.codper, sno_hsalida.anocur, 

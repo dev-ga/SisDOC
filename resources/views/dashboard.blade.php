@@ -12,7 +12,7 @@
     
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light-dashboard navbar-light-dashboard ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 	<div class="container">
         <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
             S!SDOC
@@ -33,10 +33,10 @@
                 <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
                 </a></li> --}}
                 <li class="nav-item dropdown">
-                	<a class="nav-link-dashboard dropdown-toggle nav-link-dashboard nav-link-estilo" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                	<a class="dropdown-toggle nav-link-estilo" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user-circle  fa-user-circle-estilo" aria-hidden="true"></i>
 					{{ auth()->user()->nombre }} {{ auth()->user()->apellido }}</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<div class="dropdown-menu text-white" aria-labelledby="navbarDropdownMenuLink">
 						<form class="" method="POST" action="{{ route('auth.logout') }}">
                         @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
                         <button class="dropdown-item" type="submit">Cerra Sesion</button>
@@ -75,7 +75,7 @@
   </div>
 </div>
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="card text-center card-dashboard">
   <i class="fas fa-file-word fas-estilo"></i>
   <div class="card-body">
@@ -84,7 +84,7 @@
     <a href="#!" class="btn btn-primary">GENERAR</a>
   </div>
 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>  

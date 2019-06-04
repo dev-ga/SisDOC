@@ -38,7 +38,7 @@
   </div>
 </nav>
 <div class="container">
-    <div class="header-texto text-center mt-4 text-white">
+    <div class="header-texto text-center mt-4">
             <h2>Formulario de Registro</h2>
             <h5>Debe llenar todos los campo para ser registrado de forma correcta</h5>
             <hr>

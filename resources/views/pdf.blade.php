@@ -90,6 +90,14 @@ hr
 {
     color: #cbcbcb !important;
 }
+.firma{
+    display: inline-block;
+    border-top: 2px solid black;
+    margin-top: 25%;
+    margin-left: 38%;
+
+
+}
 
 </style>
 </head>
@@ -174,7 +182,17 @@ hr
         </tbody>
         </table>
     </div>
-  
+
+        {{-- Firma del PDF --}}
+
+        <div class="firma">
+        <p>Oficina de Gestión Humana</p>
+        {{-- <p>Fundación De Estructura y Edificaciones Hospitalarias</p>
+        <p>FUNDEEH</p> --}}
+        </div>
+
+        {{-- FIN de la Firma del PDF --}}
+
         <footer class="page-footer font-small footer">
 
           <!-- Copyright -->

@@ -22,6 +22,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+        {{-- menu principal --}}
+        
+    {{-- fin --}}
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
           <a class="nav-link text-white" href="{{ route('auth.login') }}">
@@ -49,8 +52,8 @@
               <form class="" method="POST" action="{{ route('authvalidate.login') }}">
               @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
               <div class="form-group">
-              <input type="text" name="email" id="email" value="{{ old('email') }}" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="E-mail">
-              {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
+              <input type="text" name="cedula" id="cedula" value="{{ old('email') }}" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Cedula de Identidad">
+              {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
               </div>
               <div class="form-group">
               <input type="password" name="password" id="password" class="form-control form-control-sm form-control-sm-login form-control-login" placeholder="Password">

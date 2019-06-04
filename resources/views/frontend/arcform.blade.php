@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light-dashboard navbar-light-dashboard ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
             S!SDOC
@@ -29,6 +29,17 @@
                 
         {{-- botones lado izquierdo --}}
         <div class="collapse navbar-collapse" id="account">
+            {{-- Menu princial --}}
+            <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('recibo.form') }}">RECIBO</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('arc.form') }}">ARC</a>
+      </li>
+      
+    </ul>
+    {{-- fin menu principal --}}
             <ul class="navbar-nav ml-auto navbar-nav-dashboard">
                 {{-- <li class="nav-item"><a class="nav-link-dashboard" href="#">Shopping Cart
                 <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>

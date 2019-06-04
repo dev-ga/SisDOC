@@ -34,8 +34,9 @@ class AuthController extends Controller
     	
         $credenciales = $this->validate(request(), [
 
-             'email'     => 'email|required|string',
-             'password'  => 'required|string|min:6|max:8'
+            'cedula' => 'required|max:10',
+             // 'email'     => 'email|required|string',
+             'password'  => 'required|string|min:6|max:10'
 
         ]); 
 
@@ -52,8 +53,11 @@ class AuthController extends Controller
         {
             // return  back()->withErrors(['email' => 'El usuario no se encuentra registrado en el sistema']);
             return  back()
-                ->withErrors(['email' => trans('auth.failed')]) //para enviar los errores de validacion a la vista
-                ->withInput(request(['email'])); //para enviar los input a la vista para que se muestren con las funcion old()
+                // ->withErrors(['email' => trans('auth.failed')]) //para enviar los errores de validacion a la vista
+                // ->withInput(request(['email'])); //para enviar los input a la vista para que se muestren con las funcion old()
+
+                ->withErrors(['cedula' => trans('auth.failed')]) //para enviar los errores de validacion a la vista
+                ->withInput(request(['cedula'])); //para enviar los input a la vista para que se muestren con las funcion old()
         }
 
 
