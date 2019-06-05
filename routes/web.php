@@ -76,6 +76,8 @@
 
     });
 
+    Route::post('pruebapdf', 'ReciboController@pdf') -> name('pruebapdf');
+
 /*
 |--------------------------------------------------------------------------
 | Rutas para manejar la informacion y renderisar el ARC

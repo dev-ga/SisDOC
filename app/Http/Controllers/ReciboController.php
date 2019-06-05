@@ -79,6 +79,8 @@ class ReciboController extends Controller
             $codemp = $request->input("codemp");
             $date = $request->input("date");
 
+            // dd($codnom, $codperi, $codemp, $date)
+
 
         /*generamos el query que forma el recibo de pago*/
 
@@ -99,6 +101,8 @@ class ReciboController extends Controller
                                 ORDER BY sno_hconcepto.codconc, sno_hsalida.tipsal";
 
             $query_recibo = DB::connection('sigesp')->select($query_recibo);
+
+            // dd($query_recibo);
 
         
 
@@ -168,7 +172,7 @@ class ReciboController extends Controller
             $query_cabecera = DB::connection('sigesp')->select($query_cabecera);
             /*dd($query_cabecera);*/
 
-            /*return view('pruebapdf')->with('codnom', $codnom)->with('codperi', $codperi)->with('date', $date)->with('codemp', $codemp)->with('query_recibo', $query_recibo)->with('query_cabecera', $query_cabecera);*/
+            // return view('pruebapdf')->with('codnom', $codnom)->with('codperi', $codperi)->with('date', $date)->with('codemp', $codemp)->with('query_recibo', $query_recibo)->with('query_cabecera', $query_cabecera);
             
 
             /*Ruta de prueba*/
