@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->Increments('id');
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('cedula');
+            $table->string('cedula')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

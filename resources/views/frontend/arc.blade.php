@@ -111,15 +111,15 @@ hr
         <span><em>Fecha de Emision: {{ date('d-M-Y') }}</em>
         </span>
     </div>
-    @foreach ($query_infotrabajador as $query_infotrabajador)
+    @foreach ($querysnopersonal as $querysnopersonal)
         <div class="datos-trabajador mt-1 mb-2">
 
             <li class="list-group-item-estilo "><strong>Datos Personales</strong></li>
             <hr>
-            <li class="list-group-item-estilo"><strong>Nombre y Apellido:</strong> <em>{!! $query_infotrabajador->apeper !!}, {!! $query_infotrabajador->nomper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Cedula:</strong> <em>{!! $query_infotrabajador->cedper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Fecha de Ingreso:</strong> <em>{!! $query_infotrabajador->fecingper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Cargo:</strong> <em>{!! $query_infotrabajador->carantper !!}</em></li>
+            <li class="list-group-item-estilo"><strong>Nombre y Apellido:</strong> <em>{!! $querysnopersonal->apeper !!}, {!! $querysnopersonal->nomper !!}</em></li>
+            <li class="list-group-item-estilo"><strong>Cedula:</strong> <em>{!! $querysnopersonal->cedper !!}</em></li>
+            <li class="list-group-item-estilo"><strong>Fecha de Ingreso:</strong> <em>{!! $querysnopersonal->fecingper !!}</em></li>
+            <li class="list-group-item-estilo"><strong>Cargo:</strong> <em>{!! $querysnopersonal->carantper !!}</em></li>
             
             <hr>
         </div>
@@ -135,12 +135,12 @@ hr
             </tr>
         </thead>
         <tbody>
-            @foreach ($query_arc as $query_arc)
+            @foreach ($queryarccuerpo as $queryarccuerpo)
                 <tr>
-                <td class="text-center" >{!!($query_arc->codisr)!!}</td>
-                <td class="text-center" >{!!($query_arc->codper)!!}</td>
-                <td class="text-center" >{!! $query_arc->anocur !!}</td>
-                <td class="text-center" >{!! $query_arc->arc !!}</td>
+                <td class="text-center" >{!!($queryarccuerpo->codisr)!!}</td>
+                <td class="text-center" >{!!($queryarccuerpo->codper)!!}</td>
+                <td class="text-center" >{!! $queryarccuerpo->anocur !!}</td>
+                <td class="text-center" >{!! number_format($queryarccuerpo->arc, 2, ",", ".") !!}</td>
             </tr>
             @endforeach
              

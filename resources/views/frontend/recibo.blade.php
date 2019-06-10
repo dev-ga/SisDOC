@@ -60,28 +60,22 @@
         </div>
  </div>
 </nav>
-
-
 <div class="container">
-
     <div class="row justify-content-center mt-5">
         <div class="header-texto text-center mb-5">
             <h5>Por favor completa la siguiente informacion</h5>
             <hr>
-    </div>
-            
-        </header><!-- /header -->
+        </div>
         <div class="col-md-8">
             <form method="POST" action="{{ route('reciboPDF') }}"> 
                 
                 @csrf{{-- errores del formularios --}}
-
                 <div class="form-group "> 
                     <label for="Nombre">Codigo de Nomina</label>
                     <select name="codnom" id="codnom" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona la Nomina a Consultar --</option>
-                            @foreach($codnom as $codnom)
-                                <option value="{{ $codnom->codnom }}">{{ $codnom->desnom }}</option>
+                            @foreach($querypersonalnom as $querypersonalnom)
+                                <option value="{{ $querypersonalnom->codnom }}">{{ $querypersonalnom->desnom }}</option>
                             @endforeach
                     </select>
                 </div> 
@@ -90,8 +84,10 @@
                     <select name="codperi" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona el periodo de nomina --</option>
                             
-                                @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi_sigesp }}">{{ $codperi->descripción }}</option>
+                                @foreach($querynomper as $querynomper)
+                                
+                                
+                                <option value="{{ $querynomper->codperi }}">{{ $querynomper->fecdesper }} / {{ $querynomper->fechasper }}</option>
                                 @endforeach
                     </select>
                 </div>
@@ -109,29 +105,14 @@
                     <label for="date">Año en Curso</label>
                     <select name="date" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona el año en curso --</option>
-                            
-                                
                                 <option value="{{ $date }}">{{ $date }}</option>
-                            
-                            
-                            {{-- @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
-                            @endforeach --}}
                     </select>
                 </div>
-                <button class="btn btn-info btn-block my-2 mt-5" type="submit">GenerarPDF</button>
-
-                    
-                    </form>
-                
+                <button class="btn btn-info btn-block my-2 mt-5" type="submit">GenerarPDF</button> 
             </form>
         </div>
     </div>
-    
-
 </div>
-
-
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

@@ -26,20 +26,23 @@ class AuthController extends Controller
 
     protected function showLogin()
     {
+        
     	return view('auth.login');
     }
 
     protected function validateLogin(Request $request)
     {
+      
+
     	
         $credenciales = $this->validate(request(), [
 
             'cedula' => 'required|max:10',
-             // 'email'     => 'email|required|string',
-             'password'  => 'required|string|min:6|max:10'
+            'password'  => 'required|string|min:6|max:10'
 
-        ]); 
+        ]);
 
+       
 
     	if (Auth::attempt($credenciales)) 
     	{

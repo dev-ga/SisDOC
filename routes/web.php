@@ -44,6 +44,29 @@
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Rutas para el Reseteo de Password
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('auth/validacionemail', 'ReseteoPasswordController@index') -> name('validacion.email');
+
+
+// ruta paa validar que el email introducido sea en registrado en la base de datos
+
+Route::post('auth/validacion', 'ReseteoPasswordController@validacionemail') -> name('validacion');  
+
+Route::get('auth/reseteopassword', 'ReseteoPasswordController@registroform')->name('reseteopassword');
+
+Route::post('auth/updatepassword', 'ReseteoPasswordController@updatepassword')->name('updatepassword');
+
+/*Route::get('auth/reseteopassword', 'RegistroController@index')->name('reseteopassword');
+*/
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +134,11 @@
     Route::get('prueba', function () {
     return view('prueba');
     });
-
+/*
+    Route::get('validacioncorreo', function () {
+    return view('validacioncorreo');
+    });
+*/
 
 
 

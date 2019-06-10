@@ -12,7 +12,7 @@
 
 </head>
 <body class="viewport">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
         {{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
@@ -27,12 +27,12 @@
     {{-- fin --}}
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
-          <a class="nav-link text-white" href="{{ route('auth.login') }}">
+          <a class="nav-link  disabled " href="">
             <i class="fas fa-fingerprint">  Login</i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('auth.registrousuarios') }}">
+          <a class="nav-link  disabled" href="">
             <i class="fas fa-user-circle">  Registro</i>
             </a>
         </li>
@@ -40,46 +40,33 @@
     </div>
   </div>
 </nav>
-<div class="container">
-	<div class="content mx-auto">
-		<div class="row justify-content-center">
-			<div class="col-md-12">
-				<div class="card card-login">
-          <div class="card-header text-center card-header-login text-center-login">
-          <h4>Login</h4>
-          </div>
+<div class="container mt-5">
+  
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card card-login">
+          
             <div class="card-body card-body-login">
               
-              <form class="" method="POST" action="{{ route('authvalidate.login') }}">
+              <form class="" method="POST" action="{{ route('validacion') }}">
+
               @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
+              
               <div class="form-group">
-              <input type="text" name="cedula" id="cedula" value="{{ old('email') }}" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Cedula de Identidad">
-              {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
+              <input type="email" name="email" id="email" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Intraduzca de dirección de email">
+              {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
               </div>
-              <div class="form-group">
-              <input type="password" name="password" id="password" class="form-control form-control-sm form-control-sm-login form-control-login" placeholder="Password">
-              {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>' ) !!}
-              </div>
-              <!-- Sign in button -->
-              <button class="btn btn-info btn-block my-2 form-control-sm form-control-sm-login btn-login btn-info-login" type="submit">Entrar</button>
-              <div class="text-center mt-3">
-                <a href="{{ route('validacion.email') }}">Olvidaste tu password?</a>
-              </div>
+              <button class="btn btn-info btn-block my-2 form-control-sm form-control-sm-login btn-login btn-info-login" type="submit">Validar Email</button>
+              
               </form>
               
               
             </div>
          </div>
-			</div>
-		</div>
-	</div>	
-</div>
-<div class="container">
-	<footer class="page-footer font-small blue">
-    <div class="footer-copyright text-center pt-5 fuente">© 2019 SISDOC - FUNDEEH:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Todos los derechos reservados</a>
+      </div>
     </div>
-  </footer>
+   
+</div>
 </div>
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
