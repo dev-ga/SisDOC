@@ -140,6 +140,21 @@ Route::post('auth/updatepassword', 'ReseteoPasswordController@updatepassword')->
     });
 */
 
+// Check conexion con la dabse de datos mysql test...
+
+Route::get('conexiondb', function() {
+
+    try { DB::connection()->getPdo();
+    } 
+    catch (\Exception $e) {
+        dd($e);
+        // return view('frontend/404');
+    // die("Could not connect to the database. Please check your configuration."); 
+} 
+
+
+     
+    });
 
 
 

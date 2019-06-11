@@ -23,7 +23,12 @@ class ReciboController extends Controller
         
         // Para generar el codigo de personal
 
-        $codper = auth()->user()->cedula;
+        $codper_usu = auth()->user()->cedula;
+
+        // Completo con '0' a la izquierda hasta llegar a 10 caracteres
+        $codper = str_pad($codper_usu, 10, "0", STR_PAD_LEFT); 
+
+        // dd($codper);
 
         //Para seleccionar el codigo de la empresa directo de nuestra base de datos principal
 

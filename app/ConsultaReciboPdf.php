@@ -107,7 +107,7 @@ class ConsultaReciboPdf extends Model
     {
     	$query_personalnomina = "select sno_nomina.codnom, sno_nomina.desnom, sno_nomina.racnom, sno_personalnomina.codper 
                    				from sno_nomina inner join sno_personalnomina on sno_nomina.codnom = sno_personalnomina.codnom 
-                   				and sno_personalnomina.codper = '00$codper' and sno_nomina.racnom = '1' order by codnom asc";
+                   				and sno_personalnomina.codper = '$codper' and sno_nomina.racnom = '1' order by codnom asc";
 
         $query_personalnomina = DB::connection('sigesp')->select($query_personalnomina);
 
@@ -120,7 +120,7 @@ class ConsultaReciboPdf extends Model
     	$query_nominaperiodo = "select sno_periodo.codnom, sno_periodo.codperi,sno_periodo.fecdesper, sno_periodo.fechasper, sno_periodo.cerper, sno_personalnomina.codper, sno_nomina.racnom
                 				from sno_periodo inner join sno_personalnomina on sno_periodo.codnom = sno_personalnomina.codnom 
                 				inner join sno_nomina on sno_periodo.codnom = sno_nomina.codnom
-                				and sno_personalnomina.codper = '00$codper' and sno_periodo.cerper = '1' and sno_nomina.racnom = '1' order by codperi asc";
+                				and sno_personalnomina.codper = '$codper' and sno_periodo.cerper = '1' and sno_nomina.racnom = '1' order by codperi asc";
 
         $query_nominaperiodo = DB::connection('sigesp')->select($query_nominaperiodo);
 
