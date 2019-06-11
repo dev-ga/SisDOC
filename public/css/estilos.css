@@ -331,6 +331,25 @@ src: url('{{ asset('fonts/RalewayExtraLight.ttf') }}');
     color: white;
 }
 
+.card-ui-error{
+    border: none;
+}
+
+.card-title-ui-error{
+    color: red;
+}
+
+.btn-text-red{
+  color: red;
+  border: 0;
+}
+
+.btn-text-red:hover{
+  color: red;
+  border: solid 0.2rem red;
+  
+}
+
 
 
 

@@ -19,26 +19,30 @@
 </style>
 </head>
 <body>
-	<div class="content">
+	{{-- <div class="content"> --}}
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-4">
-					<div class="card text-center card-ui">
+				<div class="col-md-6">
+					<div class="card text-center card-ui-error">
   <div class="card-body">
-  	<h3 class="card-title text-white card-title-ui"><strong>Registro Satisfactorio</strong></h3>
-    <p class="card-text text-white mb-4">Bienvenido</p>
+  	<h1 class="card-title card-title-ui-error mt-5"><strong>404 ERROR</strong></h1>
+    {{-- <p class="card-text text-white mb-4">Bienvenido</p> --}}
   </div>
-  <span><i class="fas fa-check-circle fas-check fa-check-circle-ui"></i></span>
+  {{-- <span><i class="fas fa-check-circle fas-check fa-check-circle-ui"></i></span> --}}
+  <img class="img-fluid" src="http://flyonlineshopping.com/wp-content/uploads/2018/11/empty_codecyan.png" alt="images">
   <div class="card-body">
-  	<a href="{{ route('auth.login') }}" class="btn-block btn btn-primary btn-lg-ui bg-white btn-text-green mt-4">Login</a>
+    <p>La dirección de correo introducida no se encuentra registrada en nuestra base de datos</p>
+    <p>POR FAVOR CONTECTE CON EL ADMINISTRADOR DE SISTEMA</p>
+  	<a href="{{ route('auth.login') }}" class="btn-block btn btn-primary btn-lg-ui bg-white btn-text-red mt-5">Volver al inicio</a>
     {{-- <button type="button" class="btn-block btn btn-primary btn-lg-ui bg-white btn-text-green mt-4">Login</button> --}}
   </div>
+  
 </div>
 				</div>
 			</div>
 		</div>
-	</div>
-
+	{{-- </div>
+ --}}
 
 
 

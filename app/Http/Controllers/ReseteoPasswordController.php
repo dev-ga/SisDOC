@@ -44,7 +44,7 @@ class ReseteoPasswordController extends Controller
             
        }
 
-       return "malo";
+       return view('frontend/404');
 
 
     }
