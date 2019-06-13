@@ -147,14 +147,30 @@ Route::get('conexiondb', function() {
     try { DB::connection()->getPdo();
     } 
     catch (\Exception $e) {
-        dd($e);
-        // return view('frontend/404');
+
+        dd($e->getcode());
+        
+        }
+
+        
     // die("Could not connect to the database. Please check your configuration."); 
-} 
+});
 
+/*Route::get('admin', function () {
+    return view('admin');
+    });*/
 
-     
+Route::get('admin', 'AdminController@totalusuarios',function () {
+    return view('admin/admin');
     });
+
+Route::get('actualiza', 'AdminController@actualizausuario') -> name('actualiza');
+Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
+
+
+/*Route::get('admin', 'AdminController@estatusconexion',function () {
+    return view('admin');
+    });*/
 
 
 

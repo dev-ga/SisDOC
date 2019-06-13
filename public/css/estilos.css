@@ -350,6 +350,26 @@ src: url('{{ asset('fonts/RalewayExtraLight.ttf') }}');
   
 }
 
+.icon-user{
+  
+  font-size: 4rem;
+  /*margin-left: 40px;*/
+  color: #fff;
+  text-shadow: 2px 2px 2px black;
+      margin-top: 1.5rem;
+}
+
+.total{
+  /*margin-top: 25%;*/
+  font-size: 4rem;
+  color: #03030366;
+  margin-top: 1.5rem;
+}
+
+.card-title-ui{
+  margin-bottom: 0;
+  font-size: 1rem;
+}
 
 
 
