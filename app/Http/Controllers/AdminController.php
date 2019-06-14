@@ -69,7 +69,8 @@ class AdminController extends Controller
 
     {
         $usuario = Usuario::find($id);
-        dd($usuario);
+        $usuario->delete();
+        return view();
     }
 
     

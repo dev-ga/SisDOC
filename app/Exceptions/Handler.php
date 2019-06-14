@@ -46,6 +46,31 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+
+        // /*if ($exception->getStatusCode() == 1062) {
+        //     /*dd($exception);*/
+        //     return response()->view('errors.custom', [], 1062);
+        //     return response()->json(['error' => 'token is expired'], 1062);
+        // }*/
+
+        //     return parent::render($request, $exception);
+        //     
+        //     
+        //     
+        //     Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException
+        /*if ($exception instanceof Illuminate\Database\QueryException) {
+            return response()->view('errors.custom', [], 23000);
+            return response()->json(['error' => 'token is expired'], 1062);
+        }*/
+
+return parent::render($request, $exception);
+            /*dd($request, $exception);*/
+
+
+
+
+        
     }
+
+   
 }

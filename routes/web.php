@@ -175,6 +175,12 @@ Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('e
 
 
 
+    // Exception routes
+Route::get('exception/index', 'ExceptionController@index');
+
+
+
+
 
     
 

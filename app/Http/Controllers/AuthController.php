@@ -31,7 +31,21 @@ class AuthController extends Controller
     }
 
     protected function validateLogin(Request $request)
+
     {
+
+    //     if ($exception instanceof CustomException) {
+    //     return response()->view('frontend.404', [], 500);
+    // }
+    // Excepcion producida por 
+    // try { DB::connection()->getPdo();
+    // } 
+    // catch (\Exception $e) {
+
+    //     dd($e->getmessage());
+    //     // dd($e);
+        
+    //     }
       
 
     	

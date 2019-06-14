@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use App\Organizacion;
 use App\Usuario;
 
+use Exception;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+
 
 
 class RegistroController extends Controller
@@ -25,6 +28,7 @@ class RegistroController extends Controller
         
     }
 
+
     protected function registrousuario(Request $request)
     /*protected function registrousuario(RegristoUsuarios $request)*/
 
@@ -33,7 +37,7 @@ class RegistroController extends Controller
 
         /*dd($request);*/
 
-        
+   /*try{*/
 
     
         $validacion = validator::make($request->all(),
@@ -54,6 +58,7 @@ class RegistroController extends Controller
             return redirect('/auth/registrousuarios')->withInput()->withErrors($validacion);
         }
       
+      try{
 
         $usuarios = array(
             
@@ -68,10 +73,27 @@ class RegistroController extends Controller
 
         Usuario::create($usuarios);
 
+        
         return view('frontend.registroOK');
 
-        
+        }
+
+        catch (Exception $exception)
+        {
+            /*dd ($exception);*/
+            return view('errors.custom');
+        }
+      
         
     }
 
 }
+
+
+
+
+        /*catch (Exception $e) {
+            throw new QueryException(
+                $query, $this->prepareBindings($bindings), $e
+            );
+        }*/
