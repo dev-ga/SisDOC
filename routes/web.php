@@ -179,6 +179,26 @@ Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('e
 Route::get('exception/index', 'ExceptionController@index');
 
 
+/*
+|--------------------------------------------------------------------------
+| Rutas para administración
+|--------------------------------------------------------------------------
+|
+*/
+
+
+Route::get('listar-usuarios', 'AdminController@listausuarios') -> name('listar-usuarios');
+
+Route::get('listar-empresas', 'AdminController@listaempresas') -> name('listar-empresas');
+
+Route::get('listar-nominas', 'AdminController@listanominas') -> name('listar-nominas');
+
+
+
+Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
+
+
+
 
 
 

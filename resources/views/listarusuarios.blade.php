@@ -42,9 +42,8 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('listar-usuarios') }}">Periodos Cerrados</a>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('arc.form') }}">Eliminar Usuario</a>
-      </li> --}}
+   
+      
       
     </ul>
     {{-- fin menu principal --}}
@@ -52,21 +51,53 @@
         </div>
  </div>
 </nav>
+
+
 <section>
     
 
 <div class="container-fluid">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-12">
-            <div class="titulo">
-                <p>SISDOC - Administración</p>
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                
+  <thead class="thead-dark">
+    <tr> <!-- encabezado de tabla -->
+               <td colspan="8" class="text-center bg-dark text-white">Usuarios Registrados</td> 
+            </tr>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actualizar</th>
+      <th scope="col">Eliminar</th>
+
+    </tr>
+  </thead>
+  @foreach ($usuarios as $usuario)
+
+  <tbody>
+    <tr>
+      <th scope="row">{{ $usuario->id }}</th>
+      <td>{{ $usuario->nombre }}</td>
+      <td>{{ $usuario->apellido }}</td>
+      <td>{{ $usuario->cedula }}</td>
+      <td>{{ $usuario->email }}</td>
+      <td> <a href="" class="btn btn-outline-success">Actualizar</a></td> 
+      <td> <a href="{{ route('eliminarusuario', $usuario->id) }}" class="btn btn-outline-danger">Eliminar</a></td> 
+    </tr>
+  </tbody>
+
+  @endforeach
+</table>
+{{-- {{ $usuario->render() }} --}}
         </div>
-            </div>  
-            
-          
+ 
     </div>
 </div>
-</section>
+
 
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>

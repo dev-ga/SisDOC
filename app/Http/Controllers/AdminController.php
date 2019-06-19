@@ -56,10 +56,33 @@ class AdminController extends Controller
 
     
     
-    public function actualizausuario()
+    public function listausuarios()
     {
         $usuarios = Usuario::all();
-        return view('actualiza')->with('usuarios', $usuarios);
+        return view('listarusuarios')->with('usuarios', $usuarios);
+    }
+
+    public function listaempresas()
+    {
+        $orga = Organizacion::all();
+        return view('listarempresas')->with('orga', $orga);
+    }
+
+    public function listanominas()
+    {
+        $querynominas = "select * from sno_nomina where racnom = '1' order by codnom";
+        $querynominas = DB::connection('sigesp')->select($querynominas);
+        $totalnominas = count($querynominas);
+        return view('listarnominas')->with('querynominas', $querynominas);
+    }
+
+    public function periodoscerrados()
+    {
+        $queryperiodos = "select distinct sno_periodo.fecdesper, sno_periodo.fechasper, sno_nomina.racnom
+                        from sno_periodo inner join sno_nomina on sno_periodo.codnom = sno_nomina.codnom
+                        and sno_periodo.cerper = '1' and sno_nomina.racnom = '1'";
+        $queryperiodos = DB::connection('sigesp')->select($queryperiodos);
+        return view('listarusuarios')->with('queryperiodos', $queryperiodos);
     }
 
 
@@ -70,7 +93,7 @@ class AdminController extends Controller
     {
         $usuario = Usuario::find($id);
         $usuario->delete();
-        return view();
+        return view('listarusuarios');
     }
 
     

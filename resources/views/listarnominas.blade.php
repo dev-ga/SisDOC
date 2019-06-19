@@ -42,9 +42,8 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('listar-usuarios') }}">Periodos Cerrados</a>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('arc.form') }}">Eliminar Usuario</a>
-      </li> --}}
+   
+      
       
     </ul>
     {{-- fin menu principal --}}
@@ -52,23 +51,48 @@
         </div>
  </div>
 </nav>
+
+
 <section>
     
 
 <div class="container-fluid">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-12">
-            <div class="titulo">
-                <p>SISDOC - Administración</p>
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                
+  <thead class="thead-dark">
+    <tr> <!-- encabezado de tabla -->
+               <td colspan="8" class="text-center bg-dark text-white">Usuarios Registrados</td> 
+            </tr>
+    <tr>
+      <th scope="col">Codigo Empresa</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      
+      
+
+    </tr>
+  </thead>
+  @foreach ($querynominas as $nominas)
+
+  <tbody>
+    <tr>
+      <th scope="row">{{ $nominas->codemp }}</th>
+      <td>{{ $nominas->codnom }}</td>
+      <td>{{ $nominas->desnom }}</td>
+      
+      
+    </tr>
+  </tbody>
+
+  @endforeach
+</table>
+{{-- {{ $usuario->render() }} --}}
         </div>
-            </div>  
-            
-          
+ 
     </div>
 </div>
-</section>
-
-
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
