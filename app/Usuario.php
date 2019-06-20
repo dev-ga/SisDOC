@@ -10,7 +10,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Auth\Authenticatable;
 
 use App\Organizacion;
-use App\Nomina;
+use App\Pregunta;
+// use App\Nomina;
 
 class Usuario extends Model implements AuthenticatableContract
 {
@@ -21,7 +22,7 @@ class Usuario extends Model implements AuthenticatableContract
 
     protected $fillable = [
 
-        'nombre','apellido','cedula','email','password','organizacion_id',
+        'nombre','apellido','cedula','email','password','organizacion_id','pregunta_id', 'respuesta'
 
     ];
 
@@ -48,16 +49,16 @@ class Usuario extends Model implements AuthenticatableContract
     }
 
     /**
-     * Relaciones entre nominas y usuarios.
+     * Relaciones entre pregunta y usuarios.
      *
-     *  N a M
+     *  1 a N
      * 
      * @var array
      */
     
-    public function nominas()
+    public function pregunta()
     {
-        return $this->belongsToMany('App\Nomina', 'nomina_id');
+        return $this->belongsTo('App\Pregunta');
     }
 
 

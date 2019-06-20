@@ -19,13 +19,17 @@ class CreateUsuariosTable extends Migration
             $table->string('apellido');
             $table->string('cedula')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            
             $table->string('password');
-            $table->rememberToken();
+            
             //Llaves Foraneas
             $table->integer('organizacion_id')->unsigned();
+            $table->integer('pregunta_id')->unsigned();
+            $table->string('respuesta');
+
             //Relaciones
             $table->foreign('organizacion_id')->references('id')->on('organizaciones')->onDelete('cascade');
+            $table->foreign('pregunta_id')->references('id')->on('preguntas')->onDelete('cascade');
             $table->timestamps();
         });
     }

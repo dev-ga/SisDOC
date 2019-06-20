@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Organizacion;
 use App\Usuario;
+use App\Pregunta;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -23,8 +24,9 @@ class RegistroController extends Controller
     {
 
         $organizacion = Organizacion::all();
+        $pregunta = Pregunta::all();
         
-        return view('auth.registrousuarios', compact('organizacion'));
+        return view('auth.registrousuarios', compact('organizacion', 'pregunta'));
         
     }
 
@@ -42,12 +44,14 @@ class RegistroController extends Controller
     
         $validacion = validator::make($request->all(),
             [
-                'nombre' => 'required|max:50',
-                'apellido' => 'required|max:50',
-                'cedula' => 'required|max:10',
-                'organizacion_id' => 'required|max:1',
-                'email' => 'email|unique:usuarios',
-                'password'=> 'required|min:6|max:10'
+                'nombre'            => 'required|max:50',
+                'apellido'          => 'required|max:50',
+                'cedula'            => 'required|max:10',
+                'organizacion_id'   => 'required|max:1',
+                'email'             => 'email|unique:usuarios',
+                'password'          => 'required|min:6|max:10',
+                'pregunta_id'       =>'required|max:1',
+                'respuesta'         =>'required|max:50'
 
             ]);
     
@@ -58,16 +62,18 @@ class RegistroController extends Controller
             return redirect('/auth/registrousuarios')->withInput()->withErrors($validacion);
         }
       
-      try{
+    //   try{
 
         $usuarios = array(
             
-            'nombre' => $request->nombre,
-            'apellido' => $request->apellido,
-            'cedula' => $request->cedula,
-            'organizacion_id' => $request->organizacion_id,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'nombre'            => $request->nombre,
+            'apellido'          => $request->apellido,
+            'cedula'            => $request->cedula,
+            'organizacion_id'   => $request->organizacion_id,
+            'email'             => $request->email,
+            'password'          => bcrypt($request->password),
+            'pregunta_id'       =>$request->pregunta_id,
+            'respuesta'         =>$request->respuesta
             //'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
             );
 
@@ -78,16 +84,16 @@ class RegistroController extends Controller
 
         }
 
-        catch (Exception $exception)
-        {
-            /*dd ($exception);*/
-            return view('errors.custom');
-        }
+        // catch (Exception $exception)
+        // {
+        //     /*dd ($exception);*/
+        //     return view('errors.custom');
+        // }
       
         
     }
 
-}
+// }
 
 
 

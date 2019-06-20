@@ -87,6 +87,7 @@
                     {!! $errors->first ('organizacion_id', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
 
+                    
 
                     <!-- email -->
                     <div class="form-group  mb-2">
@@ -101,6 +102,26 @@
                         <label for="password" class="titulolabel">Password</label>
                     <input name="password" type="password" id="password" class="form-control form-control-registro ">
                     {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+                    </div>
+
+                    <!-- Preguntas -->
+                    <div class="form-group  mb-2"> 
+                        <label for="pregunta" class="titulolabel">Pregunta de seguridad</label>
+
+                    <select name="pregunta_id" class="form-control form-control-registro ">
+                        <option value="">-- Perteneces a...? --</option>
+                            @foreach($pregunta as $pregunta)
+                                <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
+                            @endforeach
+                    </select>
+                    {!! $errors->first ('pregunta_id', '<span class="badge badge-danger">:message</span>') !!}
+                    </div>
+
+                    <!-- respuesta -->
+                    <div class="form-group  mb-2">
+                        <label for="respuesta" class="titulolabel">Respuesta de Seguridad</label>
+                    <input name="respuesta" type="text" id="respuesta" class="form-control form-control-registro ">
+                    {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
 
 

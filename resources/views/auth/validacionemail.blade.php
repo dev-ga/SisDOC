@@ -51,11 +51,31 @@
               <form class="" method="POST" action="{{ route('validacion') }}">
 
               @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
-              
+
+              {{--  cedula  --}}
               <div class="form-group">
-              <input type="email" name="email" id="email" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Intraduzca de dirección de email">
-              {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
-              </div>
+                <input type="text" name="cedula" id="cedula" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Introduzca su cedula sin (.) ni (,)">
+                {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
+                </div>
+              
+              {{--  Preguntas  --}}
+              <div class="form-group  mb-2"> 
+                <label for="pregunta" class="titulolabel">Pregunta de seguridad</label>
+
+            <select name="pregunta_id" class="form-control form-control-registro ">
+                <option value="">-- Perteneces a...? --</option>
+                    @foreach($pregunta as $pregunta)
+                        <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
+                    @endforeach
+            </select>
+            {!! $errors->first ('pregunta_id', '<span class="badge badge-danger">:message</span>') !!}
+            </div>
+
+              {{--  Respuesta  --}}
+              <div class="form-group">
+                <input type="text" name="respuesta" id="respuesta" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Introduzca su respuesta">
+                {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
+                </div>
               <button class="btn btn-info btn-block my-2 form-control-sm form-control-sm-login btn-login btn-info-login" type="submit">Validar Email</button>
               
               </form>

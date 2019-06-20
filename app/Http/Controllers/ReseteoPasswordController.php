@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Usuario;
+use App\Pregunta;
 use DB;
 
 class ReseteoPasswordController extends Controller
@@ -18,33 +19,45 @@ class ReseteoPasswordController extends Controller
     
     public function index()
     {
-        return view('auth.validacionemail');
+        $pregunta = Pregunta::all();
+        return view('auth.validacionemail', compact('pregunta'));
     }
 
 
 
     public function validacionemail(Request $request)
     {
-        $email = $request->input("email");
-        // dd($email);
         
-       $users = DB::table('usuarios')->where('email', '=', $email)->get();
-       // dd($users);
-       
-       foreach ($users as $key) 
-       {
-            $result = $key->email;
-     
-            if ($result == $email)
-            {
-                $usuario = DB::table('usuarios')->where('email', '=', $email)->get();
-                // dd($usuario);
-                return view('auth.reseteopassword')->with('usuario', $usuario);
-            }
-            
-       }
 
-       return view('frontend/404');
+        $pregunta_id = $request->input("pregunta_id");
+        $respuesta = $request->input("respuesta");
+
+        dd($pregunta_id, $respuesta);
+        
+        
+        
+        
+        
+    //     $email = $request->input("email");
+    //     // dd($email);
+        
+    //    $users = DB::table('usuarios')->where('email', '=', $email)->get();
+    //    // dd($users);
+       
+    //    foreach ($users as $key) 
+    //    {
+    //         $result = $key->email;
+     
+    //         if ($result == $email)
+    //         {
+    //             $usuario = DB::table('usuarios')->where('email', '=', $email)->get();
+    //             // dd($usuario);
+    //             return view('auth.reseteopassword')->with('usuario', $usuario);
+    //         }
+            
+    //    }
+
+    //    return view('frontend/404');
 
 
     }
