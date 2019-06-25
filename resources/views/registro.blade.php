@@ -56,7 +56,7 @@
                             <!-- Nombre -->
                             
                             <div class="form-group input mb-2">
-                                  <label for="nombre" class="titulolabel">Nombre</label>
+                                  <label for="cedula" class="titulolabel">Nombre</label>
                             <input name="nombre" type="text" id="nombre" class="form-control input-style icon"   placeholder="&#xf007;">
                             {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                               
@@ -66,16 +66,16 @@
                             <div class="form-group  mb-2">
                                 <label for="cedula" class="titulolabel">Cedula</label>
                             <input name="cedula" type="text" id="cedula" class="form-control input-style icon"  placeholder="&#xf2c2;">
-                            {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
+                            {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                                 
                           </div> 
                             
                             <!-- Email -->
                             <div class="form-group  mb-2">
-                                <label for="email" class="titulolabel">Correo</label>
+                                <label for="nombre" class="titulolabel">Correo</label>
                                 
-                            <input name="email" type="email" id="email" class="form-control input-style icon"  placeholder="&#xf1fa;">
-                            {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
+                            <input name="nombre" type="text" id="nombre" class="form-control input-style icon"  placeholder="&#xf1fa;">
+                            {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                                 
                           </div>
 
@@ -115,16 +115,16 @@
 
                             <!-- Password -->
                             <div class="form-group  mb-2">
-                                <label for="password" class="titulolabel">Password</label>
-                            <input name="password" type="password" id="password" class="form-control input-style icon"  placeholder="&#xf084">
-                            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+                                <label for="apellido" class="titulolabel">Password</label>
+                            <input name="apellido" type="text" id="apellido" class="form-control input-style icon"  placeholder="&#xf084">
+                            {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
 
                             <!-- Respuesta -->
                             <div class="form-group  mb-2">
-                                <label for="respuesta" class="titulolabel">Respuesta</label>
-                            <input name="respuesta" type="text" id="nombre" class="form-control input-style icon"  placeholder="&#xf09c">
-                            {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
+                                <label for="nombre" class="titulolabel">Respuesta</label>
+                            <input name="nombre" type="text" id="nombre" class="form-control input-style icon"  placeholder="&#xf09c">
+                            {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
                         </div>
                         

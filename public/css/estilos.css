@@ -159,8 +159,8 @@
 
 .btn-info-registro:hover {
     color: white;
-    background-color: #3948d5;
-    border-color: #3948d5;
+    background-color: #00ac2b; 
+    border-color: #00ac2b;
 }
 
 .card-registro {
@@ -273,28 +273,7 @@ background-color: #fff;
     padding: 0.1rem;
 }
 
-.imagen{
-  /* Location of the image */
-  background-image: url(https://stmed.net/sites/default/files/rocket-wallpapers-30843-8309322.png);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
-  
-  /* Set a background color that will be displayed
-     while the background image is loading */
-  background-color: #464646;
-}
+
 
 .fa-check-circle-ui{
   color: white;
@@ -368,8 +347,106 @@ src: url('{{ asset('fonts/RalewayExtraLight.ttf') }}');
 
 .card-title-ui{
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 0.5rem;
 }
+
+.input{
+  position: relative;
+}
+
+.input-style:focus{
+  border: none;
+  border-bottom: 1px solid #006ad4;
+
+  box-shadow: none;
+
+}
+
+.input-style{
+ 
+  /* box-shadow: none; */
+  
+  border: none;
+      /* border-bottom-width: medium; */
+      /* border-bottom-style: none; */
+      /* border-bottom-color: currentcolor; */
+      /* border-radius: none; */
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+
+  margin-bottom: 1rem;
+  padding: 0;
+  
+  
+}
+
+.titulolabel{
+  margin-bottom: 0;
+  color: #000205;
+  font-size: 0.9rem;
+}
+
+.icon::placeholder{
+  color: #6c757d4d;
+  opacity: 1;
+    
+}
+
+.icon{
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-size: 1.2rem;
+    
+}
+
+select {
+ 
+  background-image: url('https://shop-static.afterbuy.de/images/mobile/btn_arrow_down.png'); /*aquí deberás escribir la ruta de la imagen que utilizarás como flecha del desplegable*/
+ 
+  background-position: right;
+  background-repeat: no-repeat;
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  opacity: 0.5;
+
+  }
+
+  .imagen{
+    /* Location of the image */
+    background-image: url(https://www.barraques.cat/pngfile/big/45-450269_1920x1080-minimalism-desktop-background-hd-wallpaper-minimalist-forest.jpg);
+    
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+
+    /* opacity: 0.5; */
+  }
+
+
+
+
+
+
+
+
+
 
 
 

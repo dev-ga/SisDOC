@@ -200,6 +200,10 @@ Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('e
 
 
 
+Route::get('prueba', function () {
+    return view('registro');
+    });
+
 
 
     
