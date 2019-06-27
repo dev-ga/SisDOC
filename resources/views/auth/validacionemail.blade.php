@@ -10,12 +10,14 @@
 <link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
 
+
+
 </head>
-<body class="viewport">
+<body class="viewport imagen">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-        {{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
+        <img class="img-fluid" src="asset('images/logofundeeh.png')" alt="">
           SISDOC
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,36 +53,32 @@
               <form class="" method="POST" action="{{ route('validacion') }}">
 
               @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
-
-              {{--  cedula  --}}
               <div class="form-group">
-                <input type="text" name="cedula" id="cedula" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Introduzca su cedula sin (.) ni (,)">
+                  <label for="cedula" class="titulolabel">Cedula</label>
+                <input type="text" name="cedula" id="cedula" class="form-control form-control-sm form-control-sm-login form-control-login input-style ">
                 {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
                 </div>
-              
+
               {{--  Preguntas  --}}
               <div class="form-group  mb-2"> 
-                <label for="pregunta" class="titulolabel">Pregunta de seguridad</label>
-
-            <select name="pregunta_id" class="form-control form-control-registro ">
-                <option value="">-- Perteneces a...? --</option>
+              <label for="pregunta" class="titulolabel">Pregunta de seguridad</label>
+              <select name="pregunta_id" class="form-control input-style ">
+              <option value="">-- Selecciona tu pregunta de Seguridad...? --</option>
                     @foreach($pregunta as $pregunta)
                         <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
                     @endforeach
-            </select>
-            {!! $errors->first ('pregunta_id', '<span class="badge badge-danger">:message</span>') !!}
-            </div>
+              </select>
+              {!! $errors->first ('pregunta_id', '<span class="badge badge-danger">:message</span>') !!}
+              </div>
 
-              {{--  Respuesta  --}}
+            {{--  Respuesta  --}}
               <div class="form-group">
-                <input type="text" name="respuesta" id="respuesta" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Introduzca su respuesta">
+                  <label for="pregunta" class="titulolabel">Respuesta</label>
+                <input type="text" name="respuesta" id="respuesta" class="form-control form-control-sm form-control-sm-login form-control-login input-style mb-5 " >
                 {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
                 </div>
-              <button class="btn btn-info btn-block my-2 form-control-sm form-control-sm-login btn-login btn-info-login" type="submit">Validar Email</button>
-              
-              </form>
-              
-              
+              <button class="btn btn-info btn-block my-2 form-control-sm form-control-sm-login btn-login btn-info-login" type="submit">Validar</button>
+              </form>            
             </div>
          </div>
       </div>

@@ -49,18 +49,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-sm-10 ">
             <div class="card card-registro mt-4">
-               <form class="p-4" method="POST" action="{{ route('authvalidate.registro') }}">
-                {{-- {{ csrf_field() }} --}}
+                    @foreach ($usuario as $item)
+               <form class="p-4" method="POST" action="{{ route('actualizarusuario', $item->id) }}">
                 @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
-
                    <div class="row">
+                        
                        
                            <div class="col-md-6">
                             <!-- Nombre -->
                             
                             <div class="form-group input mb-2">
                                   <label for="nombre" class="titulolabel">Nombre</label>
-                            <input name="nombre" type="text" id="nombre" class="form-control input-style icon"   placeholder="&#xf007;">
+                            <input name="nombre" type="text" id="nombre" class="form-control input-style icon" value="{{ $item->nombre }}">
                             {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                               
                           </div>
@@ -68,7 +68,7 @@
                             <!-- Cedula -->
                             <div class="form-group  mb-2">
                                 <label for="cedula" class="titulolabel">Cedula</label>
-                            <input name="cedula" type="text" id="cedula" class="form-control input-style icon"  placeholder="&#xf2c2;">
+                            <input name="cedula" type="text" id="cedula" class="form-control input-style icon" value="{{ $item->cedula }}" >
                             {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
                                 
                           </div> 
@@ -77,64 +77,56 @@
                             <div class="form-group  mb-2">
                                 <label for="email" class="titulolabel">Correo</label>
                                 
-                            <input name="email" type="email" id="email" class="form-control input-style icon"  placeholder="&#xf1fa;">
+                            <input name="email" type="email" id="email" class="form-control input-style icon" value="{{ $item->email }}">
                             {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
                                 
                           </div>
 
                             <!-- Pregunta de Seguridad -->
                             <div class="form-group  mb-2">
-                                <label for="pregunta_id" class="titulolabel">Pregunta de Seguridad</label>
-                            {{--  <input name="apellido" type="text" id="apellido" class="form-control input-style icon"  placeholder="&#xf1ad">
-                            {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
-                            </div>  --}}
-                            <select name="pregunta_id" class="form-control input-style icon" placeholder="&#xf1fa;">
-                                <option value=""></option>
-                                @foreach($pregunta as $pregunta)
-                                <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
-                            @endforeach
-                            </select>
-                          </div>
+                                    <label for="pregunta_id" class="titulolabel">Pregunta - ID</label>
+                                    
+                                <input name="pregunta_id" type="text" id="pregunta_id" class="form-control input-style icon" value="{{ $item->pregunta_id }}" placeholder="&#xf1fa;">
+                                {!! $errors->first ('email', '<span class="badge badge-danger">:message</span>') !!}
+                                    
+                              </div>
                            </div>
                            <div class="col-md-6">
                             <!-- Apellido -->
                             <div class="form-group  mb-2">
                                 <label for="apellido" class="titulolabel">Apellido</label>
-                            <input name="apellido" type="text" id="apellido" class="form-control input-style icon"  placeholder="&#xf0c0">
+                            <input name="apellido" type="text" id="apellido" class="form-control input-style icon" value="{{ $item->apellido }}" placeholder="&#xf0c0">
                             {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
 
                             <!-- Organizacion -->
                             <div class="form-group  mb-2">
-                                <label for="organizacion_id" class="titulolabel">Organización</label>
-                            
-                            <select name="organizacion_id" class="form-control input-style icon">
-                                <option value=""></option>
-                                    @foreach($organizacion as $organizacion)
-                                        <option value="{{ $organizacion->id }}">{{ $organizacion->descripcion_sigesp }}</option>
-                                    @endforeach
-                            </select>
-                          </div>
+                                    <label for="organizacion_id" class="titulolabel">Organizacion - ID</label>
+                                <input name="organizacion_id" type="text" id="organizacion_id" class="form-control input-style icon" value="{{ $item->organizacion_id }}" placeholder="&#xf0c0">
+                                {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
+                                </div>
 
                             <!-- Password -->
                             <div class="form-group  mb-2">
                                 <label for="password" class="titulolabel">Password</label>
-                            <input name="password" type="password" id="password" class="form-control input-style icon"  placeholder="&#xf084">
+                            <input name="password" type="password" id="password" class="form-control input-style icon" value="{{ $item->password }}" placeholder="&#xf084">
                             {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
 
                             <!-- Respuesta -->
                             <div class="form-group  mb-2">
                                 <label for="respuesta" class="titulolabel">Respuesta</label>
-                            <input name="respuesta" type="text" id="nombre" class="form-control input-style icon"  placeholder="&#xf09c">
+                            <input name="respuesta" type="text" id="nombre" class="form-control input-style icon" value="{{ $item->respuesta }}" placeholder="&#xf09c">
                             {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
                         </div>
+                        @endforeach
                     <!-- Sign in button -->
-                    <button class="btn btn-info btn-block my-2 btn-registro btn-info-registro" type="submit">Registrar</button>
+                    <button class="btn btn-info btn-block my-2 btn-registro btn-info-registro" type="submit">Actualizar Usuario</button>
 
 
                 </form>
+               
               </div>
         </div>
     </div>

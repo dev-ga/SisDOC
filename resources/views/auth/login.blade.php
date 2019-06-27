@@ -15,8 +15,8 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-        {{-- <img class="img-fluid" src="{{ asset('images/logo_fundeeh.png') }}" alt=""> --}} {{-- logo de fundeeh en formato png --}}
-          SISDOC
+        <img class="img-fluid" src="{{ asset('images/sisdoc.png') }}" alt="" width="95px">
+          
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -46,18 +46,20 @@
 			<div class="col-md-12">
 				<div class="card card-login">
           <div class="card-header text-center card-header-login text-center-login">
-          <h4>Login</h4>
+              <img class="img-fluid mt-3 mb-4" src="{{ asset('images/logofundeeh.png') }}" alt="" width="150px">
+          {{--  <h5>Login</h5>  --}}
           </div>
+          
             <div class="card-body card-body-login">
               
               <form class="" method="POST" action="{{ route('authvalidate.login') }}">
               @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
               <div class="form-group">
-              <input type="text" name="cedula" id="cedula" value="{{ old('email') }}" class="form-control form-control-sm form-control-sm-login form-control-login " placeholder="Cedula de Identidad">
+              <input type="text" name="cedula" id="cedula" value="{{ old('email') }}" class="form-control form-control-sm form-control-sm-login form-control-login input-style" placeholder="Cedula de Identidad">
               {!! $errors->first ('cedula', '<span class="badge badge-danger">:message</span>') !!}
               </div>
               <div class="form-group">
-              <input type="password" name="password" id="password" class="form-control form-control-sm form-control-sm-login form-control-login" placeholder="Password">
+              <input type="password" name="password" id="password" class="form-control form-control-sm form-control-sm-login form-control-login input-style" placeholder="Password">
               {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>' ) !!}
               </div>
               <!-- Sign in button -->
@@ -77,7 +79,7 @@
 <div class="container">
 	<footer class="page-footer font-small blue">
     <div class="footer-copyright text-center pt-5 fuente">© 2019 SISDOC - FUNDEEH:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Todos los derechos reservados</a>
+    <a href="https://mdbootstrap.com/education/bootstrap/"> Todos los derechos reservados - <em>Desarrollado por: @Otic-Fundeeh</em> </a>
     </div>
   </footer>
 </div>

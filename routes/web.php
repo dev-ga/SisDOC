@@ -56,11 +56,11 @@ Route::get('auth/validacionemail', 'ReseteoPasswordController@index') -> name('v
 
 // ruta paa validar que el email introducido sea en registrado en la base de datos
 
-Route::post('auth/validacion', 'ReseteoPasswordController@validacionemail') -> name('validacion');  
+Route::post('auth/validacion', 'ReseteoPasswordController@validacionpregunta') -> name('validacion');  
 
 Route::get('auth/reseteopassword', 'ReseteoPasswordController@registroform')->name('reseteopassword');
 
-Route::post('auth/updatepassword', 'ReseteoPasswordController@updatepassword')->name('updatepassword');
+Route::post('auth/update', 'ReseteoPasswordController@updatepassword')->name('update');
 
 /*Route::get('auth/reseteopassword', 'RegistroController@index')->name('reseteopassword');
 */
@@ -194,7 +194,8 @@ Route::get('listar-empresas', 'AdminController@listaempresas') -> name('listar-e
 Route::get('listar-nominas', 'AdminController@listanominas') -> name('listar-nominas');
 
 
-
+Route::get('editarusuario/{id}', 'AdminController@editarusuario') -> name('editarusuario');
+Route::post('actualizarusuario/{id}', 'AdminController@actualizausuario')->name('actualizarusuario');
 Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
 
 

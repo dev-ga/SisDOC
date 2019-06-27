@@ -25,40 +25,30 @@ class ReseteoPasswordController extends Controller
 
 
 
-    public function validacionemail(Request $request)
+    public function validacionpregunta(Request $request)
     {
         
-
+        $cedula = $request->input("cedula");
         $pregunta_id = $request->input("pregunta_id");
         $respuesta = $request->input("respuesta");
+        $usuario = Usuario::all()->where('cedula','=',$cedula);
 
-        dd($pregunta_id, $respuesta);
-        
-        
-        
-        
-        
-    //     $email = $request->input("email");
-    //     // dd($email);
-        
-    //    $users = DB::table('usuarios')->where('email', '=', $email)->get();
-    //    // dd($users);
+        // Validamos que el usuario este registrado en la base de datos...
+        // if ($usuario) {
+
+        //     return view('frontend/404');
+        // }
+
+        foreach ($usuario as $key) {
+            $pregunta = $key->pregunta_id;
+            $respuestac = $key->respuesta;
+            if ($pregunta_id = $pregunta and $respuestac == $respuesta ) 
+            {
+                return view('auth.reseteopassword', compact('usuario'));
+            }
+            return view('frontend/404');
+        }
        
-    //    foreach ($users as $key) 
-    //    {
-    //         $result = $key->email;
-     
-    //         if ($result == $email)
-    //         {
-    //             $usuario = DB::table('usuarios')->where('email', '=', $email)->get();
-    //             // dd($usuario);
-    //             return view('auth.reseteopassword')->with('usuario', $usuario);
-    //         }
-            
-    //    }
-
-    //    return view('frontend/404');
-
 
     }
 
@@ -79,9 +69,12 @@ class ReseteoPasswordController extends Controller
         }
               
         $contraseña = bcrypt($request->input("password"));
-        $email = $request->input("email");
-        $updatepassword = DB::table('usuarios')->where('email', $email)->update(['password' => $contraseña]);
-        
+        $cedula = $request->input("cedula");
+
+        Usuario::where('cedula', $cedula)->update(['password' => $contraseña]);
+
+        // $updatepassword = DB::table('usuarios')->where('cedula', $cedula)->update(['password' => $contraseña]);
+        // dd($updatepassword);
         return view('auth.login');
 
     }

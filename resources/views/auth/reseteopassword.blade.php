@@ -47,20 +47,29 @@
         <div class="card card-login">
           
             <div class="card-body card-body-login">
-                <form class="p-4" method="POST" action="{{ route('updatepassword') }}">
+                <form class="p-4" method="POST" action="{{ route('update') }}">
               @csrf
              @foreach ($usuario as $usuario)
-             <div class="text-center mb-3">
-                 Hola!  <strong><em>{{ $usuario->nombre }} {{ $usuario->apellido }}</em></strong>
-                 </div>
+
+             <div class="form-group mb-2">
+                <label for="email" class="titulolabel">Nombre</label>
+            <input name="nombre" type="text" id="cedula" class="form-control disabled form-control-registro  input-style" value="{{ $usuario->nombre }}">
+            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+            </div>
+            <div class="form-group mb-2">
+                <label for="email" class="titulolabel">Apellido</label>
+            <input name="apellido" type="text" id="cedula" class="form-control form-control-registro disabled input-style" value="{{ $usuario->apellido }}">
+            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+            </div>
+            
                  <div class="form-group mb-2">
-                        {{-- <label for="email" class="titulolabel">Dirección de Correo</label> --}}
-                    <input name="email" type="email" id="email" class="form-control form-control-registro disabled " value="{{ $usuario->email }}">
+                    <label for="email" class="titulolabel">Cedula de Identidad</label>
+                    <input name="cedula" type="text" id="cedula" class="form-control form-control-registro disabled input-style" value="{{ $usuario->cedula }}">
                     {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
                  <div class="form-group  mb-2">
-                        {{-- <label for="password" class="titulolabel">Password</label> --}}
-                    <input name="password" type="password" id="password" class="form-control form-control-registro " placeholder="Nueva Contraseña">
+                    <label for="email" class="titulolabel">Nueva Contraseña</label>
+                    <input name="password" type="password" id="password" class="form-control form-control-registro input-style " placeholder="Introduzca su nueva contraseña">
                     {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
                     </div>
 

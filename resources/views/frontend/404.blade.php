@@ -25,15 +25,15 @@
                 <div class="col-md-6">
                     <div class="card text-center card-ui-error">
   <div class="card-body">
-    <h1 class="card-title card-title-ui-error mt-5"><strong>404 ERROR</strong></h1>
-    {{-- <p class="card-text text-white mb-4">Bienvenido</p> --}}
+    <h1 class="card-title card-title-ui-error mt-5"><strong>ERROR</strong></h1>
   </div>
   {{-- <span><i class="fas fa-check-circle fas-check fa-check-circle-ui"></i></span> --}}
-  <img class="img-fluid" src="{{ asset('images/404.png') }}" alt="404-error">
+  <img class="img-fluid" src="{{ asset('images/404.jpg') }}" alt="404-error">
+ 
   <div class="card-body">
-    <p>La dirección de correo introducida no se encuentra registrada en nuestra base de datos</p>
+    
     <p>POR FAVOR CONTECTE CON EL ADMINISTRADOR DE SISTEMA</p>
-    <a href="{{ route('auth.login') }}" class="btn-block btn btn-primary btn-lg-ui bg-white btn-text-red mt-5">Volver al inicio</a>
+    <a href="{{ route('auth.login') }}" class="btn btn-primary mt-5 bg-danger btn-ui">Volver al inicio</a>
     {{-- <button type="button" class="btn-block btn btn-primary btn-lg-ui bg-white btn-text-green mt-4">Login</button> --}}
   </div>
   

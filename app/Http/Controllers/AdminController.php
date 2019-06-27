@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 /*use Illuminate\Database\Eloquent\Collection;*/
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Validator;
 use App\Usuario;
 use App\Organizacion;
 /*use DB;*/
@@ -85,6 +86,65 @@ class AdminController extends Controller
         return view('listarusuarios')->with('queryperiodos', $queryperiodos);
     }
 
+    public function editarusuario($id)
+
+    {
+        $usuario = Usuario::where('id', $id)->get();
+        // $usuario::with('pregunta')->get();
+       
+        return view('update')->with('usuario', $usuario);
+    }
+
+    public function actualizausuario(Request $request, $id)
+
+    {
+        $validacion = validator::make($request->all(),
+        [
+            'nombre'            => 'required|max:50',
+            'apellido'          => 'required|max:50',
+            'cedula'            => 'required|max:10',
+            'organizacion_id'   => 'required|max:1',
+            'email'             => 'email|unique:usuarios',
+            'password'          => 'required|min:6|max:10',
+            'pregunta_id'       =>'required|max:1',
+            'respuesta'         =>'required|max:50'
+
+        ]);
+        if ($validacion->fails())
+        
+        {
+            return redirect('update')->withInput()->withErrors($validacion);
+        }
+
+        $nombre = $request->input('nombre');
+        $apellido = $request->input('apellido');
+        $cedula = $request->input('cedula');
+        $organizacion = $request->input('organizacion_id');
+        $email = $request->input('email');
+        $password = bcrypt($request->input('password'));
+        $pregunta = $request->input('pregunta_id');
+        $respuesta = $request->input('respuesta');
+
+       
+        $data = array (
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'cedula' => $cedula,
+            'organizacion_id' => $organizacion,
+            'email' => $email,
+            'password' => $password,
+            'pregunta_1' => $pregunta,
+            'respuesta' => $respuesta,
+        );
+        
+        Usuario::find($id)->update($data);
+
+        return view('admin');
+       
+
+       
+       
+    }
 
 
  
@@ -93,7 +153,7 @@ class AdminController extends Controller
     {
         $usuario = Usuario::find($id);
         $usuario->delete();
-        return view('listarusuarios');
+        return view('listar-usuarios');
     }
 
     

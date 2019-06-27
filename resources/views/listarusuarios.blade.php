@@ -71,7 +71,7 @@
       <th scope="col">Apellido</th>
       <th scope="col">Cedula</th>
       <th scope="col">Email</th>
-      <th scope="col">Actualizar</th>
+      
       <th scope="col">Eliminar</th>
 
     </tr>
@@ -85,7 +85,7 @@
       <td>{{ $usuario->apellido }}</td>
       <td>{{ $usuario->cedula }}</td>
       <td>{{ $usuario->email }}</td>
-      <td> <a href="" class="btn btn-outline-success">Actualizar</a></td> 
+      
       <td> <a href="{{ route('eliminarusuario', $usuario->id) }}" class="btn btn-outline-danger">Eliminar</a></td> 
     </tr>
   </tbody>
