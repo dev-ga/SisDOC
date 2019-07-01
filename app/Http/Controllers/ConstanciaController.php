@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Usuario;
+use App\Solicitud;
 
 class ConstanciaController extends Controller
 {
@@ -11,74 +13,39 @@ class ConstanciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function solicitudform()
     {
-        //
+        return view('generarsolicitud');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function procesarsolicitud(Request $request)
     {
-        //
+        $nombresol = auth()->user()->nombre;
+        $apellidosol = auth()->user()->apellido;
+        $cedulasol = auth()->user()->cedula;
+        $emailsol = auth()->user()->email;
+        $tiposol = $request->input('tiposol');
+        $estatus = 1; //---- estatus 1- por procesar 
+
+        dd($nombresol, $apellidosol, $cedulasol, $emailsol, $tiposol, $estatus);
+
+        // DB::table('solicitudes')->insert(
+        //     [
+            
+        //     'nombresol' => '$nombresol',
+        //     'apellidosol' => '$apellidosol',
+        //     'cedulasol' => '$cedulasol',
+        //     'emailsol' => '$emailsol',
+        //     'tiposol' => '$tiposol',
+        //     'estatus_id' => '$estatus'
+             
+        //      ]
+        // );
+
+
+
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}
+   }

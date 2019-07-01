@@ -195,7 +195,9 @@ Route::get('listar-nominas', 'AdminController@listanominas') -> name('listar-nom
 
 
 Route::get('editarusuario/{id}', 'AdminController@editarusuario') -> name('editarusuario');
+
 Route::post('actualizarusuario/{id}', 'AdminController@actualizausuario')->name('actualizarusuario');
+
 Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
 
 
@@ -205,6 +207,17 @@ Route::get('prueba', function () {
     return view('registro');
     });
 
+
+/*
+|--------------------------------------------------------------------------
+| Rutas para Generar solicitud de Constancia de trabajo
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('generarsolicitud', 'ConstanciaController@solicitudform') -> name('solicitudform');
+
+Route::post('generarsolicitud', 'ConstanciaController@procesarsolicitud') -> name('procesarsolicitud');
 
 
     

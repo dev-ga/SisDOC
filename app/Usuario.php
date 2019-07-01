@@ -61,6 +61,11 @@ class Usuario extends Model implements AuthenticatableContract
         return $this->belongsTo('App\Pregunta');
     }
 
+    public function rol()
+    {
+        return $this->belongsTo('App\Rol');
+    }
+
 
 
 }

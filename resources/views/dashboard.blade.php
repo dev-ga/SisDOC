@@ -49,19 +49,14 @@
  </div>
 </nav>
 <div class="container">
-
-
-
-
-
             <div class="row justify-content-center mt">
             <div class="col-md-4">
                 <div class="card text-center card-dashboard">
   <i class="fas fa-file-pdf fas-estilo"></i>
   <div class="card-body">
-    <h4 class="card-title">Recibo de pago</h4>
     
-    <a href="{{ route('recibo.form') }}" class="btn btn-primary">GENERAR</a>
+    
+    <a href="{{ route('recibo.form') }}" class="btn btn-primary">GENERAR RECIBO</a>
   </div>
 </div>
             </div>
@@ -69,52 +64,41 @@
                 <div class="card text-center card-dashboard">
   <i class="fas fa-file-invoice fas-estilo"></i>
   <div class="card-body">
-    <h4 class="card-title">Calculo ARC</h4>
     
-    <a href="{{ route('arc.form') }}" class="btn btn-primary">GENERAR</a>
+    
+    <a href="{{ route('arc.form') }}" class="btn btn-primary">GENERAR ARC</a>
   </div>
 </div>
             </div>
-            {{-- <div class="col-md-4">
+            <div class="col-md-4">
                 <div class="card text-center card-dashboard">
   <i class="fas fa-file-word fas-estilo"></i>
   <div class="card-body">
-    <h4 class="card-title">Costancia de Trabajo</h4>
     
-    <a href="#!" class="btn btn-primary">GENERAR</a>
+    
+    <a href="{{ route('solicitudform') }}" class="btn btn-primary">GENERAR SOLICITUD</a>
   </div>
 </div>
-            </div> --}}
+            </div>
 
-        </div>
-    </div>  
-
+@if (auth()->user()->rol_id == 2)
 
 
+<div class="col-md-4 bg-info">
+  <div class="card text-center card-dashboard">
+<i class="fas fa-file-word fas-estilo"></i>
+<div class="card-body">
+<h4 class="card-title">Costancia de Trabajo</h4>
+
+<a href="{{ route('solicitudform') }}" class="btn btn-primary">ESTATUS SOLICITUD</a>
+</div>
+</div>
+</div>
+@endif
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+</div>  
 
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>

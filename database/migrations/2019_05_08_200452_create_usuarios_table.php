@@ -26,10 +26,13 @@ class CreateUsuariosTable extends Migration
             $table->integer('organizacion_id')->unsigned();
             $table->integer('pregunta_id')->unsigned();
             $table->string('respuesta');
+            $table->integer('rol_id')->unsigned();
+
 
             //Relaciones
             $table->foreign('organizacion_id')->references('id')->on('organizaciones')->onDelete('cascade');
             $table->foreign('pregunta_id')->references('id')->on('preguntas')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
     }
