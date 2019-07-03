@@ -20,7 +20,6 @@ class CreateSolicitudesTable extends Migration
             $table->string('cedulasol');
             $table->string('emailsol');
             $table->string('tiposol');
-
             $table->integer('estatus_id')->unsigned();
 
             //Relaciones

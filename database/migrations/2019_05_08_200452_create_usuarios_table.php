@@ -19,7 +19,6 @@ class CreateUsuariosTable extends Migration
             $table->string('apellido');
             $table->string('cedula')->unique();
             $table->string('email')->unique();
-            
             $table->string('password');
             
             //Llaves Foraneas

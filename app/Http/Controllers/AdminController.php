@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Validator;
 use App\Usuario;
+use App\Rol;
 use App\Organizacion;
+use Illuminate\Support\Facades\Redirect;
+
 /*use DB;*/
 
 class AdminController extends Controller
@@ -146,6 +149,29 @@ class AdminController extends Controller
        
     }
 
+    public function actualizarol($id)
+    {
+        $usuario = Usuario::where('id', $id)->get();
+        $roles = Rol::all();
+        // dd($usuario);
+        
+        return view('actualizaroles')->with('usuario', $usuario)->with('roles', $roles);
+        
+        
+    }
+
+    public function actualizaroles(Request $request)
+    {
+        // $cedula = $request->input('cedula');
+        // $rol = $request->input('rol_id');
+        // dd($usuario);
+        
+        DB::table('usuarios')->where('cedula', $request->input('cedula'))->update(['rol_id' => $request->input('rol_id')]);
+        
+        return Redirect('listar-usuarios')->with('success','El estatus fue actualizado con Exito!');
+        
+    }
+
 
  
     public function eliminarusuario($id)
@@ -153,8 +179,10 @@ class AdminController extends Controller
     {
         $usuario = Usuario::find($id);
         $usuario->delete();
-        return view('listar-usuarios');
+        return back()->with('success','El usuario fue eliminado con Exito!');
     }
+
+
 
     
 }

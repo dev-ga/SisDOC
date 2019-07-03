@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Organizacion;
 use App\Usuario;
+use App\Rol;
 use App\Pregunta;
 
 use Exception;
@@ -25,8 +26,9 @@ class RegistroController extends Controller
 
         $organizacion = Organizacion::all();
         $pregunta = Pregunta::all();
+        $roles = Rol::all();
         
-        return view('auth.registrousuarios', compact('organizacion', 'pregunta'));
+        return view('auth.registrousuarios', compact('organizacion', 'pregunta','roles'));
         
     }
 
@@ -36,6 +38,7 @@ class RegistroController extends Controller
 
 
     {
+        
 
         /*dd($request);*/
 
@@ -51,7 +54,8 @@ class RegistroController extends Controller
                 'email'             => 'email|unique:usuarios',
                 'password'          => 'required|min:6|max:10',
                 'pregunta_id'       =>'required|max:1',
-                'respuesta'         =>'required|max:50'
+                'respuesta'         =>'required|max:50',
+                'rol_id'            =>'required|max:1'
 
             ]);
     
@@ -61,6 +65,7 @@ class RegistroController extends Controller
         {
             return redirect('/auth/registrousuarios')->withInput()->withErrors($validacion);
         }
+
       
     //   try{
 
@@ -73,7 +78,8 @@ class RegistroController extends Controller
             'email'             => $request->email,
             'password'          => bcrypt($request->password),
             'pregunta_id'       =>$request->pregunta_id,
-            'respuesta'         =>$request->respuesta
+            'respuesta'         =>$request->respuesta,
+            'rol_id'            =>$request->rol_id
             //'password' => Hash::make($request->newPassword) -> debo probar esta linea para ver como se comporta...
             );
 

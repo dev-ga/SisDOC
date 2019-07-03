@@ -200,6 +200,11 @@ Route::post('actualizarusuario/{id}', 'AdminController@actualizausuario')->name(
 
 Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
 
+Route::get('actualizarol/{id}', 'AdminController@actualizarol') -> name('actualizarol');
+
+Route::post('actualizaroles', 'AdminController@actualizaroles') -> name('actualizaroles');
+
+
 
 
 
@@ -210,7 +215,7 @@ Route::get('prueba', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Rutas para Generar solicitud de Constancia de trabajo
+| Rutas Constancia de trabajo
 |--------------------------------------------------------------------------
 |
 */
@@ -218,6 +223,14 @@ Route::get('prueba', function () {
 Route::get('generarsolicitud', 'ConstanciaController@solicitudform') -> name('solicitudform');
 
 Route::post('generarsolicitud', 'ConstanciaController@procesarsolicitud') -> name('procesarsolicitud');
+
+Route::get('listarsolicitudes', 'ConstanciaController@listarsolicitudes') -> name('listarsolicitudes');
+
+Route::get('missolicitudes', 'ConstanciaController@missolicitudes') -> name('missolicitudes');
+
+Route::get('actualizarestatus/{id}', 'ConstanciaController@actualizarestatus') -> name('actualizarestatus');
+
+
 
 
     

@@ -9,10 +9,9 @@
 <link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
-    
+
 </head>
 <body>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
                 <div class="container">
                     <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
@@ -38,16 +37,16 @@
                     <a class="nav-link" href="{{ route('arc.form') }}">Arc</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('solicitudform') }}">Constancia</a>
+                    <a class="nav-link" href="{{ route('arc.form') }}">Constancia</a>
                   </li>
                   @if (auth()->user()->rol_id == 1)
                   <li class="nav-item">
-                        <a class="nav-link" href="{{ route('missolicitudes') }}">Estatus Solicitud</a>
+                        <a class="nav-link" href="{{ route('arc.form') }}">Estatus Solicitud</a>
                       </li>
                   @endif
                   @if (auth()->user()->rol_id == 2)
                   <li class="nav-item">
-                        <a class="nav-link" href="{{ route('listarsolicitudes') }}">Listar Solicitudes</a>
+                        <a class="nav-link" href="{{ route('arc.form') }}">Listar Solicitudes</a>
                       </li>
                   @endif
                   @if (auth()->user()->rol_id == 3)
@@ -55,7 +54,7 @@
                         <a class="nav-link" href="{{ route('listarsolicitudes') }}">Solicitudes</a>
                       </li>
                       <li class="nav-item">
-                            <a class="nav-link" href="{{ route('listar-usuarios') }}">Usuarios</a>
+                            <a class="nav-link" href="{{ route('arc.form') }}">Usuarios</a>
                           </li>
                          <li class="nav-item">
                                         <a class="nav-link" href="{{ route('arc.form') }}">Periodos de Nomina</a>
@@ -87,55 +86,58 @@
             </nav>
 
 
-<div class="container">
-
-    <div class="row justify-content-center mt-5">
-        <div class="header-texto text-center mb-5">
-            <h5>Por favor completa la siguiente informacion para generar la planilla ARC</h5>
-            <hr>
-    </div>
-            
-        </header><!-- /header -->
-        <div class="col-md-8">
-            <form method="POST" action="{{ route('planillaARC') }}"> 
-                
-                @csrf{{-- errores del formularios --}}
-              
-                <div class="form-group"> 
-                    <label for="codemp">Empresa</label>
-                    <select name="codemp" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona la empresa --</option>
-                            
-                                @foreach($codemp as $codemp)
-                                <option value="{{ $codemp->cod_emp_sigesp }}">{{ $codemp->descripcion_sigesp }}</option>
-                                @endforeach
-                    </select>
-                </div>
-                <div class="form-group"> 
-                    <label for="date">Año en Curso</label>
-                    <select name="date" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona el año en curso --</option>
-                            
-                                
-                                <option value="{{ $date }}">{{ $date }}</option>
-                            
-                            
-                            {{-- @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
-                            @endforeach --}}
-                    </select>
-                </div>
-                <button class="btn btn-info btn-block my-2 mt-5" type="submit">Generar ARC</button>
-
-                    
-                    </form>
-                
-            </form>
-        </div>
-    </div>
+<section>
     
 
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-md-8">
+                
+            <table class="table table-striped">
+                
+  <thead class="thead-dark">
+    <tr> <!-- encabezado de tabla -->
+               <td colspan="8" class="text-center bg-dark text-white">Mis Solicitudes</td> 
+            </tr>
+    <tr class="text-center">
+      <th scope="col">id</th>
+      <th scope="col">Tipo de Constancia</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Fecha de Solicitud</th>
+      
+      
+      {{--  <th scope="col">Eliminar</th>  --}}
+
+    </tr>
+  </thead>
+  @foreach ($sol as $s)
+
+  <tbody>
+      
+    <tr class="text-center">
+      <th scope="row">{{ $s->id }}</th>
+     
+      <td>{{ $s->tiposol }}</td>
+      @if ($s->estatus_id == 1)
+      <td class="bg-danger">Por Procesar</td>
+      @else
+      <td class="bg-success">Procesada</td>
+      @endif
+      <td>{{ $s->created_at }}</td>
+      
+     
+     
+    </tr>
+  </tbody>
+
+  @endforeach
+</table>
+{{-- {{ $usuario->render() }} --}}
+        </div>
+ 
+    </div>
 </div>
+
 
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>

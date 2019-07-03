@@ -11,7 +11,7 @@
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body class="viewport">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
@@ -84,70 +84,55 @@
             </div>
      </div>
     </nav>
+<div class="container mt-5">
+  
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card card-login">
+          
+            <div class="card-body card-body-login">
+                <form class="p-4" method="POST" action="{{ route('actualizaroles') }}">
+              @csrf
+             @foreach ($usuario as $usuario)
 
-
-<section>
-    
-
-<div class="container-fluid">
-    <div class="row justify-content-center mt-5 ">
-        <div class="col-md-8">
-            @if ($message = Session::get('success'))
-
-            <div class="alert alert-success alert-block">
-            
-                <button type="button" class="close" data-dismiss="alert">×</button>	
-            
-                    <strong>{{ $message }}</strong>
-            
+             {{--  <div class="form-group mb-2">
+                <label for="email" class="titulolabel">Nombre</label>
+            <input name="nombre" type="text" id="cedula" class="form-control disabled form-control-registro  input-style" value="{{ $usuario->nombre }}">
+            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
             </div>
+            <div class="form-group mb-2">
+                <label for="email" class="titulolabel">Apellido</label>
+            <input name="apellido" type="text" id="cedula" class="form-control form-control-registro disabled input-style" value="{{ $usuario->apellido }}">
+            {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+            </div>  --}}
             
-            @endif
-            <table class="table table-striped">
-                
-  <thead class="thead-dark">
-    <tr> <!-- encabezado de tabla -->
-               <td colspan="8" class="text-center bg-dark text-white">Usuarios Registrados</td> 
-            </tr>
-    <tr class="text-center">
-      <th scope="col">id</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Cedula</th>
-      
-      
-      <th scope="col">Rol</th>
-      <th scope="col">Cambiar Rol</th>
-      <th scope="col">Acción</th>
+                 <div class="form-group mb-2">
+                    <label for="email" class="titulolabel">Cedula de Identidad</label>
+                    <input name="cedula" type="text" id="cedula" class="form-control form-control-registro disabled input-style" value="{{ $usuario->cedula }}">
+                    {!! $errors->first ('password', '<span class="badge badge-danger">:message</span>') !!}
+                    </div>
+                 <div class="form-group  mb-2">
+                    <label for="text" class="titulolabel">Tipo de Rol</label>
+                    <select name="rol_id" class="form-control input-style icon">
+                        <option value=""></option>
+                        @foreach($roles as $roles)
+                        <option value="{{ $roles->id }}">{{ $roles->tipo }}</option>
+                    @endforeach
+                    </select>
+                    </div>
 
-    </tr>
-  </thead>
-  @foreach ($usuarios as $usuario)
+             @endforeach
 
-  <tbody>
-
-    
-    <tr class="text-center">
-        <th scope="row">{{ $usuario->id }}</th>
-        <td>{{ $usuario->nombre }}</td>
-        <td>{{ $usuario->apellido }}</td>
-        <td>{{ $usuario->cedula }}</td>
-        <td>{{ $usuario->rol_id }}</td>
-        <td> <a href="{{ route('actualizarol',$usuario->id) }}" class="btn btn-sm btn-outline-success">Actualizar Rol</a></td>
-        <td> <a href="{{ route('eliminarusuario', $usuario->id) }}" class="btn btn-sm btn-outline-danger">Eliminar</a></td> 
-    </tr>
-  </tbody>
-
-  @endforeach
-</table>
-{{-- {{ $usuario->render() }} --}}
-        </div>
- 
+             <button class="btn btn-info btn-block my-2 btn-registro btn-info-registro" type="submit">Actualizar Rol</button>
+         </form>
+              
+            </div>
+         </div>
+      </div>
     </div>
+   
 </div>
-
-
-
+</div>
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>

@@ -22,7 +22,7 @@ class Usuario extends Model implements AuthenticatableContract
 
     protected $fillable = [
 
-        'nombre','apellido','cedula','email','password','organizacion_id','pregunta_id', 'respuesta'
+        'nombre','apellido','cedula','email','password','organizacion_id','pregunta_id', 'respuesta', 'rol_id'
 
     ];
 

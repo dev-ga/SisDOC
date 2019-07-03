@@ -48,7 +48,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8 col-sm-10 ">
-            <div class="card card-registro mt-4">
+            <div class="card card-registro mt-4 mb-4">
                <form class="p-4" method="POST" action="{{ route('authvalidate.registro') }}">
                 {{-- {{ csrf_field() }} --}}
                 @csrf {{-- Para mostrar los errores si enviamos en formulario vasio --}}
@@ -130,10 +130,17 @@
                             {!! $errors->first ('respuesta', '<span class="badge badge-danger">:message</span>') !!}
                             </div>
                         </div>
+                        <div class="col-md-12">
+                          
+                            <div class="form-group">
+                              <label for="rol_id">Tipo de Usuario</label>
+                              <input type="text" id="rol_id" name="rol_id" class="form-control input-style" placeholder="Debe Colocar 1 por default">
+                              
+                            </div>
+                         
+                        </div>
                     <!-- Sign in button -->
                     <button class="btn btn-info btn-block my-2 btn-registro btn-info-registro" type="submit">Registrar</button>
-
-
                 </form>
               </div>
         </div>

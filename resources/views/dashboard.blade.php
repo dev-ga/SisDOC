@@ -9,13 +9,14 @@
 <link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('fonts/fontawesome/css/regular.css') }}" rel="stylesheet" type="text/css">
     
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 	<div class="container">
         <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
-            S!SDOC
+            <img class="img-fluid" src="{{ asset('images/sisdoc.png') }}" alt="" width="95px">
         </a>
         <!-- links toggle -->
         <button class="navbar-toggler order-first" type="button" data-toggle="collapse" data-target="#links" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,57 +50,159 @@
  </div>
 </nav>
 <div class="container">
-            <div class="row justify-content-center mt">
+            <div class="row justify-content-center mt-5"> 
+<div class="col-md-4">
+<div class="card card-dashboard-rp">
+<i class="far fa-file-pdf fas-estilo"></i>
+<div class="card-body prueba111">
+<strong><p>Recibo de Pago</p></strong>
+</div>
+<div class="boton-flecha">
+<a href="{{ route('recibo.form') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+</div>
+</div>
+</div>
+{{--  fin del div row  --}}
+</div> 
+
+
+<div class="row justify-content-center "> 
+<div class="col-md-4">
+<div class="card card-dashboard-arc">
+<i class="far fa-file-pdf fas-estilo"></i>
+<div class="card-body prueba111">
+<strong><p>Arc</p></strong>
+</div>
+<div class="boton-flecha">
+    <a href="{{ route('arc.form') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+    
+</div>
+</div>
+</div>
+{{--  fin del div row  --}}
+</div> 
+
+
+<div class="row justify-content-center "> 
+    <div class="col-md-4">
+    <div class="card card-dashboard-sc">
+    <i class="fas fa-cogs fas-estilo"></i>
+    <div class="card-body prueba111">
+    <strong><p>Solicitud de Constancia</p></strong>
+    </div>
+    <div class="boton-flecha">
+        <a href="{{ route('solicitudform') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+    </div>
+    </div>
+    </div>
+    {{--  fin del div row  --}}
+    </div>
+
+    @if (auth()->user()->rol_id == 1)
+    <div class="row justify-content-center "> 
+        <div class="col-md-4">
+        <div class="card card-dashboard-esc">
+        <i class="far fa-clock fas-estilo"></i>
+        <div class="card-body prueba111">
+        <strong><p>Estatus de Solicitudes</p></strong>
+        </div>
+        <div class="boton-flecha">
+            <a href="{{ route('missolicitudes') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+        </div>
+        </div>
+        </div>
+      </div>
+      @endif
+
+      @if (auth()->user()->rol_id == 2)
+    <div class="row justify-content-center "> 
+        <div class="col-md-4">
+        <div class="card card-dashboard-esc">
+        <i class="fas fa-list-ol fas-estilo"></i>
+        <div class="card-body prueba111">
+        <strong><p>Listar Solicitudes</p></strong>
+        </div>
+        <div class="boton-flecha">
+            <a href="{{ route('listarsolicitudes') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+        </div>
+        </div>
+        </div>
+      </div>
+      @endif
+      @if (auth()->user()->rol_id == 3)
+      <div class="row justify-content-center "> 
+          <div class="col-md-4">
+          <div class="card card-dashboard-esc">
+          <i class="fas fa-list-ol fas-estilo"></i>
+          <div class="card-body prueba111">
+          <strong><p>Listar Solicitudes</p></strong>
+          </div>
+          <div class="boton-flecha">
+              <a href="{{ route('listarsolicitudes') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+          </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center "> 
             <div class="col-md-4">
-                <div class="card text-center card-dashboard">
-  <i class="fas fa-file-pdf fas-estilo"></i>
-  <div class="card-body">
-    
-    
-    <a href="{{ route('recibo.form') }}" class="btn btn-primary">GENERAR RECIBO</a>
-  </div>
-</div>
+            <div class="card card-dashboard-usu">
+            <i class="fas fa-list-ol fas-estilo"></i>
+            <div class="card-body prueba111">
+            <strong><p>Listar Usuarios</p></strong>
             </div>
-            <div class="col-md-4">
-                <div class="card text-center card-dashboard">
-  <i class="fas fa-file-invoice fas-estilo"></i>
-  <div class="card-body">
-    
-    
-    <a href="{{ route('arc.form') }}" class="btn btn-primary">GENERAR ARC</a>
-  </div>
-</div>
+            <div class="boton-flecha">
+                <a href="{{ route('listar-usuarios') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
             </div>
-            <div class="col-md-4">
-                <div class="card text-center card-dashboard">
-  <i class="fas fa-file-word fas-estilo"></i>
-  <div class="card-body">
-    
-    
-    <a href="{{ route('solicitudform') }}" class="btn btn-primary">GENERAR SOLICITUD</a>
-  </div>
-</div>
             </div>
+            </div>
+          </div>
 
-@if (auth()->user()->rol_id == 2)
+          {{--  <div class="row justify-content-center "> 
+              <div class="col-md-4">
+              <div class="card card-dashboard-emp">
+              <i class="fas fa-list-ol fas-estilo"></i>
+              <div class="card-body prueba111">
+              <strong><p>Listar Empresas</p></strong>
+              </div>
+              <div class="boton-flecha">
+                  <a href="{{ route('solicitudform') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+              </div>
+              </div>
+              </div>
+            </div>
+            <div class="row justify-content-center "> 
+                <div class="col-md-4">
+                <div class="card card-dashboard-nom">
+                <i class="fas fa-list-ol fas-estilo"></i>
+                <div class="card-body prueba111">
+                <strong><p>Listar Nominas</p></strong>
+                </div>
+                <div class="boton-flecha">
+                    <a href="{{ route('solicitudform') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+                </div>
+                </div>
+                </div>
+              </div>  --}}
 
+              <div class="row justify-content-center mb-5 "> 
+                  <div class="col-md-4">
+                  <div class="card card-dashboard-pc">
+                  <i class="far fa-clock fas-estilo"></i>
+                  <div class="card-body prueba111">
+                  <strong><p>Periodos Cerrado</p></strong>
+                  </div>
+                  <div class="boton-flecha">
+                      <a href="{{ route('solicitudform') }}"><i class="far fa-arrow-alt-circle-right"></i></a>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+        @endif
 
-<div class="col-md-4 bg-info">
-  <div class="card text-center card-dashboard">
-<i class="fas fa-file-word fas-estilo"></i>
-<div class="card-body">
-<h4 class="card-title">Costancia de Trabajo</h4>
-
-<a href="{{ route('solicitudform') }}" class="btn btn-primary">ESTATUS SOLICITUD</a>
-</div>
-</div>
-</div>
-@endif
-
-
-</div>
-</div>  
-
+    
+        {{--  fin del div row  --}}
+        
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>

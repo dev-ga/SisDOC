@@ -181,15 +181,21 @@ form .border{
 
 
 .fas-estilo{
-  font-size: 10rem;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  color: #fff;
   
 }
 
-.fa-file-pdf{
+/* .fa-file-pdf{
   color:red;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+margin-left: 1rem;
   
-}
+} */
 
 .fa-file-invoice{
     color: #44a059;
@@ -207,12 +213,119 @@ form .border{
   margin-top: 10%;
 }
 
-.card-dashboard{
+.card-dashboard-rp{
   border: 0;
-  background-color: white;
+  background-color: #F2C4C8;
   font-size: 2rem;
 
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
 }
+.card-dashboard-arc{
+  border: 0;
+  background-color: #9E99BF;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+}
+.card-dashboard-sc{
+  border: 0;
+  background-color: #3C3D59;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
+}
+
+.card-dashboard-esc{
+  border: 0;
+  background-color: #6872A6;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
+}
+
+.card-dashboard-usu{
+  border: 0;
+  background-color: #F2C4C8;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
+}
+
+.card-dashboard-emp{
+  border: 0;
+  background-color: #9E99BF;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+}
+
+.card-dashboard-nom{
+  border: 0;
+  background-color: #3C3D59;
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
+}
+
+.card-dashboard-pc{
+  border: 0;
+  background-color: rgb(255, 152, 160);
+  font-size: 2rem;
+
+  -webkit-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+box-shadow: inset 0px 36px 40px -50px rgba(0,0,0,1);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .card-dashboard h4{
   
@@ -418,6 +531,30 @@ select {
     background-color: #464646;
   }
 
+
+
+.prueba111{
+  position: absolute;
+  font-size: 1rem;
+  left: 20%;
+  top: 25%;
+  color: #fff;
+}
+.boton-flecha{
+  position: absolute;
+  font-size: 1.5rem;
+  left: 85%;
+  top: 38%;
+  color: #fff;
+}
+
+.boton-flecha a{
+  color: #fff;
+}
+
+.boton-flecha a:hover{
+  color: rgb(0, 0, 0);
+}
 
 
 

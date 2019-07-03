@@ -9,10 +9,9 @@
 <link href="{{ asset('fonts/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/brands.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('fonts/fontawesome/css/solid.css') }}" rel="stylesheet" type="text/css">
-    
+
 </head>
 <body>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
                 <div class="container">
                     <a class="navbar-brand logo-font logo-font-dashboard navbar-brand-dashboard" href="#" id="brand">
@@ -87,55 +86,86 @@
             </nav>
 
 
-<div class="container">
-
-    <div class="row justify-content-center mt-5">
-        <div class="header-texto text-center mb-5">
-            <h5>Por favor completa la siguiente informacion para generar la planilla ARC</h5>
-            <hr>
-    </div>
-            
-        </header><!-- /header -->
-        <div class="col-md-8">
-            <form method="POST" action="{{ route('planillaARC') }}"> 
-                
-                @csrf{{-- errores del formularios --}}
-              
-                <div class="form-group"> 
-                    <label for="codemp">Empresa</label>
-                    <select name="codemp" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona la empresa --</option>
-                            
-                                @foreach($codemp as $codemp)
-                                <option value="{{ $codemp->cod_emp_sigesp }}">{{ $codemp->descripcion_sigesp }}</option>
-                                @endforeach
-                    </select>
-                </div>
-                <div class="form-group"> 
-                    <label for="date">Año en Curso</label>
-                    <select name="date" class="form-control estilosinputregistro mb-2 bordes">
-                        <option value="">-- Selecciona el año en curso --</option>
-                            
-                                
-                                <option value="{{ $date }}">{{ $date }}</option>
-                            
-                            
-                            {{-- @foreach($codperi as $codperi)
-                                <option value="{{ $codperi->codperi }}">{{ $codperi->codperi }}</option>
-                            @endforeach --}}
-                    </select>
-                </div>
-                <button class="btn btn-info btn-block my-2 mt-5" type="submit">Generar ARC</button>
-
-                    
-                    </form>
-                
-            </form>
-        </div>
-    </div>
+<section>
     
 
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-md-10">
+                @if ($message = Session::get('success'))
+
+                <div class="alert alert-success alert-block mt-2 mb-4">
+                
+                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                
+                        <strong>{{ $message }}</strong>
+                
+                </div>
+                
+                @endif
+                @if ($message = Session::get('danger'))
+
+                <div class="alert alert-danger alert-block mt-2 mb-4">
+                
+                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                
+                        <strong>{{ $message }}</strong>
+                
+                </div>
+                
+                @endif
+            <table class="table table-striped">
+                
+  <thead class="thead-dark">
+    <tr> <!-- encabezado de tabla -->
+               <td colspan="9" class="text-center bg-dark text-white">Solicitudes por Usuario</td> 
+            </tr>
+    <tr class="text-center">
+      <th scope="col">id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Cedula</th>
+      {{--  <th scope="col">Email</th>  --}}
+      <th scope="col">Tipo</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Accion</th>
+      
+      {{--  <th scope="col">Eliminar</th>  --}}
+
+    </tr>
+  </thead>
+  @foreach ($sol as $s)
+
+  <tbody>
+      
+    <tr class="text-center">
+      <th scope="row">{{ $s->id }}</th>
+      <td>{{ $s->nombresol }}</td>
+      <td>{{ $s->apellidosol }}</td>
+      <td>{{ $s->cedulasol }}</td>
+      {{--  <td>{{ $s->emailsol }}</td>  --}}
+      <td>{{ $s->tiposol }}</td>
+      @if ($s->estatus_id == 1)
+      <td class="bg-danger">Por Procesar</td>
+      @else
+      <td class="bg-success">Procesada</td>
+      @endif
+      <td>{{ $s->created_at }}</td>
+      
+     
+      <td> <a href="{{ route('actualizarestatus', $s->id) }}" class="btn btn-outline-success">Cambiar Estatus</a></td> 
+    </tr>
+  </tbody>
+
+  @endforeach
+</table>
+{{-- {{ $usuario->render() }} --}}
+        </div>
+ 
+    </div>
 </div>
+
 
 
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
