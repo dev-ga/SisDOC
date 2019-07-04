@@ -152,9 +152,12 @@
       <td class="bg-success">Procesada</td>
       @endif
       <td>{{ $s->created_at }}</td>
-      
-     
-      <td> <a href="{{ route('actualizarestatus', $s->id) }}" class="btn btn-outline-success">Cambiar Estatus</a></td> 
+          
+      <td> <a href="{{ route('actualizarestatus', $s->id) }}" class="btn btn-outline-success">Cambiar Estatus</a>
+        @if ($s->estatus_id == 2)
+      <a href="{{ route('validardatacostancia', $s->id) }}" class="btn btn-outline-success">Generar Constancia</a>
+        @endif
+      </td> 
     </tr>
   </tbody>
 

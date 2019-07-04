@@ -125,7 +125,7 @@
                             @endforeach --}}
                     </select>
                 </div>
-                <button class="btn btn-info btn-block my-2 mt-5" type="submit">Generar ARC</button>
+                <button class="btn btn-info btn-block my-2 mt-5" type="submit">Generar Planilla ARC</button>
 
                     
                     </form>

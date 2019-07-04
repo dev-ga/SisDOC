@@ -230,6 +230,21 @@ Route::get('missolicitudes', 'ConstanciaController@missolicitudes') -> name('mis
 
 Route::get('actualizarestatus/{id}', 'ConstanciaController@actualizarestatus') -> name('actualizarestatus');
 
+Route::get('validardatacostancia/{id}', 'ConstanciaController@validardatacostancia') -> name('validardatacostancia');
+
+Route::get('validainfocostancia', 'ConstanciaController@validainfocostancia') -> name('validainfocostancia');
+
+Route::post('costanciapdf', 'ConstanciaController@costanciapdf') -> name('costanciapdf');
+
+Route::get('costanciapdf', function() {
+
+    $pdf = App::make('dompdf.wrapper');
+
+    $pdf->loadView('costanciapdfglobal');
+    
+    return $pdf->stream();
+
+});
 
 
 

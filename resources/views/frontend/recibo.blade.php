@@ -110,8 +110,6 @@
                         <option value="">-- Selecciona el periodo de nomina --</option>
                             
                                 @foreach($querynomper as $querynomper)
-                                
-                                
                                 <option value="{{ $querynomper->codperi }}">{{ $querynomper->fecdesper }} / {{ $querynomper->fechasper }}</option>
                                 @endforeach
                     </select>

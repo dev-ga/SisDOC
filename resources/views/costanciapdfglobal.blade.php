@@ -91,11 +91,8 @@ hr
     color: #cbcbcb !important;
 }
 
-.firma-arc{
-    display: inline-block;
-    border-top: 2px solid black;
-    margin-top: 25%;
-    margin-left: 38%;
+.firma{
+    color: black;
 }
 
 </style>
@@ -111,55 +108,46 @@ hr
         <span><em>Fecha de Emision: {{ date('d-M-Y') }}</em>
         </span>
     </div>
-    @foreach ($querysnopersonal as $querysnopersonal)
-        <div class="datos-trabajador mt-1 mb-2">
-
-            <li class="list-group-item-estilo "><strong>Datos Personales</strong></li>
-            <hr>
-            <li class="list-group-item-estilo"><strong>Nombre y Apellido:</strong> <em>{!! $querysnopersonal->apeper !!}, {!! $querysnopersonal->nomper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Cedula:</strong> <em>{!! $querysnopersonal->cedper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Fecha de Ingreso:</strong> <em>{!! $querysnopersonal->fecingper !!}</em></li>
-            <li class="list-group-item-estilo"><strong>Cargo:</strong> <em>{!! $querysnopersonal->carantper !!}</em></li>
-            
-            <hr>
-        </div>
+    @foreach ($query_cabecera as $query_cabecera)
+    @php
+        $apellido = $query_cabecera->apeper;
+    @endphp
+       
     @endforeach
-    <div class="panel panel-default tabla">
-        <table class="table table-bordered table-sm">
-        <thead class="thead-dark text-center">
-            <tr>
-                <th scope="col">Mes</th>
-                <th scope="col">Cedula de Identidad</th>
-                <th scope="col">Año en Curso</th>
-                <th scope="col">ARC</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($queryarccuerpo as $queryarccuerpo)
-                <tr>
-                <td class="text-center" >{!!($queryarccuerpo->codisr)!!}</td>
-                <td class="text-center" >{!!($queryarccuerpo->codper)!!}</td>
-                <td class="text-center" >{!! $queryarccuerpo->anocur !!}</td>
-                <td class="text-center" >{!! number_format($queryarccuerpo->arc, 2, ",", ".") !!}</td>
-            </tr>
+    {{--  calculo del sueldo total  --}}
+            @php
+            $asignaciones = 0;
+            $deducciones = 0;
+            $total;
+            $sueldo;
+            @endphp
+            @foreach($query_recibo as $query_recibo)
+            @if($query_recibo->valsal > 0)
+            @php
+            $asignaciones += $query_recibo->valsal;
+            $sueldo = $asignaciones*2;
+            @endphp
+            @endif
             @endforeach
-             
-            
-        </tbody>
-        </table>
+    
+    <div class="constancia">
+        <p>Quien suscribe, GERENTE (E) DE OFICINA DE GESTIÓN HUMANA de el (la) FUNCACION DE EDIFICACIONES Y EQUIPAMIENTO HOSPITALARIO, hace constarpor medio de la presente que el (la)
+            {{--  ciudadano(a): {!! $query_cabecera->apeper !!} {!! $query_cabecera->nomper !!}, titular de la cedula de identidad Nro.: {!! $query_cabecera->cedper !!} sus servicios en esta
+            Institución desde el dia {!! $query_cabecera->fecingper !!}, adscrito(a) ha: {!! $query_cabecera->desuniadm !!}, ejerciendo funciones como: {!! $query_cabecera->descar !!},  --}}
+            percibiendo una remuneración mensual de: Bolivares Fuertes {{ $sueldo }}. {{ $apellido }}
+        </p>
+        <p>
+            Adicionalmente, percibe el beneficio de la ley de Alimentación para los trabajadores y trabajadoras, por la cantidad de: Bolivares Fuertes 25.000,00.
+        </p>
+        <p>
+            Constancia que se expide a petición de la parte interedasa, en Caracas a los {{ date('d') }} días del mes de {{ date('M') }} del año {{ date('Y') }}.
+        </p>
     </div>
-
-        {{-- Firma del PDF --}}
-
-        <div class="firma-arc">
-        <p>Oficina de Gestión Humana</p>
-        {{-- <p>Fundación De Estructura y Edificaciones Hospitalarias</p>
-        <p>FUNDEEH</p> --}}
-        </div>
-
-        {{-- FIN de la Firma del PDF --}}
-  
+    
+    
+    
         <footer class="page-footer font-small footer">
+   
 
           <!-- Copyright -->
           <div class="footer-copyright text-center py-3 footer-fuente">
