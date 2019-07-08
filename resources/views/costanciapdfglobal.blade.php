@@ -101,16 +101,26 @@ hr
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-pdf">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/logopdf.png') }}" width="120" height="72" class="d-inline-block align-top" alt="">
+            {{--  <img src="{{ asset('images/cintillo.png') }}" width="120" height="72" class="d-inline-block align-top" alt="">  --}}
+            <img src="{{ asset('images/cintillo.png') }}" class="d-inline-block align-top cintillo" alt="">
         </a>
     </nav>
-    <div class="fecha">
-        <span><em>Fecha de Emision: {{ date('d-M-Y') }}</em>
-        </span>
+    <div class="rif text-right">
+        <span><em>RIF: G-20009059-6</em></span>
     </div>
+    <br>
+    <br>
+    <br>
+
     @foreach ($query_cabecera as $query_cabecera)
     @php
         $apellido = $query_cabecera->apeper;
+        $nombre = $query_cabecera->nomper;
+        $cedula = $query_cabecera->cedper;
+        $uniadmin = $query_cabecera->desuniadm;
+        $cargo = $query_cabecera->descar;
+        $fechaingreso = $query_cabecera->fecingper;
+
     @endphp
        
     @endforeach
@@ -130,33 +140,45 @@ hr
             @endif
             @endforeach
     
-    <div class="constancia">
-        <p>Quien suscribe, GERENTE (E) DE OFICINA DE GESTIÓN HUMANA de el (la) FUNCACION DE EDIFICACIONES Y EQUIPAMIENTO HOSPITALARIO, hace constarpor medio de la presente que el (la)
-            {{--  ciudadano(a): {!! $query_cabecera->apeper !!} {!! $query_cabecera->nomper !!}, titular de la cedula de identidad Nro.: {!! $query_cabecera->cedper !!} sus servicios en esta
-            Institución desde el dia {!! $query_cabecera->fecingper !!}, adscrito(a) ha: {!! $query_cabecera->desuniadm !!}, ejerciendo funciones como: {!! $query_cabecera->descar !!},  --}}
-            percibiendo una remuneración mensual de: Bolivares Fuertes {{ $sueldo }}. {{ $apellido }}
-        </p>
-        <p>
-            Adicionalmente, percibe el beneficio de la ley de Alimentación para los trabajadores y trabajadoras, por la cantidad de: Bolivares Fuertes 25.000,00.
-        </p>
-        <p>
-            Constancia que se expide a petición de la parte interedasa, en Caracas a los {{ date('d') }} días del mes de {{ date('M') }} del año {{ date('Y') }}.
-        </p>
-    </div>
     
-    
-    
-        <footer class="page-footer font-small footer">
-   
+        <div class="titulo text-center">
+            <h5><strong>CONSTANCIA DE TRABAJO</strong></h5>
+        </div>
+        <div class="constancia text-justify">
+<br>
+<br>
 
-          <!-- Copyright -->
-          <div class="footer-copyright text-center py-3 footer-fuente">
-            <a><em>Dirección: Av. Baralt, Edif. Centro Simón Bolívar, Torre Sur. Caracas, Area Metropolitana CCS.</em></a>
-            <a><em>Telefono: (212) 408-00-00 </em></a>
-            <hr>
-            <a class="sisdoc"><em>Sisdoc-{{ date('d-M-Y') }}-Fundeeh</em></a>
-          </div>
-        </footer>
+
+        <p>Quien suscribe, GERENTE (E) DE OFICINA DE GESTIÓN HUMANA de el (la) FUNCACION DE EDIFICACIONES Y EQUIPAMIENTO HOSPITALARIO, hace constarpor medio de la presente que el (la)
+        ciudadano(a): <strong> {{ $apellido }} {{ $nombre }}</strong>, titular de la cedula de identidad <strong> Nro.: {{ $cedula }}</strong> sus servicios en esta Institución desde el dia {{ $fechaingreso }}, adscrito(a) ha: {{ $uniadmin }}, ejerciendo funciones como: {{ $cargo }},
+        percibiendo una <strong>remuneración mensual de: Bolivares Fuertes {{ number_format($sueldo, 2, ",", ".") }}.</strong></p>
+        <p>Adicionalmente, percibe el beneficio de la ley de Alimentación para los trabajadores y trabajadoras, por la cantidad de: Bolivares Fuertes 25.000,00.</p>
+        <p>Constancia que se expide a petición de la parte interedasa, en Caracas a los {{ date('d') }} días del mes de {{ date('M') }} del año {{ date('Y') }}.</p>
+        
+    </div>
+    <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <p class="text-center"><strong>Oficina de Gestión Humana</strong></p>
+
+    <div class="footer-constancia text-center">
+            <p><em> Esta constancia ha sido impresa electronicamente, los datos reflejados están sujetos a confirmaciona travéz del siguiente número
+                    de teléfono: <strong>0212-4082820</strong>. Valido por tres (3 meses).</em></p>
+    </div>
+    <footer class="page-footer font-small footer">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 footer-fuente">
+    <a><em>Dirección: Av. Baralt, Edif. Centro Simón Bolívar, Torre Sur. Caracas, Area Metropolitana CCS.</em></a>
+    <a><em>Telefono: (212) 408-00-00 </em></a>
+    <hr>
+    <a class="sisdoc"><em>Sisdoc-{{ date('d-M-Y') }}-Fundeeh</em></a>
+    </div>
+    </footer>
 </div>
 <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
 <script src="{{ asset('js/jquery.slim.js') }}"></script>
