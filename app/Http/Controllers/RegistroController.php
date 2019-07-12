@@ -26,7 +26,9 @@ class RegistroController extends Controller
 
         $organizacion = Organizacion::all();
         $pregunta = Pregunta::all();
-        $roles = Rol::all();
+        // $roles = Rol::find(1);
+        // $roles = Rol::all();
+        // dd($roles);
         
         return view('auth.registrousuarios', compact('organizacion', 'pregunta','roles'));
         

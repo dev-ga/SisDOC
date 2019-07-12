@@ -155,7 +155,7 @@
           
       <td> <a href="{{ route('actualizarestatus', $s->id) }}" class="btn btn-outline-success">Cambiar Estatus</a>
         @if ($s->estatus_id == 2)
-      <a href="{{ route('validardatacostancia', $s->id) }}" class="btn btn-outline-success">Generar Constancia</a>
+      <a href="{{ route('validardatacostancia', $s->usuario_id) }}" class="btn btn-outline-success">Generar Constancia</a>
         @endif
       </td> 
     </tr>

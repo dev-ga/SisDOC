@@ -85,9 +85,6 @@
                             <!-- Pregunta de Seguridad -->
                             <div class="form-group  mb-2">
                                 <label for="pregunta_id" class="titulolabel">Pregunta de Seguridad</label>
-                            {{--  <input name="apellido" type="text" id="apellido" class="form-control input-style icon"  placeholder="&#xf1ad">
-                            {!! $errors->first ('apellido', '<span class="badge badge-danger">:message</span>') !!}
-                            </div>  --}}
                             <select name="pregunta_id" class="form-control input-style icon" placeholder="&#xf1fa;">
                                 <option value=""></option>
                                 @foreach($pregunta as $pregunta)
@@ -134,8 +131,10 @@
                           
                             <div class="form-group">
                               <label for="rol_id">Tipo de Usuario</label>
-                              <input type="text" id="rol_id" name="rol_id" class="form-control input-style" placeholder="Debe Colocar 1 por default">
-                              
+                              {{--  <input type="text" id="rol_id" name="rol_id" class="form-control input-style" placeholder="Debe Colocar 1 por default">  --}}
+                              <select name="rol_id" class="form-control input-style icon">
+                                <option value="1">Usuario</option>
+                            </select>
                             </div>
                          
                         </div>

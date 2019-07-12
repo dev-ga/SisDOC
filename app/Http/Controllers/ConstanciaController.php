@@ -29,7 +29,7 @@ class ConstanciaController extends Controller
 
     public function procesarsolicitud(Request $request)
     {
-
+        $usuario_id = auth()->user()->id; //agregado el 12/07/2019
         $nombresol = auth()->user()->nombre;
         $apellidosol = auth()->user()->apellido;
         $cedulasol = auth()->user()->cedula;
@@ -46,6 +46,7 @@ class ConstanciaController extends Controller
             DB::table('solicitudes')->insert(
                 [
                 
+                'usuario_id' => $usuario_id, //agregado el 12/07/2019
                 'nombresol' => $nombresol,
                 'apellidosol' => $apellidosol,
                 'cedulasol' => $cedulasol,
@@ -105,9 +106,9 @@ class ConstanciaController extends Controller
 
 
 
-    public function validardatacostancia($id)
+    public function validardatacostancia($usuario_id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = Usuario::find($usuario_id);
         // dd($usuario);
        
         $codper = str_pad($usuario->cedula, 10, "0", STR_PAD_LEFT); 

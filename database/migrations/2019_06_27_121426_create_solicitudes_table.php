@@ -15,6 +15,7 @@ class CreateSolicitudesTable extends Migration
     {
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->Increments('id');
+            $table->integer('usuario_id')->unsigned();
             $table->string('nombresol');
             $table->string('apellidosol');
             $table->string('cedulasol');

@@ -123,60 +123,6 @@ Route::post('auth/update', 'ReseteoPasswordController@updatepassword')->name('up
     });
 
 
-/*
-|--------------------------------------------------------------------------
-| Rutas para pruebas varias
-|--------------------------------------------------------------------------
-|
-*/
-
-
-    Route::get('prueba', function () {
-    return view('prueba');
-    });
-/*
-    Route::get('validacioncorreo', function () {
-    return view('validacioncorreo');
-    });
-*/
-
-// Check conexion con la dabse de datos mysql test...
-
-Route::get('conexiondb', function() {
-
-    try { DB::connection()->getPdo();
-    } 
-    catch (\Exception $e) {
-
-        dd($e->getcode());
-        
-        }
-
-        
-    // die("Could not connect to the database. Please check your configuration."); 
-});
-
-/*Route::get('admin', function () {
-    return view('admin');
-    });*/
-
-Route::get('admin', 'AdminController@totalusuarios',function () {
-    return view('admin/admin');
-    });
-
-Route::get('actualiza', 'AdminController@actualizausuario') -> name('actualiza');
-Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
-
-
-/*Route::get('admin', 'AdminController@estatusconexion',function () {
-    return view('admin');
-    });*/
-
-
-
-
-    // Exception routes
-Route::get('exception/index', 'ExceptionController@index');
 
 
 /*
@@ -204,10 +150,6 @@ Route::get('actualizarol/{id}', 'AdminController@actualizarol') -> name('actuali
 
 Route::post('actualizaroles', 'AdminController@actualizaroles') -> name('actualizaroles');
 
-
-
-
-
 Route::get('prueba', function () {
     return view('registro');
     });
@@ -230,7 +172,7 @@ Route::get('missolicitudes', 'ConstanciaController@missolicitudes') -> name('mis
 
 Route::get('actualizarestatus/{id}', 'ConstanciaController@actualizarestatus') -> name('actualizarestatus');
 
-Route::get('validardatacostancia/{id}', 'ConstanciaController@validardatacostancia') -> name('validardatacostancia');
+Route::get('validardatacostancia/{usuario_id}', 'ConstanciaController@validardatacostancia') -> name('validardatacostancia');
 
 Route::get('validainfocostancia', 'ConstanciaController@validainfocostancia') -> name('validainfocostancia');
 
@@ -245,6 +187,35 @@ Route::get('costanciapdf', function() {
     return $pdf->stream();
 
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Rutas para pruebas varias
+|--------------------------------------------------------------------------
+|
+*/
+
+
+Route::get('prueba', function () {
+    return view('prueba');
+    });
+Route::get('conexiondb', function() {
+
+    try { DB::connection()->getPdo();
+    } 
+    catch (\Exception $e) {
+
+        dd($e->getcode());
+        
+        }
+Route::get('admin', 'AdminController@totalusuarios',function () {
+    return view('admin/admin');
+    });
+Route::get('actualiza', 'AdminController@actualizausuario') -> name('actualiza');
+Route::get('eliminarusuario/{id}', 'AdminController@eliminarusuario') -> name('eliminarusuario');
+Route::get('exception/index', 'ExceptionController@index');
+
 
 
 

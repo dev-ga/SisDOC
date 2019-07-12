@@ -10,7 +10,7 @@ class Solicitud extends Model
 
     protected $fillable = [
 
-        'nombresol','apellidosol','cedulasol','emailsol','tiposol','estatus_id'
+        'usuario_id','nombresol','apellidosol','cedulasol','emailsol','tiposol','estatus_id'
 
     ];
 

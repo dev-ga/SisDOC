@@ -112,7 +112,7 @@
                         <option value="">-- Opciones de Solicitud --</option>
                             
                                 <option value="Global">Constancia de Trabajo Global - Contiene Sueldo Mensual + CestaTikect</option>
-                                <option value="Detallada">Constancia de Trabajo Detallada - Contiene Detalle de Asignaciones mensuales del trabajador</option>
+                                {{--  <option value="Detallada">Constancia de Trabajo Detallada - Contiene Detalle de Asignaciones mensuales del trabajador</option>  --}}
 
                     </select>
                 </div> 
