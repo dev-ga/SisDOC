@@ -21,11 +21,12 @@ class ArcController extends Controller
 
         $codemp = Organizacion::All();
 
-        $date = date("Y");
+        // $date = date("Y");
 
         /*dd($codper, $codemp, $date);*/
 
-        return view('frontend.arcform')->with('date', $date)->with('codemp', $codemp);
+        // return view('frontend.arcform')->with('date', $date)->with('codemp', $codemp);
+        return view('frontend.arcform')->with('codemp', $codemp);
 
     }
 
@@ -43,18 +44,25 @@ class ArcController extends Controller
         
         $date   = $request->input("date");
 
-         /*Llamamos la clase ConsultaReciboPdf() */
+        if ($date == '2018') 
+        {
+            $var = new ConsultaArcPdf();
+            $querysnopersonal = $var->sqlsnopersonal($codper);
+            $queryarccuerpo = $var->sqlarccuerpo2018($codper, $codemp, $date); //query año anterior
+            $pdf = PDF::loadView('frontend.arc', compact('queryarccuerpo', 'querysnopersonal'));
+            return $pdf->download('PanillaARC.pdf');
 
-        $var = new ConsultaArcPdf();
+        }
+        
+        if ($date =='2019') 
+        {
+            $var = new ConsultaArcPdf();
+            $querysnopersonal = $var->sqlsnopersonal($codper);
+            $queryarccuerpo = $var->sqlarccuerpo($codper, $codemp, $date); //query año en curso
+            $pdf = PDF::loadView('frontend.arc', compact('queryarccuerpo', 'querysnopersonal'));
+            return $pdf->download('PanillaARC.pdf');
+        }
 
-        $querysnopersonal = $var->sqlsnopersonal($codper);
-
-        $queryarccuerpo = $var->sqlarccuerpo($codper, $codemp, $date);
-
-
-        $pdf = PDF::loadView('frontend.arc', compact('queryarccuerpo', 'querysnopersonal'));
-           
-        return $pdf->download('PanillaARC.pdf');
 
     }
 
