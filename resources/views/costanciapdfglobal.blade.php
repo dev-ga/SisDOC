@@ -136,6 +136,8 @@ hr
             @php
             $asignaciones += $query_recibo->valsal;
             $sueldo = $asignaciones*2;
+	    $tsueldo = $sueldo * 0.4;
+	    $totalsueldo = $sueldo - $tsueldo;
             @endphp
             @endif
             @endforeach
@@ -151,7 +153,7 @@ hr
 
         <p>Quien suscribe, GERENTE (E) DE OFICINA DE GESTIÓN HUMANA de el (la) FUNCACION DE EDIFICACIONES Y EQUIPAMIENTO HOSPITALARIO, hace constarpor medio de la presente que el (la)
         ciudadano(a): <strong> {{ $apellido }} {{ $nombre }}</strong>, titular de la cedula de identidad <strong> Nro.: {{ $cedula }}</strong> sus servicios en esta Institución desde el dia {{ $fechaingreso }}, adscrito(a) ha: {{ $uniadmin }}, ejerciendo funciones como: {{ $cargo }},
-        percibiendo una <strong>remuneración mensual de: Bolivares Fuertes {{ number_format($sueldo, 2, ",", ".") }}.</strong></p>
+        percibiendo una <strong>remuneración mensual de: Bolivares Fuertes {{ number_format($totalsueldo, 2, ",", ".") }}.</strong></p>
         <p>Adicionalmente, percibe el beneficio de la ley de Alimentación para los trabajadores y trabajadoras, por la cantidad de: Bolivares Fuertes 25.000,00.</p>
         <p>Constancia que se expide a petición de la parte interedasa, en Caracas a los {{ date('d') }} días del mes de {{ date('M') }} del año {{ date('Y') }}.</p>
         

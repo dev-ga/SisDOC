@@ -94,6 +94,22 @@ return [
             'sslmode' => 'prefer',
         ],
 
+	'sigesp_2018' => [
+            'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('SIGESP_2018_HOST', '10.29.31.107'),
+            'port' => env('SIGESP_2018_PORT', '5432'),
+            'database' => env('SIGESP_2018_DATABASE', 'forge'),
+            'username' => env('SIGESP_2018_USERNAME', 'forge'),
+            'password' => env('SIGESP_2018_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+
         'wp' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

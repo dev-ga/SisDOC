@@ -128,7 +128,9 @@
                     <label for="date">Año en Curso</label>
                     <select name="date" class="form-control estilosinputregistro mb-2 bordes">
                         <option value="">-- Selecciona el año en curso --</option>
-                                <option value="{{ $date }}">{{ $date }}</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>                                
+<option value="{{ $date }}">{{ $date }}</option>
                     </select>
                 </div>
                 <button class="btn btn-info btn-block my-2 mt-5" type="submit">GenerarPDF</button> 

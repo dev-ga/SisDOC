@@ -51,7 +51,7 @@ class RegistroController extends Controller
             [
                 'nombre'            => 'required|max:50',
                 'apellido'          => 'required|max:50',
-                'cedula'            => 'required|max:10',
+                'cedula'            => 'required|numeric',
                 'organizacion_id'   => 'required|max:1',
                 'email'             => 'email|unique:usuarios',
                 'password'          => 'required|min:6|max:10',

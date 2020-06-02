@@ -67,7 +67,7 @@
                             <!-- Cedula -->
                             <div class="form-group  mb-2">
                                 <label for="cedula" class="titulolabel">Cedula</label>
-                            <input name="cedula" type="text" id="cedula" class="form-control input-style icon"  placeholder="&#xf2c2;">
+                            <input name="cedula" type="numeric" id="cedula" class="form-control input-style icon"  placeholder="&#xf2c2;">
                             {!! $errors->first ('nombre', '<span class="badge badge-danger">:message</span>') !!}
                                 
                           </div> 
